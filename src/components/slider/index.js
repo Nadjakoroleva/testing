@@ -61,8 +61,6 @@ class SliderComponent extends Component {
     //от родителя приходит значение, или устанавливается дефолтное значение после знака равно
     const {
       children = [],
-      autoplay,
-      infinite,
       slidesToShow = 1,
       slidesToScroll = 1,
       autoplaySpeed = 6000,
@@ -78,12 +76,10 @@ class SliderComponent extends Component {
 
     //передаешь в slick (из документации)
     const SETTINGS = {
-      infinite,
       speed: 500,
       slidesToShow,
       arrows: arrowNextClassName || arrowPrevClassName,
       slidesToScroll,
-      autoplay,
       autoplaySpeed,
       pauseOnHover,
       nextArrow: <CustomNextArrow />,

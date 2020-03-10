@@ -5,7 +5,15 @@ import { Container } from './layoutComponents';
 const Footer = ({ className }) => (
   <footer className={className}>
     <Container>
-      <p>hello</p>
+      <div
+        style={{
+          paddingTop: '80px',
+          paddingBottom: '80px',
+          color: 'var(--grey)'
+        }}
+      >
+        <a>©2020 Arrival Ltd. All rights reserved.</a>
+      </div>
     </Container>
   </footer>
 );
