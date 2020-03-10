@@ -248,7 +248,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
   }
   h1 {
     margin-left: 0;
@@ -258,7 +258,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
@@ -270,6 +270,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+    margin-bottom:0;
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
@@ -279,6 +280,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     font-size: 36px;
     line-height: 48px;
+    letter-spacing: 0.02em;
   }
   h3 {
     margin-left: 0;
@@ -288,7 +290,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
@@ -304,7 +306,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
@@ -320,7 +322,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
@@ -406,7 +408,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    margin-bottom: 0;
   }
   figure {
     margin-left: 0;

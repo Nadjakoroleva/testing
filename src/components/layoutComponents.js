@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-`;
 export const Background = styled.div`
   margin: 0 auto;
   background-image: url(https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg);
