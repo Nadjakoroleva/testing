@@ -1,38 +1,40 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export const MainWrapper = styled.div`
-  margin: 0;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-`
-
-export const Container = styled.div`
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+`;
+export const Background = styled.div`
   margin: 0 auto;
-  max-width: 1280px;
-  padding: 0px 1.0875rem;
-  padding-top: 0;
-`
+  background-image: url(https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg);
+  background-size: cover;
+  background-position: 100% 100%;
+  height: 100vh;
+`;
+export const Container = styled.div`
+  margin-left: 64px;
+  margin-right: 64px;
+`;
 export const Row = styled.div`
   display: flex;
-  flex: ${props => (props.flex ? props.flex : "initial")};
+  flex: ${props => (props.flex ? props.flex : 'initial')};
   flex-direction: row;
-  flex-wrap: ${props => (props.wrap ? props.wrap : "initial")};
+  flex-wrap: ${props => (props.wrap ? props.wrap : 'initial')};
   align-content: ${props =>
-    props.alignContent ? props.alignContent : "initial"};
+    props.alignContent ? props.alignContent : 'initial'};
   justify-content: ${props =>
-    props.justifyContent ? props.justifyContent : "initial"};
+    props.justifyContent ? props.justifyContent : 'initial'};
   @media screen and (max-width: 768px) {
-    flex-direction: ${props => (props.mobile ? "column" : "row")};
+    flex-direction: ${props => (props.mobile ? 'column' : 'row')};
   }
-`
+`;
 export const Column = styled.div`
-  flex: ${props => (props.flex ? props.flex : "initial")};
+  flex: ${props => (props.flex ? props.flex : 'initial')};
   flex-direction: column;
   align-content: ${props =>
-    props.alignContent ? props.alignContent : "initial"};
+    props.alignContent ? props.alignContent : 'initial'};
   justify-content: ${props =>
-    props.justifyContent ? props.justifyContent : "initial"};
-  margin: ${props => (props.margin ? props.margin : "0")};
-  width: ${props => (props.width ? props.width : "auto")};
-`
+    props.justifyContent ? props.justifyContent : 'initial'};
+  margin: ${props => (props.margin ? props.margin : '0')};
+  width: ${props => (props.width ? props.width : 'auto')};
+`;

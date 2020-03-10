@@ -1,16 +1,25 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Karla|Lato');
+  @font-face {
+    font-family: 'Arrival';
+    src: url(https://static.arrival.com/fonts/ARRIVALApercuPro-Light.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Arrival Mono';
+    src: url(https://static.arrival.com/fonts/ApercuMonoPro.woff) format('woff');
+  }
   :root {
-    --primary-color: rebeccapurple;
-    --white: #FFFAFF;
+    --grey: #85878A;
+    --white: #F3F3F3;
+    --black: #383838;
   }
   * {
     box-sizing: border-box;
   }
   html {
-    font-family: lato;
+    font-family: 'Arrival';
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     touch-action: manipulation;
@@ -20,13 +29,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   main {
-    flex: 1 0 auto;
-    h1,h2,h3,h4,h5,h6 {
-    font-family: Karla;
-    color: #0c2340;
-    }
-    a {
-      color: #2A5DB0;
+    h1,h3,h4,h5,h6 {
+    font-family: Arrival;
+    color: white;
     }
   }
   a {
@@ -223,8 +228,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    color: hsla(0, 0%, 0%, 0.8);
-    font-family: georgia, serif;
+    color: white;
+    background-color: #383838;
+    font-family: Arrival;
     font-weight: normal;
     word-wrap: break-word;
     font-kerning: normal;
@@ -254,8 +260,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: 0;
     margin-bottom: 1.45rem;
     color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 2.25rem;
@@ -269,14 +274,11 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 1.62671rem;
-    line-height: 1.1;
+    font-family: Arrival;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 48px;
   }
   h3 {
     margin-left: 0;
@@ -288,8 +290,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: 0;
     margin-bottom: 1.45rem;
     color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 1.38316rem;
@@ -305,8 +306,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: 0;
     margin-bottom: 1.45rem;
     color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 1rem;
@@ -322,8 +322,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: 0;
     margin-bottom: 1.45rem;
     color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 0.85028rem;
@@ -339,8 +338,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-top: 0;
     margin-bottom: 1.45rem;
     color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 0.78405rem;
@@ -644,4 +642,4 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 100%;
     }
   }
-`
+`;
