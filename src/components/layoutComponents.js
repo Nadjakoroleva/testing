@@ -10,6 +10,7 @@ export const Background = styled.div`
 export const Container = styled.div`
   margin-left: 64px;
   margin-right: 64px;
+  min-height: 100%;
 `;
 export const Row = styled.div`
   display: flex;

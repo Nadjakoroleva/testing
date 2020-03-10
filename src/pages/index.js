@@ -25,25 +25,98 @@ const IndexPage = () => (
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           <div style={{ position: 'absolute', bottom: '0' }}>
             <Text>UPS & Arrival opportunity</Text>
-            <Button>View presentation</Button>
+            <Button>
+              <span>View presentation</span>{' '}
+              <img
+                style={{
+                  paddingLeft: '30px',
+                  position: 'relative',
+                  top: '-1px'
+                }}
+                src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+              ></img>
+            </Button>
           </div>
         </div>
         <div style={{ position: 'relative' }}>
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           <div style={{ position: 'absolute', bottom: '0' }}>
-            <p>UPS & Arrival opportunity</p>
-            <Button>View presentation</Button>
+            <Text>UPS & Arrival opportunity</Text>
+            <Button>
+              <span>View presentation</span>{' '}
+              <img
+                style={{
+                  paddingLeft: '30px',
+                  position: 'relative',
+                  top: '-1px'
+                }}
+                src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+              ></img>
+            </Button>
           </div>
         </div>
         <div style={{ position: 'relative' }}>
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           <div style={{ position: 'absolute', bottom: '0' }}>
-            <p>UPS & Arrival opportunity</p>
-            <Button>View presentation</Button>
+            <Text>UPS & Arrival opportunity</Text>
+            <Button>
+              <span>View presentation</span>{' '}
+              <img
+                style={{
+                  paddingLeft: '30px',
+                  position: 'relative',
+                  top: '-1px'
+                }}
+                src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+              ></img>
+            </Button>
           </div>
         </div>
       </Slider>
     </Container>
+
+    <div style={{ backgroundColor: 'var(--white)' }}>
+      <Container style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>
+          <p
+            style={{
+              color: 'var(--grey)',
+              paddingTop: '64px',
+              fontStyle: 'normal',
+              fontWeight: '300',
+              fontSize: '20px',
+              lineHeight: '32px',
+              letterSpacing: '0.02em'
+            }}
+          >
+            Your sales manager
+          </p>
+          <h1
+            style={{
+              color: '#23262C',
+              fontStyle: 'normal',
+              fontWeight: '300',
+              fontSize: '44px',
+              lineHeight: '56px',
+              letterSpacing: '0.02em'
+            }}
+          >
+            Mike Ableson
+          </h1>
+          <h3 style={{ color: '#23262C' }}>
+            Feel free to contact me whenever you have any questions or ready to
+            move forward with us. Let’s change the future of mobility together!
+          </h3>
+          <a style={{ color: '#23262C', paddingRight: '40px' }}>
+            tel. 0 324 224 2411
+          </a>
+          <a style={{ color: '#23262C' }}>stanley.baker@example.com</a>
+        </div>
+        <div>
+          <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
+        </div>
+      </Container>
+    </div>
   </Layout>
 );
 
@@ -77,6 +150,9 @@ const Button = styled.button`
   color: #23262c;
   padding: 24px 36px 24px 32px;
   margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export default IndexPage;

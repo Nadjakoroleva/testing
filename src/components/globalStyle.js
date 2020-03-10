@@ -71,10 +71,18 @@ export const GlobalStyle = createGlobalStyle`
   a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
+    font-family: 'Arrival Mono';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
   }
   a:active,
   a:hover {
     outline-width: 0;
+    outline: 0;
   }
   abbr[title] {
     border-bottom: none;
@@ -90,8 +98,11 @@ export const GlobalStyle = createGlobalStyle`
     font-style: italic;
   }
   h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 56px;
+    letter-spacing: 0.02em;
   }
   mark {
     background-color: #ff0;
@@ -293,10 +304,11 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 1.38316rem;
-    line-height: 1.1;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.02em;
   }
   h4 {
     margin-left: 0;
