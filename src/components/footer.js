@@ -4,11 +4,11 @@ import { Container } from './layoutComponents';
 
 const Footer = ({ className }) => (
   <footer className={className}>
-    {/* <Container>
+    <Container>
       © {new Date().getFullYear()}, Built with
       {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>
-    </Container> */}
+    </Container>
   </footer>
 );
 
