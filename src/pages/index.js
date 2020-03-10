@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import { Container } from '../components/layoutComponents';
 import SEO from '../components/seo';
-import Slider from '../components/slider/index';
+import Slider from '../components/slider';
 
 const IndexPage = () => (
   <Layout>
@@ -89,7 +89,7 @@ const IndexPage = () => (
               justifyContent: 'flex-end'
             }}
           >
-            <h3 style={{ color: '#23262C' }}>
+            <h3 style={{ color: '#23262C', width: '68%' }}>
               Feel free to contact me whenever you have any questions or ready
               to move forward with us. Let’s change the future of mobility
               together!
