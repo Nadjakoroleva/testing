@@ -82,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
   a:active,
   a:hover {
     outline-width: 0;
-    outline: 0;
+    outline: none;
   }
   abbr[title] {
     border-bottom: none;
