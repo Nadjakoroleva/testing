@@ -21,41 +21,27 @@ const IndexPage = () => (
         </div>
       </Paragraph>
       <Slider slidesToShow={2.1}>
-        <div style={{ position: 'relative' }}>
+        <div>
+          <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
+          <div>
+            <Text>UPS & Arrival opportunity</Text>
+            <Button>
+              <span>View presentation</span>{' '}
+              <img src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"></img>
+            </Button>
+          </div>
+        </div>
+        <div>
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           <div style={{ position: 'absolute', bottom: '0' }}>
             <Text>UPS & Arrival opportunity</Text>
             <Button>
               <span>View presentation</span>{' '}
-              <img
-                style={{
-                  paddingLeft: '30px',
-                  position: 'relative',
-                  top: '-1px'
-                }}
-                src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-              ></img>
+              <img src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"></img>
             </Button>
           </div>
         </div>
-        <div style={{ position: 'relative' }}>
-          <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
-          <div style={{ position: 'absolute', bottom: '0' }}>
-            <Text>UPS & Arrival opportunity</Text>
-            <Button>
-              <span>View presentation</span>{' '}
-              <img
-                style={{
-                  paddingLeft: '30px',
-                  position: 'relative',
-                  top: '-1px'
-                }}
-                src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-              ></img>
-            </Button>
-          </div>
-        </div>
-        <div style={{ position: 'relative' }}>
+        <div>
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           <div style={{ position: 'absolute', bottom: '0' }}>
             <Text>UPS & Arrival opportunity</Text>
