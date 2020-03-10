@@ -66,6 +66,7 @@ class SliderComponent extends Component {
       autoplaySpeed = 6000,
       pauseOnHover = false,
       arrowNextClassName,
+      loop = false,
       arrowPrevClassName
     } = this.props;
 
@@ -82,6 +83,7 @@ class SliderComponent extends Component {
       slidesToScroll,
       autoplaySpeed,
       pauseOnHover,
+      loop,
       nextArrow: <CustomNextArrow />,
       prevArrow: <CustomPrevArrow />
     };
