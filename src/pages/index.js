@@ -31,7 +31,7 @@ const IndexPage = () => (
             </Button>
           </div> */}
         </div>
-        <div>
+        <div dir="rtl">
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           {/* <div>
             <Text>UPS & Arrival opportunity</Text>
@@ -41,7 +41,7 @@ const IndexPage = () => (
             </Button>
           </div> */}
         </div>
-        <div>
+        <div dir="rtl">
           <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
           {/* <div>
             <Text>UPS & Arrival opportunity</Text>
