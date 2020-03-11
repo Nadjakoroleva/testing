@@ -5,7 +5,7 @@ const SalesManager = () => (
   <div>
     <p
       style={{
-        color: 'var(--grey)',
+        color: 'rgba(0, 0, 0, 0.4)',
         paddingTop: '64px',
         fontWeight: '300',
         fontSize: '20px',
