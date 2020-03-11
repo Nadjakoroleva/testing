@@ -48,7 +48,10 @@ const SalesManager = () => (
         </span>
       </div>
       <div>
-        <img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
+        <img
+          style={{ position: 'relative', top: '8px' }}
+          src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png"
+        />
       </div>
     </div>
   </div>

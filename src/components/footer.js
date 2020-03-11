@@ -18,6 +18,8 @@ const Footer = ({ className }) => (
   </footer>
 );
 
-const StyledFooter = styled(Footer)``;
+const StyledFooter = styled(Footer)`
+  background-color: #0f1011;
+`;
 
 export default StyledFooter;

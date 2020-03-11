@@ -17,7 +17,7 @@ const Presentation = () => (
     </Paragraph>
     <Slider slidesToShow={2.1}>
       <div>
-        <img src="https://images.ctfassets.net/r0lccig03c53/35C5tVY6sddXuYr2hLqHAN/06357a178b4cfd9e6af6ba9902bc7e5b/image.png" />
+        <img src="https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840" />
         <div>
           <Text>UPS & Arrival opportunity</Text>
           <Button>
@@ -30,7 +30,7 @@ const Presentation = () => (
         </div>
       </div>
       <div>
-        <img src="https://images.ctfassets.net/r0lccig03c53/35C5tVY6sddXuYr2hLqHAN/06357a178b4cfd9e6af6ba9902bc7e5b/image.png" />
+        <img src="https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840" />
         <div>
           <Text>UPS & Arrival opportunity</Text>
           <Button>
@@ -43,7 +43,7 @@ const Presentation = () => (
         </div>
       </div>
       <div>
-        <img src="https://images.ctfassets.net/r0lccig03c53/35C5tVY6sddXuYr2hLqHAN/06357a178b4cfd9e6af6ba9902bc7e5b/image.png" />
+        <img src="https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840" />
         <div>
           <Text>UPS & Arrival opportunity</Text>
           <Button>
