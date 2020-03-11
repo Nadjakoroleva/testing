@@ -159,6 +159,10 @@ const Button = styled.button`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: #cecfd0;
+  }
 `;
 
 export default Presentation;

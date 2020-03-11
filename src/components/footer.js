@@ -32,9 +32,24 @@ const Footer = ({ className }) => (
 
 const Link = styled.a`
   color: var(--white);
-  padding-right: 32px;
+  margin-right: 32px;
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: '';
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover:after {
+    background-color: var(--white);
+    width: 100%;
+  }
   &:last-child {
-    padding-right: 0;
+    margin-right: 0;
   }
 `;
 const StyledFooter = styled(Footer)`

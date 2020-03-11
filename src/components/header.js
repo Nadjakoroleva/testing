@@ -65,7 +65,22 @@ const StyledHeader = styled(Header)`
 `;
 
 const StyledLink = styled(Link)`
-  padding-right: 25px;
+  margin-right: 25px;
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    content: '';
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover:after {
+    background-color: var(--white);
+    width: 100%;
+  }
 `;
 const Job = styled.div`
   font-weight: 300;
@@ -82,6 +97,21 @@ const Name = styled.p`
 `;
 const StyledEmail = styled(Link)`
   margin-left: auto;
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    content: '';
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover:after {
+    background-color: var(--white);
+    width: 100%;
+  }
 `;
 const Img = styled.img`
   padding-top: 116px;
