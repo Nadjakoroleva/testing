@@ -62,7 +62,6 @@ const Paragraph = styled.div`
   border-top: 1px solid var(--grey);
   padding-top: 31px;
   padding-bottom: 64px;
-  font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 32px;
@@ -70,7 +69,6 @@ const Paragraph = styled.div`
 `;
 
 const Text = styled.p`
-  font-style: normal;
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
@@ -79,7 +77,6 @@ const Text = styled.p`
 `;
 const Button = styled.button`
   font-family: Arrival Mono;
-  font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 16px;

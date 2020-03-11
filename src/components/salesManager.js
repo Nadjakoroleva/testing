@@ -7,7 +7,6 @@ const SalesManager = () => (
       style={{
         color: 'var(--grey)',
         paddingTop: '64px',
-        fontStyle: 'normal',
         fontWeight: '300',
         fontSize: '20px',
         lineHeight: '32px',
@@ -19,7 +18,6 @@ const SalesManager = () => (
     <h1
       style={{
         color: '#23262C',
-        fontStyle: 'normal',
         fontWeight: '300',
         fontSize: '44px',
         lineHeight: '56px',

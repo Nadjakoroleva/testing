@@ -12,7 +12,9 @@ const Header = ({ siteTitle, className }) => (
           style={{
             minHeight: '100vh',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            position: 'relative',
+            zIndex: '3'
           }}
         >
           <div style={{ flex: '1 0 auto' }}>
@@ -75,7 +77,6 @@ const StyledLink = styled(Link)`
   padding-right: 25px;
 `;
 const Job = styled.div`
-  font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 28px;
@@ -83,7 +84,6 @@ const Job = styled.div`
   color: var(--grey);
 `;
 const Name = styled.p`
-  font-style: normal;
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
@@ -99,7 +99,6 @@ const Nav = styled.nav`
   display: flex;
   padding-top: 16px;
   font-family: Arrival Mono;
-  font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 16px;
