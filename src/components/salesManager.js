@@ -15,17 +15,7 @@ const SalesManager = () => (
     >
       Your sales manager
     </p>
-    <h1
-      style={{
-        color: '#23262C',
-        fontWeight: '300',
-        fontSize: '44px',
-        lineHeight: '56px',
-        letterSpacing: '0.02em'
-      }}
-    >
-      Mike Ableson
-    </h1>
+    <StyledH1>Mike Ableson</StyledH1>
     <Grid>
       <TextColumn>
         <h3 style={{ color: '#23262C', paddingBottom: '64px' }}>
@@ -78,6 +68,10 @@ const StyledLink = styled.a`
   &:first-child {
     margin-right: 40px;
   }
+`;
+const StyledH1 = styled.h1`
+  color: #23262c;
+  padding-bottom: 50px;
 `;
 
 export default SalesManager;
