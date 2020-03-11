@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url(https://static.arrival.com/fonts/ApercuMonoPro.woff) format('woff');
   }
   :root {
-    --grey: #85878A;
+    --grey:rgba(255, 255, 255, 0.6);
     --white: #F3F3F3;
     --black: #383838;
   }
@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
   }
   article,
   aside,
@@ -72,7 +73,6 @@ export const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     font-family: 'Arrival Mono';
-    font-style: normal;
     font-weight: normal;
     font-size: 11px;
     line-height: 16px;
@@ -98,7 +98,6 @@ export const GlobalStyle = createGlobalStyle`
     font-style: italic;
   }
   h1 {
-    font-style: normal;
     font-weight: 300;
     font-size: 44px;
     line-height: 56px;
@@ -152,6 +151,12 @@ export const GlobalStyle = createGlobalStyle`
   textarea {
     font: inherit;
     margin: 0;
+  }
+  input:focus {
+    outline: none;
+  }
+  *:focus {
+    outline: 0;
   }
   optgroup {
     font-weight: 700;
@@ -242,7 +247,7 @@ export const GlobalStyle = createGlobalStyle`
     color: white;
     background-color: #383838;
     font-family: Arrival;
-    font-weight: normal;
+    font-weight: light;
     word-wrap: break-word;
     font-kerning: normal;
     -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -287,7 +292,6 @@ export const GlobalStyle = createGlobalStyle`
     padding-right: 0;
     padding-top: 0;
     font-family: Arrival;
-    font-style: normal;
     font-weight: 300;
     font-size: 36px;
     line-height: 48px;
@@ -304,7 +308,6 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-style: normal;
     font-weight: 300;
     font-size: 28px;
     line-height: 36px;
