@@ -153,6 +153,12 @@ export const GlobalStyle = createGlobalStyle`
     font: inherit;
     margin: 0;
   }
+  input:focus {
+    outline: none;
+  }
+  *:focus {
+    outline: 0;
+  }
   optgroup {
     font-weight: 700;
   }
