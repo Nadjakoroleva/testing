@@ -39,10 +39,18 @@ const SalesManager = () => (
           move forward with us. Let’s change the future of mobility together!
         </h3>
         <span style={{ paddingBottom: '80px', paddingTop: '64px' }}>
-          <a style={{ color: '#23262C', paddingRight: '40px' }}>
+          <a
+            style={{
+              color: '#23262C',
+              paddingRight: '40px',
+              cursor: 'pointer'
+            }}
+          >
             tel. 0 324 224 2411
           </a>
-          <a style={{ color: '#23262C' }}>stanley.baker@example.com</a>
+          <a style={{ color: '#23262C', cursor: 'pointer' }}>
+            stanley.baker@example.com
+          </a>
         </span>
       </div>
       <div>

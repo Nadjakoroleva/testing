@@ -17,7 +17,7 @@ const Footer = ({ className }) => (
       >
         <a>©2020 Arrival Ltd. All rights reserved.</a>
         <span>
-          <Link>Privacy policy</Link>
+          <Link href="">Privacy policy</Link>
           <Link href="">info@ARRIVAL.COM</Link>
           <Link>/</Link>
           <Link href="">Twitter</Link>

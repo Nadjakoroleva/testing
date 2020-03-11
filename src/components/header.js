@@ -11,48 +11,39 @@ const Header = ({ siteTitle, className }) => (
         <div
           style={{
             minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
             position: 'relative',
-            zIndex: '3'
+            zIndex: '3',
+            display: 'grid',
+            gridTemplateRows: '5% 15% 80%'
           }}
         >
-          <div style={{ flex: '1 0 auto' }}>
-            <Nav>
-              <StyledLink to="/">Introduction</StyledLink>
-              <StyledLink to="/">Opportunities</StyledLink>
-              <StyledLink to="/">Contact us</StyledLink>
-              <StyledEmail to="/">john@inbox.com</StyledEmail>
-            </Nav>
-            <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
-          </div>
+          <Nav>
+            <StyledLink to="/">Introduction</StyledLink>
+            <StyledLink to="/">Opportunities</StyledLink>
+            <StyledLink to="/">Contact us</StyledLink>
+            <StyledEmail to="/">john@inbox.com</StyledEmail>
+          </Nav>
+          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
 
           <Grid>
-            <div style={{ width: '59%' }}>
+            <FirstColumn>
               <StyledH2Name>Welcome, Alexander! </StyledH2Name>
               <StyledH2>
                 Please find below the detailed information about your
                 opportunity with Arrival. Feel free to contact us or schedule a
                 meeting.
               </StyledH2>
-            </div>
-            <div style={{ display: 'flex' }}>
-              <div
-                style={{
-                  textAlign: 'right',
-                  paddingRight: '32px',
-                  marginTop: 'auto',
-                  paddingBottom: '14px'
-                }}
-              >
-                <Name>Mike Ableson</Name>
-                <Job>Your sales manager</Job>
-              </div>
+            </FirstColumn>
+            <SecondColumn>
+              <Name>Mike Ableson</Name>
+              <Job>Your sales manager</Job>
+            </SecondColumn>
+            <ThirdColumn>
               <img
-                style={{ width: '64px', height: '80px', marginTop: 'auto' }}
+                style={{ width: '64px', height: '80px' }}
                 src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
               />
-            </div>
+            </ThirdColumn>
           </Grid>
         </div>
       </Container>
@@ -107,11 +98,26 @@ const Nav = styled.nav`
 `;
 
 const Grid = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
   padding-bottom: 64px;
 `;
 
+const FirstColumn = styled.div`
+  grid-column: 1/9;
+  align-self: end;
+`;
+const SecondColumn = styled.div`
+  grid-column: 14/16;
+  align-self: end;
+  justify-self: end;
+  text-align: right;
+`;
+const ThirdColumn = styled.div`
+  grid-column: 16/17;
+  align-self: end;
+  justify-self: end;
+`;
 const StyledH2Name = styled.h2`
   color: var(--grey);
 `;
