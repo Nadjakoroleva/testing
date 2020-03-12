@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
   position: relative;
   &:after {
     position: absolute;
-    bottom: 30px;
+    bottom: 15px;
     left: 0;
     content: '';
     background-color: transparent;
@@ -100,7 +100,7 @@ const StyledEmail = styled(Link)`
   position: relative;
   &:after {
     position: absolute;
-    bottom: 30px;
+    bottom: 15px;
     left: 0;
     content: '';
     background-color: transparent;
