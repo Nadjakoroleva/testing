@@ -4,53 +4,88 @@ import React from 'react';
 import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
-const Header = ({ siteTitle, className }) => (
-  
-  <div className={className}>
-    <Background>
-      <Container>
-        <div
-          style={{
-            minHeight: '100vh',
-            position: 'relative',
-            zIndex: '3',
-            display: 'grid',
-            gridTemplateRows: '5% 15% 80%'
-          }}
-        >
-          <Nav>
-            <StyledLink to="/">Introduction</StyledLink>
-            <StyledLink to="/">Opportunities</StyledLink>
-            <StyledLink to="/">Contact us</StyledLink>
-            <StyledEmail to="/">john@inbox.com</StyledEmail>
-          </Nav>
-          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+var x;
+var numForPaddingTop;
+var numForPaddingBottom;
+if (typeof window !== 'undefined') {
+  if (window.innerWidth >= 1679) {
+    x = 32;
+    numForPaddingTop = 3;
+    numForPaddingBottom = 2;
+  } else if (window.innerWidth >= 1365) {
+    x = 24;
+    numForPaddingTop = 3;
+    numForPaddingBottom = 2;
+  } else if (window.innerWidth >= 1023) {
+    x = 24;
+    numForPaddingTop = 3;
+    numForPaddingBottom = 2;
+  } else if (window.innerWidth >= 767) {
+    x = 32;
+    numForPaddingTop = 2;
+    numForPaddingBottom = 2;
+  } else if (window.innerWidth >= 374) {
+    x = 32;
+    numForPaddingTop = 2;
+    numForPaddingBottom = 2;
+  }
+}
 
-          <Grid>
-            <FirstColumn>
-              <StyledH1Name>Welcome, Alexander! </StyledH1Name>
-              <StyledH1>
-                Please find below the detailed information about your
-                opportunity with Arrival. Feel free to contact us or schedule a
-                meeting.
-              </StyledH1>
-            </FirstColumn>
-            <SecondColumn>
-              <Name>Mike Ableson</Name>
-              <Job>Your sales manager</Job>
-            </SecondColumn>
-            <ThirdColumn>
-              <img
-                style={{ width: '64px', height: '80px' }}
-                src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
-              />
-            </ThirdColumn>
-          </Grid>
-        </div>
-      </Container>
-    </Background>
-  </div>
-);
+const theme = {
+  numForPaddingTop: `${x * numForPaddingTop}px`,
+  numForPaddingBottom: `${x * numForPaddingBottom}px`
+};
+const Header = ({ className }) => {
+  return (
+    <div className={className}>
+      <Background>
+        <Container>
+          <div
+            style={{
+              minHeight: '100vh',
+              position: 'relative',
+              zIndex: '3',
+              display: 'grid',
+              gridTemplateRows: '5% 15% 80%'
+            }}
+          >
+            <Nav>
+              <StyledLink to="/">Introduction</StyledLink>
+              <StyledLink to="/">Opportunities</StyledLink>
+              <StyledLink to="/">Contact us</StyledLink>
+              <StyledEmail to="/">john@inbox.com</StyledEmail>
+            </Nav>
+            <Img
+              theme={theme}
+              src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
+            />
+
+            <Grid theme={theme}>
+              <FirstColumn>
+                <StyledH1Name>Welcome, Alexander! </StyledH1Name>
+                <StyledH1>
+                  Please find below the detailed information about your
+                  opportunity with Arrival. Feel free to contact us or schedule
+                  a meeting.
+                </StyledH1>
+              </FirstColumn>
+              <SecondColumn>
+                <Name>Mike Ableson</Name>
+                <Job>Your sales manager</Job>
+              </SecondColumn>
+              <ThirdColumn>
+                <img
+                  style={{ width: '64px', height: '80px' }}
+                  src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
+                />
+              </ThirdColumn>
+            </Grid>
+          </div>
+        </Container>
+      </Background>
+    </div>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string
@@ -115,7 +150,7 @@ const StyledEmail = styled(Link)`
   }
 `;
 const Img = styled.img`
-  padding-top: 100px;
+  padding-top: ${props => props.theme.numForPaddingTop};
 `;
 const Nav = styled.nav`
   display: flex;
@@ -131,7 +166,7 @@ const Nav = styled.nav`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-  padding-bottom: 64px;
+  padding-bottom: ${props => props.theme.numForPaddingBottom};
 `;
 
 const FirstColumn = styled.div`
