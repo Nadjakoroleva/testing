@@ -134,7 +134,7 @@ const Grid = styled.div`
 `;
 
 const FirstColumn = styled.div`
-  grid-column: 1/9;
+  grid-column: 1/10;
   align-self: end;
 `;
 const SecondColumn = styled.div`
