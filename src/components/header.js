@@ -4,38 +4,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
-var x;
-var numForPaddingTop;
-var numForPaddingBottom;
-if (typeof window !== 'undefined') {
-  if (window.innerWidth >= 1679) {
-    x = 32;
-    numForPaddingTop = 3;
-    numForPaddingBottom = 2;
-  } else if (window.innerWidth >= 1365) {
-    x = 24;
-    numForPaddingTop = 3;
-    numForPaddingBottom = 2;
-  } else if (window.innerWidth >= 1023) {
-    x = 24;
-    numForPaddingTop = 3;
-    numForPaddingBottom = 2;
-  } else if (window.innerWidth >= 767) {
-    x = 32;
-    numForPaddingTop = 2;
-    numForPaddingBottom = 2;
-  } else if (window.innerWidth >= 374) {
-    x = 32;
-    numForPaddingTop = 2;
-    numForPaddingBottom = 2;
-  }
-}
-
-const theme = {
-  numForPaddingTop: `${x * numForPaddingTop}px`,
-  numForPaddingBottom: `${x * numForPaddingBottom}px`
-};
 const Header = ({ className }) => {
+  var x;
+  var numForPaddingTop;
+  var numForPaddingBottom;
+  if (typeof window !== 'undefined') {
+    if (window.innerWidth >= 1679) {
+      x = 32;
+      numForPaddingTop = 3;
+      numForPaddingBottom = 2;
+    } else if (window.innerWidth >= 1365) {
+      x = 24;
+      numForPaddingTop = 3;
+      numForPaddingBottom = 2;
+    } else if (window.innerWidth >= 1023) {
+      x = 24;
+      numForPaddingTop = 3;
+      numForPaddingBottom = 2;
+    } else if (window.innerWidth >= 767) {
+      x = 32;
+      numForPaddingTop = 2;
+      numForPaddingBottom = 2;
+    } else if (window.innerWidth >= 374) {
+      x = 32;
+      numForPaddingTop = 2;
+      numForPaddingBottom = 2;
+    }
+  }
+
+  const theme = {
+    numForPaddingTop: `${x * numForPaddingTop}px`,
+    numForPaddingBottom: `${x * numForPaddingBottom}px`
+  };
   return (
     <div className={className}>
       <Background>

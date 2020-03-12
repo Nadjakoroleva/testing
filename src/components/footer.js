@@ -28,7 +28,8 @@ const Grid = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: baseline;
-  @media (min-width: 1366px) {
+  @media (min-width: 1280px) {
+    flex-direction: row;
     justify-content: space-between;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -37,7 +38,7 @@ const Grid = styled.div`
 
 const Copyright = styled.a`
   padding-top: 56px;
-  @media (min-width: 1366px) {
+  @media (min-width: 1280px) {
     padding-top: 0;
   }
 `;
