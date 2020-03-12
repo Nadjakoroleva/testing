@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
 const Header = ({ siteTitle, className }) => (
+  
   <div className={className}>
     <Background>
       <Container>

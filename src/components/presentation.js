@@ -5,10 +5,41 @@ import { Container } from '../components/layoutComponents';
 import SEO from '../components/seo';
 import Slider from '../components/slider';
 
+var x;
+var numForPadding;
+var paddingForContainer;
+if (typeof window !== 'undefined') {
+  if (window.innerWidth >= 1679) {
+    x = 32;
+    numForPadding = 2;
+    paddingForContainer = 4;
+  } else if (window.innerWidth >= 1365) {
+    x = 24;
+    numForPadding = 2;
+    paddingForContainer = 4;
+  } else if (window.innerWidth >= 1023) {
+    x = 24;
+    numForPadding = 2;
+    paddingForContainer = 4;
+  } else if (window.innerWidth >= 374) {
+    x = 32;
+    numForPadding = 2;
+    paddingForContainer = 4;
+  }
+}
+
+const theme = {
+  numForPadding: `${x * numForPadding}px`,
+  paddingForContainer: `${x * paddingForContainer}px`
+};
+
 const Presentation = () => (
-  <div>
+  <ComponentContainer theme={theme}>
     <Container>
-      <Paragraph>
+      <LineContainer theme={theme}>
+        <Line />
+      </LineContainer>
+      <Paragraph theme={theme}>
         <div style={{ width: '60%' }}>
           <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
           <span>
@@ -101,8 +132,24 @@ const Presentation = () => (
         </ContainerInner>
       </div>
     </Slider>
-  </div>
+  </ComponentContainer>
 );
+
+const ComponentContainer = styled.div`
+  padding-bottom: ${props => props.theme.paddingForContainer};
+`;
+
+const Line = styled.div`
+  width: 100%;
+  background-color: var(--grey);
+  height: 1px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+`;
+
+const LineContainer = styled.div`
+  padding-top: ${props => props.theme.numForPadding};
+`;
 
 const ContainerInner = styled.div`
   background-image: url(https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840);
@@ -129,9 +176,7 @@ const Download = styled.a`
 `;
 
 const Paragraph = styled.div`
-  border-top: 1px solid var(--grey);
-  padding-top: 31px;
-  padding-bottom: 64px;
+  padding-bottom: ${props => props.theme.numForPadding};
   font-weight: 300;
   font-size: 24px;
   line-height: 32px;
