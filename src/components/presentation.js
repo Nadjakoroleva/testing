@@ -230,9 +230,11 @@ const Paragraph = styled.div`
   & div {
     grid-column: 1/8;
   }
-  @media (min-width: 1366px) {
-    grid-column: 1/10;
+  @media (min-width: 1280px) {
     grid-template-columns: repeat(16, 1fr);
+    & div {
+      grid-column: 1/10;
+    }
   }
 `;
 
