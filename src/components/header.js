@@ -27,12 +27,12 @@ const Header = ({ siteTitle, className }) => (
 
           <Grid>
             <FirstColumn>
-              <StyledH2Name>Welcome, Alexander! </StyledH2Name>
-              <StyledH2>
+              <StyledH1Name>Welcome, Alexander! </StyledH1Name>
+              <StyledH1>
                 Please find below the detailed information about your
                 opportunity with Arrival. Feel free to contact us or schedule a
                 meeting.
-              </StyledH2>
+              </StyledH1>
             </FirstColumn>
             <SecondColumn>
               <Name>Mike Ableson</Name>
@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
   position: relative;
   &:after {
     position: absolute;
-    bottom: 25px;
+    bottom: 15px;
     left: 0;
     content: '';
     background-color: transparent;
@@ -100,7 +100,7 @@ const StyledEmail = styled(Link)`
   position: relative;
   &:after {
     position: absolute;
-    bottom: 25px;
+    bottom: 15px;
     left: 0;
     content: '';
     background-color: transparent;
@@ -114,7 +114,7 @@ const StyledEmail = styled(Link)`
   }
 `;
 const Img = styled.img`
-  padding-top: 116px;
+  padding-top: 100px;
 `;
 const Nav = styled.nav`
   display: flex;
@@ -148,11 +148,11 @@ const ThirdColumn = styled.div`
   align-self: end;
   justify-self: end;
 `;
-const StyledH2Name = styled.h2`
+const StyledH1Name = styled.h1`
   color: var(--grey);
 `;
 
-const StyledH2 = styled.h2`
+const StyledH1 = styled.h1`
   color: var(--white);
 `;
 

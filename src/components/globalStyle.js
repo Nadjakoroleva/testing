@@ -3,9 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Arrival';
-    src: url(https://static.arrival.com/fonts/ARRIVALApercuPro-Light.woff2) format('woff2');
+    src: url(https://static.arrival.com/fonts/ARRIVALApercuPro-Light.woff2) format('woff2'),
+    url(https://static.arrival.com/fonts/ARRIVALApercuPro-Light.woff) format('woff');
+    font-weight: 300;
   }
-
   @font-face {
     font-family: 'Arrival Mono';
     src: url(https://static.arrival.com/fonts/ApercuMonoPro.woff) format('woff');
@@ -277,7 +278,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-weight: bold;
+    font-weight: 300;
     text-rendering: optimizeLegibility;
     font-size: 2.25rem;
     line-height: 1.1;
@@ -324,7 +325,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-weight: bold;
+    font-weight: light;
     text-rendering: optimizeLegibility;
     font-size: 1rem;
     line-height: 1.1;
@@ -340,7 +341,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-weight: bold;
+    font-weight: light;
     text-rendering: optimizeLegibility;
     font-size: 0.85028rem;
     line-height: 1.1;
@@ -356,7 +357,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 1.45rem;
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
-    font-weight: bold;
+    font-weight: light;
     text-rendering: optimizeLegibility;
     font-size: 0.78405rem;
     line-height: 1.1;
