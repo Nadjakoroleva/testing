@@ -32,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   main {
     h1,h3,h4,h5,h6 {
     font-family: Arrival;
-    color: white;
+    font-weight: 300;
     }
   }
   a {
@@ -280,8 +280,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: 300;
     text-rendering: optimizeLegibility;
-    font-size: 2.25rem;
-    line-height: 1.1;
   }
   h2 {
     margin-left: 0;
