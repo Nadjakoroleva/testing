@@ -1,23 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Container } from '../components/layoutComponents';
 
 import SEO from '../components/seo';
 import Slider from '../components/slider';
 
 const Presentation = () => (
   <div>
-    <Paragraph>
-      <div style={{ width: '60%' }}>
-        <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
-        <span>
-          We’ve crafted a unique opportunity that fits for the needs of your
-          business and your company structure.
-        </span>
-      </div>
-    </Paragraph>
+    <Container>
+      <Paragraph>
+        <div style={{ width: '60%' }}>
+          <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
+          <span>
+            We’ve crafted a unique opportunity that fits for the needs of your
+            business and your company structure.
+          </span>
+        </div>
+      </Paragraph>
+    </Container>
     <Slider slidesToShow={2.1}>
       <div>
-        <Container>
+        <ContainerInner>
           <Text>UPS & Arrival opportunity</Text>
           <div
             style={{
@@ -41,10 +44,10 @@ const Presentation = () => (
               ></img>
             </Download>
           </div>
-        </Container>
+        </ContainerInner>
       </div>
       <div>
-        <Container>
+        <ContainerInner>
           <Text>UPS & Arrival opportunity</Text>
           <div
             style={{
@@ -68,10 +71,10 @@ const Presentation = () => (
               ></img>
             </Download>
           </div>
-        </Container>
+        </ContainerInner>
       </div>
       <div>
-        <Container>
+        <ContainerInner>
           <Text>UPS & Arrival opportunity</Text>
           <div
             style={{
@@ -95,13 +98,13 @@ const Presentation = () => (
               ></img>
             </Download>
           </div>
-        </Container>
+        </ContainerInner>
       </div>
     </Slider>
   </div>
 );
 
-const Container = styled.div`
+const ContainerInner = styled.div`
   background-image: url(https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840);
   background-size: cover;
   padding-left: 40px;

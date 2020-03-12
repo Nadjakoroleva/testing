@@ -10,9 +10,8 @@ import SalesManager from '../components/salesManager';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Container style={{ paddingTop: '96px', marginBottom: '128px' }}>
-      <Presentation />
-    </Container>
+
+    <Presentation />
 
     <div style={{ backgroundColor: 'var(--white)' }}>
       <Container>
