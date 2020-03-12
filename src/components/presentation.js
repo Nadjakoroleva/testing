@@ -50,7 +50,7 @@ const Presentation = () => (
       </Paragraph>
     </Container>
     <Slider slidesToShow={2.1}>
-      <div>
+      <FirstSlide>
         <ContainerInner>
           <Text>UPS & Arrival opportunity</Text>
           <div
@@ -76,7 +76,7 @@ const Presentation = () => (
             </Download>
           </div>
         </ContainerInner>
-      </div>
+      </FirstSlide>
       <div>
         <ContainerInner>
           <Text>UPS & Arrival opportunity</Text>
@@ -159,6 +159,10 @@ const ContainerInner = styled.div`
   padding-bottom: 40px;
   padding-top: 632px;
   cursor: pointer;
+`;
+
+const FirstSlide = styled.div`
+  padding-left: 64px;
 `;
 
 const Download = styled.a`

@@ -19,9 +19,6 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  .slick-slider {
-    padding-left: 64px;
-  }
   html {
     font-family: 'Arrival';
     -ms-text-size-adjust: 100%;
