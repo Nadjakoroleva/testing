@@ -26,9 +26,21 @@ export const Background = styled.div`
   }
 `;
 export const Container = styled.div`
-  margin-left: 64px;
-  margin-right: 64px;
+  margin-left: 20px;
+  margin-right: 20px;
   min-height: 100%;
+  @media (min-width: 768px) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  @media (min-width: 1024px) {
+    margin-left: 48px;
+    margin-right: 48px;
+  }
+  @media (min-width: 1024px) {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
 `;
 // export const Row = styled.div`
 //   display: flex;

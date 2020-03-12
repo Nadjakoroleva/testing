@@ -43,11 +43,11 @@ const SalesManager = () => {
       <Grid>
         <TextColumn theme={theme}>
           <Text theme={theme}>
-            <h3>
+            <h4>
               Feel free to contact me whenever you have any questions or ready
               to move forward with us. Let’s change the future of mobility
               together!
-            </h3>
+            </h4>
           </Text>
           <span>
             <StyledLink>tel. 0 324 224 2411</StyledLink>

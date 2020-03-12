@@ -100,9 +100,21 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-weight: 300;
-    font-size: 44px;
-    line-height: 56px;
+    font-size: 28px;
+    line-height: 36px;
     letter-spacing: 0.02em;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 36px;
+      line-height: 48px;
+    }
+  }
+  @media (min-width: 1680px) {
+    h1 {
+      font-size: 44px;
+      line-height: 56px;
+    }
   }
   mark {
     background-color: #ff0;
@@ -314,8 +326,8 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: 300;
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 32px;
     letter-spacing: 0.02em;
   }
   h4 {
@@ -331,8 +343,14 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: light;
     text-rendering: optimizeLegibility;
-    font-size: 1rem;
-    line-height: 1.1;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  @media (min-width: 1366px) {
+    h4 {
+      font-size: 28px;
+      line-height: 36px;
+    }
   }
   h5 {
     margin-left: 0;

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../components/layoutComponents';
 
-import SEO from '../components/seo';
 import Slider from '../components/slider';
 
 var x;
@@ -40,12 +39,14 @@ const Presentation = () => (
         <Line />
       </LineContainer>
       <Paragraph theme={theme}>
-        <div style={{ width: '60%' }}>
-          <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
-          <span>
-            We’ve crafted a unique opportunity that fits for the needs of your
-            business and your company structure.
-          </span>
+        <div>
+          <h4>
+            <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
+            <span>
+              We’ve crafted a unique opportunity that fits for the needs of your
+              business and your company structure.
+            </span>
+          </h4>
         </div>
       </Paragraph>
     </Container>
@@ -185,6 +186,11 @@ const Paragraph = styled.div`
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0.02em;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  & div {
+    grid-column: 1/10;
+  }
 `;
 
 const Text = styled.p`
