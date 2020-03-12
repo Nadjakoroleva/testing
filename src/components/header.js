@@ -164,25 +164,38 @@ const Nav = styled.nav`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
   padding-bottom: ${props => props.theme.numForPaddingBottom};
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  @media (min-width: 1366px) {
+    grid-template-columns: repeat(16, 1fr);
+  }
 `;
 
 const FirstColumn = styled.div`
-  grid-column: 1/10;
+  grid-column: 1/7;
   align-self: end;
+  @media (min-width: 1366px) {
+    grid-column: 1/10;
+  }
 `;
 const SecondColumn = styled.div`
-  grid-column: 14/16;
+  grid-column: 7/9;
   align-self: end;
   justify-self: end;
   text-align: right;
+  @media (min-width: 1366px) {
+    grid-column: 14/16;
+    padding-right: 0;
+  }
 `;
 const ThirdColumn = styled.div`
-  grid-column: 16/17;
+  grid-column: 9/10;
   align-self: end;
   justify-self: end;
+  @media (min-width: 1366px) {
+    grid-column: 16/17;
+  }
 `;
 const StyledH1Name = styled.h1`
   color: var(--grey);

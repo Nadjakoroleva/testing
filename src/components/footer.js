@@ -5,17 +5,8 @@ import { Container } from './layoutComponents';
 const Footer = ({ className }) => (
   <footer className={className}>
     <Container>
-      <div
-        style={{
-          paddingTop: '80px',
-          paddingBottom: '80px',
-          color: 'var(--grey)',
-          display: 'flex',
-          alignItems: 'baseline',
-          justifyContent: 'space-between'
-        }}
-      >
-        <a>©2020 Arrival Ltd. All rights reserved.</a>
+      <Grid>
+        <Copyright>©2020 Arrival Ltd. All rights reserved.</Copyright>
         <span>
           <Link href="">Privacy policy</Link>
           <Link href="">info@ARRIVAL.COM</Link>
@@ -25,10 +16,31 @@ const Footer = ({ className }) => (
           <Link href="">Linkedin</Link>
           <Link href="">Instagram</Link>
         </span>
-      </div>
+      </Grid>
     </Container>
   </footer>
 );
+
+const Grid = styled.div`
+  padding-top: 48px;
+  padding-bottom: 48px;
+  color: var(--grey);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: baseline;
+  @media (min-width: 1366px) {
+    justify-content: space-between;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+`;
+
+const Copyright = styled.a`
+  padding-top: 56px;
+  @media (min-width: 1366px) {
+    padding-top: 0;
+  }
+`;
 
 const Link = styled.a`
   color: var(--white);
