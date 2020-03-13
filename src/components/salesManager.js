@@ -78,7 +78,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  @media (min-width: 768px) {
+  @media (min-width: 480px) {
     grid-template-rows: 1fr 1.5fr;
   }
   @media (min-width: 768px) {
