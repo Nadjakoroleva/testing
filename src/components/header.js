@@ -34,31 +34,37 @@ const Header = ({ className }) => {
   // }
   const size = useWindowSize().width;
   const xRatioToUse = settingXRatio();
-  const theme = {
-    numForPaddingTop: `${xRatioToUse.x}px`,
-    numForPaddingBottom: `${xRatioToUse.x}px`,
-    x: `${xRatioToUse.x}px`
-  };
+
   function settingXRatio() {
     if (size >= 1679) {
       return {
-        x: 32
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
       };
     } else if (size >= 1365) {
       return {
-        x: 24
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
       };
     } else if (size >= 1023) {
       return {
-        x: 24
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
       };
     } else if (size >= 767) {
       return {
-        x: 32
+        x: 32,
+        numForPaddingTop: 2,
+        numForPaddingBottom: 2
       };
     } else if (size >= 374) {
       return {
-        x: 32
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
       };
     }
   }
@@ -89,6 +95,12 @@ const Header = ({ className }) => {
 
     return currentX;
   }
+  console.log(xRatioToUse.numForPaddingTop);
+  const theme = {
+    numForPaddingTop: `${xRatioToUse.x * xRatioToUse.numForPaddingTop}px`,
+    numForPaddingBottom: `${xRatioToUse.x * xRatioToUse.numForPaddingBottom}px`,
+    x: `${xRatioToUse.x}px`
+  };
 
   return (
     <div className={className}>
