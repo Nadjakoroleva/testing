@@ -34,7 +34,8 @@ const Header = ({ className }) => {
 
   const theme = {
     numForPaddingTop: `${x * numForPaddingTop}px`,
-    numForPaddingBottom: `${x * numForPaddingBottom}px`
+    numForPaddingBottom: `${x * numForPaddingBottom}px`,
+    x: `${x}px`
   };
   return (
     <div className={className}>
@@ -50,6 +51,7 @@ const Header = ({ className }) => {
             }}
           >
             <Nav>
+              <Menu>Menu</Menu>
               <StyledLink to="/">Introduction</StyledLink>
               <StyledLink to="/">Opportunities</StyledLink>
               <StyledLink to="/">Contact us</StyledLink>
@@ -61,7 +63,7 @@ const Header = ({ className }) => {
             />
 
             <Grid theme={theme}>
-              <FirstColumn>
+              <FirstColumn theme={theme}>
                 <StyledH1Name>Welcome, Alexander! </StyledH1Name>
                 <StyledH1>
                   Please find below the detailed information about your
@@ -100,22 +102,32 @@ const StyledHeader = styled(Header)`
   background: transparent;
 `;
 
-const StyledLink = styled(Link)`
-  margin-right: 25px;
-  position: relative;
-  &:after {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    content: '';
-    background-color: transparent;
-    width: 1px;
-    height: 1px;
-    transition: width 0.3s ease-in-out;
+const Menu = styled.a`
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
   }
-  &:hover:after {
-    background-color: var(--white);
-    width: 100%;
+`;
+const StyledLink = styled(Link)`
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+    margin-right: 25px;
+    position: relative;
+    &:after {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      content: '';
+      background-color: transparent;
+      width: 1px;
+      height: 1px;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover:after {
+      background-color: var(--white);
+      width: 100%;
+    }
   }
 `;
 const Job = styled.div`
@@ -166,33 +178,65 @@ const Nav = styled.nav`
 const Grid = styled.div`
   padding-bottom: ${props => props.theme.numForPaddingBottom};
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 6fr 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 8fr 1fr;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+  }
   @media (min-width: 1366px) {
     grid-template-columns: repeat(16, 1fr);
   }
 `;
 
 const FirstColumn = styled.div`
-  grid-column: 1/7;
+  grid-column: 1/3;
   align-self: end;
+  padding-bottom: ${props => props.theme.x};
+  @media (min-width: 768px) {
+    grid-column: 1/10;
+  }
+  @media (min-width: 1024px) {
+    grid-column: 1/7;
+    align-self: end;
+    padding-bottom: 0;
+  }
   @media (min-width: 1366px) {
     grid-column: 1/10;
   }
 `;
+
 const SecondColumn = styled.div`
-  grid-column: 7/9;
+  grid-column: 2/3;
+  text-align: left;
   align-self: end;
-  justify-self: end;
-  text-align: right;
+  @media (min-width: 768px) {
+    grid-column: 2/5;
+  }
+  @media (min-width: 1024px) {
+    grid-column: 7/9;
+    align-self: end;
+    justify-self: end;
+    text-align: right;
+  }
   @media (min-width: 1366px) {
     grid-column: 14/16;
     padding-right: 0;
   }
 `;
 const ThirdColumn = styled.div`
-  grid-column: 9/10;
-  align-self: end;
-  justify-self: end;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  @media (min-width: 1024px) {
+    grid-column: 9/10;
+    align-self: end;
+    justify-self: end;
+    grid-row: 1;
+  }
   @media (min-width: 1366px) {
     grid-column: 16/17;
   }

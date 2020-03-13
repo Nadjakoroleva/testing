@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
+    overflow: hidden;
   }
   main {
     h1,h3,h4,h5,h6 {
@@ -346,7 +347,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 24px;
     line-height: 32px;
   }
-  @media (min-width: 1366px) {
+  @media (min-width: 1680px) {
     h4 {
       font-size: 28px;
       line-height: 36px;

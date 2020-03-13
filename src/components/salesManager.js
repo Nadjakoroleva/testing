@@ -76,15 +76,40 @@ const Text = styled.div`
 `;
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  @media (min-width: 768px) {
+    grid-template-rows: 1fr 1.5fr;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(16, 1fr);
+  }
 `;
 const TextColumn = styled.div`
-  grid-column: 1/9;
+  grid-column: 1/5;
   align-self: end;
   margin-bottom: ${props => props.theme.numForTextColumn};
+  @media (min-width: 1024px) {
+    grid-column: 1/9;
+    align-self: end;
+  }
 `;
 const Img = styled.img`
-  grid-column: 10/17;
+  grid-column: 1/3;
+  grid-row: 2/3;
+  @media (min-width: 768px) {
+    grid-column: 6/8;
+    max-width: 285px;
+    grid-row: 1/3;
+  }
+  @media (min-width: 1024px) {
+    grid-column: 10/17;
+    max-width: 100%;
+  }
 `;
 const StyledLink = styled.a`
   color: #23262c;
@@ -110,8 +135,11 @@ const StyledLink = styled.a`
   }
 `;
 const StyledH1 = styled.h1`
+  padding-bottom: 0;
   color: #23262c;
-  padding-bottom: 50px;
+  @media (min-width: 1024px) {
+    padding-bottom: 50px;
+  }
 `;
 
 export default SalesManager;

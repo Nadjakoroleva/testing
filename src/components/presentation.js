@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Container } from '../components/layoutComponents';
+import SlideForMobile from '../components/slideForMob';
 
 import Slider from '../components/slider';
 
@@ -40,7 +41,7 @@ const Presentation = () => {
     if (size > 1024) {
       return 2.1;
     } else {
-      return 1.5;
+      return 1.3;
     }
   }
   function useWindowSize() {
@@ -87,94 +88,120 @@ const Presentation = () => {
             </h4>
           </div>
         </Paragraph>
+        <DisplaySlideForMobile>
+          <SlideForMobile />
+          <SlideForMobile />
+        </DisplaySlideForMobile>
       </Container>
-      <Slider slidesToShow={slidesToShow}>
-        <FirstSlide>
-          <ContainerInner>
-            <Text>UPS & Arrival opportunity</Text>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                ></img>
-              </Button>
-              <Download>
-                Download{' '}
-                <img
-                  style={{ paddingLeft: '17px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                ></img>
-              </Download>
-            </div>
-          </ContainerInner>
-        </FirstSlide>
-        <div>
-          <ContainerInner>
-            <Text>UPS & Arrival opportunity</Text>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                ></img>
-              </Button>
-              <Download>
-                Download{' '}
-                <img
-                  style={{ paddingLeft: '17px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                ></img>
-              </Download>
-            </div>
-          </ContainerInner>
-        </div>
-        <div>
-          <ContainerInner>
-            <Text>UPS & Arrival opportunity</Text>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                ></img>
-              </Button>
-              <Download>
-                Download{' '}
-                <img
-                  style={{ paddingLeft: '17px' }}
-                  src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                ></img>
-              </Download>
-            </div>
-          </ContainerInner>
-        </div>
-      </Slider>
+
+      <Display>
+        <Slider slidesToShow={slidesToShow}>
+          <FirstSlide>
+            <ContainerInner>
+              <Text>UPS & Arrival opportunity</Text>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Button>
+                  <span style={{ paddingRight: '30px' }}>
+                    View presentation
+                  </span>{' '}
+                  <img
+                    style={{ position: 'relative', top: '-1px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+                  ></img>
+                </Button>
+                <Download>
+                  Download{' '}
+                  <img
+                    style={{ paddingLeft: '17px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
+                  ></img>
+                </Download>
+              </div>
+            </ContainerInner>
+          </FirstSlide>
+          <div>
+            <ContainerInner>
+              <Text>UPS & Arrival opportunity</Text>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Button>
+                  <span style={{ paddingRight: '30px' }}>
+                    View presentation
+                  </span>{' '}
+                  <img
+                    style={{ position: 'relative', top: '-1px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+                  ></img>
+                </Button>
+                <Download>
+                  Download{' '}
+                  <img
+                    style={{ paddingLeft: '17px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
+                  ></img>
+                </Download>
+              </div>
+            </ContainerInner>
+          </div>
+          <div>
+            <ContainerInner>
+              <Text>UPS & Arrival opportunity</Text>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Button>
+                  <span style={{ paddingRight: '30px' }}>
+                    View presentation
+                  </span>{' '}
+                  <img
+                    style={{ position: 'relative', top: '-1px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
+                  ></img>
+                </Button>
+                <Download>
+                  Download{' '}
+                  <img
+                    style={{ paddingLeft: '17px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
+                  ></img>
+                </Download>
+              </div>
+            </ContainerInner>
+          </div>
+        </Slider>
+      </Display>
     </ComponentContainer>
   );
 };
 
+const Display = styled.div`
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
+const DisplaySlideForMobile = styled.div`
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 const ComponentContainer = styled.div`
   padding-bottom: ${props => props.theme.paddingForContainer};
 `;
@@ -197,12 +224,21 @@ const ContainerInner = styled.div`
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
-  padding-top: 632px;
+  padding-top: 232px;
   cursor: pointer;
+  @media (min-width: 768px) {
+    padding-top: 632px;
+  }
 `;
 
 const FirstSlide = styled.div`
-  padding-left: 64px;
+  padding-left: 24px;
+  @media (min-width: 1024px) {
+    padding-left: 48px;
+  }
+  @media (min-width: 1280px) {
+    padding-left: 64px;
+  }
 `;
 
 const Download = styled.a`
@@ -226,9 +262,12 @@ const Paragraph = styled.div`
   line-height: 32px;
   letter-spacing: 0.02em;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  & div {
-    grid-column: 1/8;
+  grid-template-columns: 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(9, 1fr);
+    & div {
+      grid-column: 1/10;
+    }
   }
   @media (min-width: 1280px) {
     grid-template-columns: repeat(16, 1fr);
