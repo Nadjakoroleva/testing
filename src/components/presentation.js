@@ -234,9 +234,6 @@ const ContainerInner = styled.div`
 const FirstSlide = styled.div`
   padding-left: 24px;
   @media (min-width: 1024px) {
-    padding-left: 48px;
-  }
-  @media (min-width: 1280px) {
     padding-left: 64px;
   }
 `;

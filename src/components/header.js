@@ -1,6 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+
 import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
@@ -8,34 +9,86 @@ const Header = ({ className }) => {
   var x;
   var numForPaddingTop;
   var numForPaddingBottom;
-  if (typeof window !== 'undefined') {
-    if (window.innerWidth >= 1679) {
-      x = 32;
-      numForPaddingTop = 3;
-      numForPaddingBottom = 2;
-    } else if (window.innerWidth >= 1365) {
-      x = 24;
-      numForPaddingTop = 3;
-      numForPaddingBottom = 2;
-    } else if (window.innerWidth >= 1023) {
-      x = 24;
-      numForPaddingTop = 3;
-      numForPaddingBottom = 2;
-    } else if (window.innerWidth >= 767) {
-      x = 32;
-      numForPaddingTop = 2;
-      numForPaddingBottom = 2;
-    } else if (window.innerWidth >= 374) {
-      x = 32;
-      numForPaddingTop = 2;
-      numForPaddingBottom = 2;
+  // if (typeof window !== 'undefined') {
+  //   if (window.innerWidth >= 1679) {
+  //     x = 32;
+  //     numForPaddingTop = 3;
+  //     numForPaddingBottom = 2;
+  //   } else if (window.innerWidth >= 1365) {
+  //     x = 24;
+  //     numForPaddingTop = 3;
+  //     numForPaddingBottom = 2;
+  //   } else if (window.innerWidth >= 1023) {
+  //     x = 24;
+  //     numForPaddingTop = 3;
+  //     numForPaddingBottom = 2;
+  //   } else if (window.innerWidth >= 767) {
+  //     x = 32;
+  //     numForPaddingTop = 2;
+  //     numForPaddingBottom = 2;
+  //   } else if (window.innerWidth >= 374) {
+  //     x = 32;
+  //     numForPaddingTop = 2;
+  //     numForPaddingBottom = 2;
+  //   }
+  // }
+  const size = useWindowSize().width;
+  const xRatioToUse = settingXRatio();
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32
+      };
     }
   }
 
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
+
+    function getSize() {
+      return {
+        width: isClient ? window.innerWidth : undefined
+      };
+    }
+
+    const [currentX, setCurrentX] = useState(getSize);
+
+    useEffect(() => {
+      if (!isClient) {
+        return false;
+      }
+
+      function handleResize() {
+        setCurrentX(getSize());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return currentX;
+  }
+
   const theme = {
-    numForPaddingTop: `${x * numForPaddingTop}px`,
-    numForPaddingBottom: `${x * numForPaddingBottom}px`,
-    x: `${x}px`
+    numForPaddingTop: `${xRatioToUse.x}px`,
+    numForPaddingBottom: `${xRatioToUse.x}px`,
+    x: `${xRatioToUse.x}px`
   };
   return (
     <div className={className}>
@@ -124,10 +177,10 @@ const StyledLink = styled(Link)`
       height: 1px;
       transition: width 0.3s ease-in-out;
     }
-    &:hover:after {
-      background-color: var(--white);
-      width: 100%;
-    }
+    // &:hover:after {
+    //   background-color: var(--white);
+    //   width: 100%;
+    // }
   }
 `;
 const Job = styled.div`
@@ -156,10 +209,10 @@ const StyledEmail = styled(Link)`
     height: 1px;
     transition: width 0.3s ease-in-out;
   }
-  &:hover:after {
-    background-color: var(--white);
-    width: 100%;
-  }
+  // &:hover:after {
+  //   background-color: var(--white);
+  //   width: 100%;
+  // }
 `;
 const Img = styled.img`
   padding-top: ${props => props.theme.numForPaddingTop};
@@ -180,6 +233,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 6fr 1fr;
+  @media (min-width: 414px) {
+    grid-template-rows: 5fr 1fr;
+  }
   @media (min-width: 768px) {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 8fr 1fr;

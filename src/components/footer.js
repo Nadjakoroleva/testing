@@ -53,10 +53,10 @@ const LinksContainer = styled.div`
     flex-wrap: wrap;
     padding-bottom: 144px;
     & a:first-of-type {
-      padding-right: 32px;
+      margin-right: 32px;
     }
     a:not(:last-child) {
-      padding-right: 32px;
+      margin-right: 32px;
     }
   }
   @media (min-width: 1024px) {
