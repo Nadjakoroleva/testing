@@ -64,6 +64,12 @@ const Header = ({ className }) => {
         numForPaddingTop: 3,
         numForPaddingBottom: 2
       };
+    } else if (size < 374) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
     }
   }
 
