@@ -34,6 +34,11 @@ const Header = ({ className }) => {
   // }
   const size = useWindowSize().width;
   const xRatioToUse = settingXRatio();
+  const theme = {
+    numForPaddingTop: `${xRatioToUse.x}px`,
+    numForPaddingBottom: `${xRatioToUse.x}px`,
+    x: `${xRatioToUse.x}px`
+  };
   function settingXRatio() {
     if (size >= 1679) {
       return {
@@ -85,11 +90,6 @@ const Header = ({ className }) => {
     return currentX;
   }
 
-  const theme = {
-    numForPaddingTop: `${xRatioToUse.x}px`,
-    numForPaddingBottom: `${xRatioToUse.x}px`,
-    x: `${xRatioToUse.x}px`
-  };
   return (
     <div className={className}>
       <Background>
