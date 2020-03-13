@@ -100,12 +100,15 @@ const Header = ({ className }) => {
     return windowSize;
   }
 
-  var theme = {
-    numForPaddingTop: `${xRatioToUse.x * xRatioToUse.numForPaddingTop}px`,
-    numForPaddingBottom: `${xRatioToUse.x * xRatioToUse.numForPaddingBottom}px`,
-    x: `${xRatioToUse.x}px`
-  };
-  console.log(theme.numForPaddingTop);
+  function theme() {
+    return {
+      numForPaddingTop: `${xRatioToUse.x * xRatioToUse.numForPaddingTop}px`,
+      numForPaddingBottom: `${xRatioToUse.x *
+        xRatioToUse.numForPaddingBottom}px`,
+      x: `${xRatioToUse.x}px`
+    };
+  }
+  console.log();
 
   return (
     <div className={className}>
@@ -128,12 +131,12 @@ const Header = ({ className }) => {
               <StyledEmail to="/">john@inbox.com</StyledEmail>
             </Nav>
             <Img
-              theme={theme}
+              theme={theme()}
               src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
             />
 
-            <Grid theme={theme}>
-              <FirstColumn theme={theme}>
+            <Grid theme={theme()}>
+              <FirstColumn theme={theme()}>
                 <StyledH1Name>Welcome, Alexander! </StyledH1Name>
                 <StyledH1>
                   Please find below the detailed information about your
