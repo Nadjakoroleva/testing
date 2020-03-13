@@ -6,9 +6,7 @@ import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
 const Header = ({ className }) => {
-  var x;
-  var numForPaddingTop;
-  var numForPaddingBottom;
+  var theme;
   // if (typeof window !== 'undefined') {
   //   if (window.innerWidth >= 1679) {
   //     x = 32;
@@ -78,7 +76,7 @@ const Header = ({ className }) => {
       };
     }
 
-    const [currentX, setCurrentX] = useState(getSize);
+    const [windowSize, setWindowSize] = useState(getSize);
 
     useEffect(() => {
       if (!isClient) {
@@ -86,21 +84,22 @@ const Header = ({ className }) => {
       }
 
       function handleResize() {
-        setCurrentX(getSize());
+        setWindowSize(getSize());
       }
 
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    return currentX;
+    return windowSize;
   }
-  console.log(xRatioToUse.numForPaddingTop);
-  const theme = {
+
+  var theme = {
     numForPaddingTop: `${xRatioToUse.x * xRatioToUse.numForPaddingTop}px`,
     numForPaddingBottom: `${xRatioToUse.x * xRatioToUse.numForPaddingBottom}px`,
     x: `${xRatioToUse.x}px`
   };
+  console.log(theme.numForPaddingTop);
 
   return (
     <div className={className}>
