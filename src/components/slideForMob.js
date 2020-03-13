@@ -88,7 +88,7 @@ const Button = styled.button`
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: #23262c;
-  padding: 24px 36px 24px 32px;
+  padding: 24px 32px;
   margin-top: 40px;
   display: flex;
   justify-content: space-between;

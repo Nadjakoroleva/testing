@@ -6,7 +6,6 @@ const Footer = ({ className }) => (
   <footer className={className}>
     <Container>
       <Grid>
-        <Copyright>©2020 Arrival Ltd. All rights reserved.</Copyright>
         <LinksContainer>
           <Link href="">Privacy policy</Link>
           <Link href="">info@ARRIVAL.COM</Link>
@@ -18,60 +17,66 @@ const Footer = ({ className }) => (
           <Link href="">Linkedin</Link>
           <Link href="">Instagram</Link>
         </LinksContainer>
+        <Copyright>©2020 Arrival Ltd. All rights reserved.</Copyright>
       </Grid>
     </Container>
   </footer>
 );
 
 const Grid = styled.div`
-  padding-top: 48px;
+  padding-top: 28px;
   padding-bottom: 48px;
   color: var(--grey);
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: baseline;
   @media (min-width: 1280px) {
-    flex-direction: row;
-    justify-content: space-between;
     padding-top: 80px;
     padding-bottom: 80px;
   }
+  @media (min-width: 1366px) {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
 `;
 
-const Display = styled.a`
+const Display = styled.span`
   display: none;
   @media (min-width: 1024px) {
     display: inline;
-    margin-right: 32px;
   }
 `;
-const LinksContainer = styled.span`
-  display: block;
-  width: 40%;
+const LinksContainer = styled.div`
+  padding-bottom: 104px;
+  @media (min-width: 768px) {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    padding-bottom: 144px;
+    & a:first-of-type {
+      padding-right: 32px;
+    }
+    a:not(:last-child) {
+      padding-right: 32px;
+    }
+  }
   @media (min-width: 1024px) {
     width: 100%;
-  }
-  @media (min-width: 1280px) {
-    width: 61%;
+    padding-bottom: 56px;
   }
   @media (min-width: 1366px) {
-    width: 56%;
-  }
-  @media (min-width: 1680px) {
-    width: 45%;
+    width: auto;
   }
 `;
 
 const Copyright = styled.a`
-  padding-top: 104px;
-  @media (min-width: 768px) {
-    padding-top: 144px;
-  }
   @media (min-width: 1024px) {
     padding-top: 56px;
   }
   @media (min-width: 1280px) {
     padding-top: 0;
+  }
+  @media (min-width: 1280px) {
+    width: auto;
   }
 `;
 
@@ -80,10 +85,9 @@ const Link = styled.a`
   display: block;
   padding-top: 20px;
   @media (min-width: 768px) {
-    padding-top: 0;
-    display: inline;
-    margin-right: 32px;
     position: relative;
+    padding-top: 16px;
+
     &:after {
       position: absolute;
       bottom: -5px;
@@ -101,6 +105,9 @@ const Link = styled.a`
     &:last-child {
       margin-right: 0;
     }
+  }
+  @media (min-width: 1366px) {
+    padding-top: 0;
   }
 `;
 const StyledFooter = styled(Footer)`
