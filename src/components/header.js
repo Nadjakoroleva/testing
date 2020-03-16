@@ -7,10 +7,27 @@ import theme from 'styled-theming';
 import { Background, Container } from './layoutComponents';
 
 var x;
+var bottom;
 const Header = ({ className }) => {
   const size = useWindowSize().width;
 
   function settingXRatio() {
+    if (size >= 1679) {
+      return (x = 32 * 3);
+    } else if (size >= 1365) {
+      return (x = 24 * 3);
+    } else if (size >= 1023) {
+      return (x = 24 * 3);
+    } else if (size >= 767) {
+      return (x = 32 * 2);
+    } else if (size >= 374) {
+      return (x = 32 * 2);
+    } else if (size < 374) {
+      return (x = 32 * 2);
+    }
+  }
+
+  function xRatio() {
     if (size >= 1679) {
       return (x = 32);
     } else if (size >= 1365) {
@@ -23,6 +40,22 @@ const Header = ({ className }) => {
       return (x = 32);
     } else if (size < 374) {
       return (x = 32);
+    }
+  }
+
+  function paddingBottom() {
+    if (size >= 1679) {
+      return (x = 32 * 2);
+    } else if (size >= 1365) {
+      return (x = 24 * 2);
+    } else if (size >= 1023) {
+      return (x = 24 * 2);
+    } else if (size >= 767) {
+      return (x = 32 * 2);
+    } else if (size >= 374) {
+      return (x = 32 * 2);
+    } else if (size < 374) {
+      return (x = 32 * 2);
     }
   }
 
@@ -51,8 +84,8 @@ const Header = ({ className }) => {
 
   var theme = {
     numForPaddingTop: `${settingXRatio()}px`,
-    numForPaddingBottom: `${settingXRatio()}px`,
-    x: `${settingXRatio()}px`
+    numForPaddingBottom: `${paddingBottom()}px`,
+    x: `${xRatio()}px`
   };
 
   return (
