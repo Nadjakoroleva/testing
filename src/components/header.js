@@ -83,9 +83,11 @@ const Header = ({ className }) => {
     x: `${ratio.x}px`
   };
 
+  console.log(ratio.x);
+
   return (
     <div className={className}>
-      <ThemeProvider innerTheme={theme}>
+      <ThemeProvider theme={theme}>
         <Background>
           <Container>
             <div
@@ -104,13 +106,10 @@ const Header = ({ className }) => {
                 <StyledLink to="/">Contact us</StyledLink>
                 <StyledEmail to="/">john@inbox.com</StyledEmail>
               </Nav>
-              <Img
-                theme={theme}
-                src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
-              />
+              <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
 
-              <Grid theme={theme}>
-                <FirstColumn theme={theme}>
+              <Grid>
+                <FirstColumn>
                   <StyledH1Name>Welcome, Alexander! </StyledH1Name>
                   <StyledH1>
                     Please find below the detailed information about your
