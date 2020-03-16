@@ -104,12 +104,12 @@ const Header = ({ className }) => {
               <StyledEmail to="/">john@inbox.com</StyledEmail>
             </Nav>
             <Img
-              theme={theme}
+              innerTheme={theme}
               src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
             />
 
-            <Grid theme={theme}>
-              <FirstColumn theme={theme}>
+            <Grid innerTheme={theme}>
+              <FirstColumn innerTheme={theme}>
                 <StyledH1Name>Welcome, Alexander! </StyledH1Name>
                 <StyledH1>
                   Please find below the detailed information about your
