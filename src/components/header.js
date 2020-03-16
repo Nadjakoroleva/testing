@@ -50,6 +50,12 @@ const Header = ({ className }) => {
     }
   }
 
+  var theme = {
+    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
+    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+    x: `${ratio.x}px`
+  };
+
   function useWindowSize() {
     const isClient = typeof window === 'object';
 
@@ -72,14 +78,6 @@ const Header = ({ className }) => {
 
     return windowSize;
   }
-
-  var theme = {
-    numForPaddingTop: `32px`,
-    numForPaddingBottom: `64px`,
-    x: `${ratio.x}px`
-  };
-
-  console.log(ratio.x);
 
   return (
     <div className={className}>
