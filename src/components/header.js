@@ -6,6 +6,29 @@ import styled, { ThemeProvider } from 'styled-components';
 import theme from 'styled-theming';
 import { Background, Container } from './layoutComponents';
 
+function useWindowSize() {
+  const isClient = typeof window === 'object';
+
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : undefined
+    };
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
 const Header = ({ className }) => {
   const size = useWindowSize().width;
   const ratio = settingXRatio();
@@ -48,33 +71,6 @@ const Header = ({ className }) => {
         numForPaddingBottom: 2
       };
     }
-  }
-
-  function useWindowSize() {
-    const isClient = typeof window === 'object';
-
-    function getSize() {
-      return {
-        width: isClient ? window.innerWidth : undefined
-      };
-    }
-
-    const [windowSize, setWindowSize] = useState(getSize);
-
-    useEffect(() => {
-      if (!isClient) {
-        return false;
-      }
-
-      function handleResize() {
-        setWindowSize(getSize());
-      }
-
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowSize;
   }
 
   var theme = {
