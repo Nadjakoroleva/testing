@@ -8,7 +8,6 @@ import { Background, Container } from './layoutComponents';
 
 const Header = ({ className }) => {
   const size = useWindowSize().width;
-  const ratio = settingXRatio();
 
   function settingXRatio() {
     if (size >= 1679) {
@@ -50,12 +49,6 @@ const Header = ({ className }) => {
     }
   }
 
-  var theme = {
-    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
-    x: `${ratio.x}px`
-  };
-
   function useWindowSize() {
     const isClient = typeof window === 'object';
 
@@ -78,6 +71,14 @@ const Header = ({ className }) => {
 
     return windowSize;
   }
+
+  var theme = {
+    numForPaddingTop: `${settingXRatio().x *
+      settingXRatio().numForPaddingTop}px`,
+    numForPaddingBottom: `${settingXRatio().x *
+      settingXRatio().numForPaddingBottom}px`,
+    x: `${settingXRatio().x}px`
+  };
 
   return (
     <div className={className}>
