@@ -3,9 +3,8 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import styled, { ThemeProvider } from 'styled-components';
-
-import { Background, Container } from './layoutComponents';
 import theme from 'styled-theming';
+import { Background, Container } from './layoutComponents';
 
 const Header = ({ className }) => {
   const size = useWindowSize().width;
@@ -86,42 +85,39 @@ const Header = ({ className }) => {
 
   return (
     <div className={className}>
-      <Background>
-        <Container>
-          <div
-            style={{
-              minHeight: '100vh',
-              position: 'relative',
-              zIndex: '3',
-              display: 'grid',
-              gridTemplateRows: '5% 15% 80%'
-            }}
-          >
-            <Nav>
-              <Menu>Menu</Menu>
-              <StyledLink to="/">Introduction</StyledLink>
-              <StyledLink to="/">Opportunities</StyledLink>
-              <StyledLink to="/">Contact us</StyledLink>
-              <StyledEmail to="/">john@inbox.com</StyledEmail>
-            </Nav>
-            <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Background>
+          <Container>
+            <div
+              style={{
+                minHeight: '100vh',
+                position: 'relative',
+                zIndex: '3',
+                display: 'grid',
+                gridTemplateRows: '5% 15% 80%'
+              }}
+            >
+              <Nav>
+                <Menu>Menu</Menu>
+                <StyledLink to="/">Introduction</StyledLink>
+                <StyledLink to="/">Opportunities</StyledLink>
+                <StyledLink to="/">Contact us</StyledLink>
+                <StyledEmail to="/">john@inbox.com</StyledEmail>
+              </Nav>
               <Img
                 theme={theme}
                 src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
               />
-            </ThemeProvider>
-            <ThemeProvider theme={theme}>
+
               <Grid theme={theme}>
-                <ThemeProvider theme={theme}>
-                  <FirstColumn theme={theme}>
-                    <StyledH1Name>Welcome, Alexander! </StyledH1Name>
-                    <StyledH1>
-                      Please find below the detailed information about your
-                      opportunity with Arrival. Feel free to contact us or
-                      schedule a meeting.
-                    </StyledH1>
-                  </FirstColumn>
-                </ThemeProvider>
+                <FirstColumn theme={theme}>
+                  <StyledH1Name>Welcome, Alexander! </StyledH1Name>
+                  <StyledH1>
+                    Please find below the detailed information about your
+                    opportunity with Arrival. Feel free to contact us or
+                    schedule a meeting.
+                  </StyledH1>
+                </FirstColumn>
                 <SecondColumn>
                   <Name>Mike Ableson</Name>
                   <Job>Your sales manager</Job>
@@ -133,10 +129,10 @@ const Header = ({ className }) => {
                   />
                 </ThirdColumn>
               </Grid>
-            </ThemeProvider>
-          </div>
-        </Container>
-      </Background>
+            </div>
+          </Container>
+        </Background>
+      </ThemeProvider>
     </div>
   );
 };
