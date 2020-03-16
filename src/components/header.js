@@ -6,29 +6,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import theme from 'styled-theming';
 import { Background, Container } from './layoutComponents';
 
-function useWindowSize() {
-  const isClient = typeof window === 'object';
-
-  function getSize() {
-    return {
-      width: isClient ? window.innerWidth : undefined
-    };
-  }
-
-  const [windowSize, setWindowSize] = useState(getSize());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize(getSize());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowSize;
-}
-
 const Header = ({ className }) => {
   const size = useWindowSize().width;
   const ratio = settingXRatio();
@@ -73,9 +50,32 @@ const Header = ({ className }) => {
     }
   }
 
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
+
+    function getSize() {
+      return {
+        width: isClient ? window.innerWidth : undefined
+      };
+    }
+
+    const [windowSize, setWindowSize] = useState(getSize());
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getSize());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return windowSize;
+  }
+
   var theme = {
-    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+    numForPaddingTop: `32px`,
+    numForPaddingBottom: `64px`,
     x: `${ratio.x}px`
   };
 
