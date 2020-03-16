@@ -85,7 +85,7 @@ const Header = ({ className }) => {
 
   return (
     <div className={className}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider innerTheme={theme}>
         <Background>
           <Container>
             <div
