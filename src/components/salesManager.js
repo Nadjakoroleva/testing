@@ -25,7 +25,7 @@ if (typeof window !== 'undefined') {
     x = 32;
     numForJobTitle = 2;
     numForText = 1;
-    numForTextColumn = 2;
+    numForTextColumn = 1;
   }
 }
 
@@ -38,23 +38,23 @@ const theme = {
 const SalesManager = () => {
   return (
     <div>
-      <JobTitle theme={theme}>Your sales manager</JobTitle>
+      <JobTitle innerTheme={theme}>Your sales manager</JobTitle>
       <StyledH1>Mike Ableson</StyledH1>
       <Grid>
-        <TextColumn theme={theme}>
-          <Text theme={theme}>
+        <TextColumn innerTheme={theme}>
+          <Text innerTheme={theme}>
             <h4>
               Feel free to contact me whenever you have any questions or ready
               to move forward with us. Let’s change the future of mobility
               together!
             </h4>
           </Text>
-          <span>
+          <LinkContainer>
             <StyledLink>tel. 0 324 224 2411</StyledLink>
             <StyledLink style={{ color: '#23262C', cursor: 'pointer' }}>
               stanley.baker@example.com
             </StyledLink>
-          </span>
+          </LinkContainer>
         </TextColumn>
         <Img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
       </Grid>
@@ -111,9 +111,15 @@ const Img = styled.img`
     max-width: 100%;
   }
 `;
+
+const LinkContainer = styled.span`
+  & a:nth-child(2) {
+    padding-top: ${props => props.theme.numForText};
+  }
+`;
 const StyledLink = styled.a`
   color: #23262c;
-  paddingright: 40px;
+  padding-right: 40px;
   cursor: pointer;
   position: relative;
   &:after {

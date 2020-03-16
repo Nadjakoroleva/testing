@@ -6,30 +6,6 @@ import styled from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
 const Header = ({ className }) => {
-  var theme;
-  // if (typeof window !== 'undefined') {
-  //   if (window.innerWidth >= 1679) {
-  //     x = 32;
-  //     numForPaddingTop = 3;
-  //     numForPaddingBottom = 2;
-  //   } else if (window.innerWidth >= 1365) {
-  //     x = 24;
-  //     numForPaddingTop = 3;
-  //     numForPaddingBottom = 2;
-  //   } else if (window.innerWidth >= 1023) {
-  //     x = 24;
-  //     numForPaddingTop = 3;
-  //     numForPaddingBottom = 2;
-  //   } else if (window.innerWidth >= 767) {
-  //     x = 32;
-  //     numForPaddingTop = 2;
-  //     numForPaddingBottom = 2;
-  //   } else if (window.innerWidth >= 374) {
-  //     x = 32;
-  //     numForPaddingTop = 2;
-  //     numForPaddingBottom = 2;
-  //   }
-  // }
   const size = useWindowSize().width;
   const xRatioToUse = settingXRatio();
 
@@ -314,11 +290,11 @@ const ThirdColumn = styled.div`
     grid-column: 16/17;
   }
 `;
-const StyledH1Name = styled.h1`
+const StyledH1Name = styled.h3`
   color: var(--grey);
 `;
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled.h3`
   color: var(--white);
 `;
 

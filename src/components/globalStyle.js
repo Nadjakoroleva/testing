@@ -101,8 +101,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-weight: 300;
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 44px;
+    line-height: 56px;
     letter-spacing: 0.02em;
   }
   @media (min-width: 768px) {
@@ -327,8 +327,8 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: 300;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 28px;
+    line-height: 36px;
     letter-spacing: 0.02em;
   }
   h4 {
