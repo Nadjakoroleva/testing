@@ -38,16 +38,13 @@ const theme = {
 const SalesManager = () => {
   return (
     <div>
-      <JobTitle innerTheme={theme}>Your sales manager</JobTitle>
+      <JobTitle theme={theme}>Your sales manager</JobTitle>
       <StyledH1>Mike Ableson</StyledH1>
       <Grid>
-        <TextColumn innerTheme={theme}>
-          <Text innerTheme={theme}>
-            <h4>
-              Feel free to contact me whenever you have any questions or ready
-              to move forward with us. Let’s change the future of mobility
-              together!
-            </h4>
+        <TextColumn theme={theme}>
+          <Text theme={theme}>
+            Feel free to contact me whenever you have any questions or ready to
+            move forward with us. Let’s change the future of mobility together!
           </Text>
           <LinkContainer>
             <StyledLink>tel. 0 324 224 2411</StyledLink>
@@ -70,7 +67,7 @@ const JobTitle = styled.p`
   line-height: 32px;
   letter-spacing: 0.02em;
 `;
-const Text = styled.div`
+const Text = styled.h4`
   color: #23262c;
   padding-bottom: ${props => props.theme.numForText};
 `;

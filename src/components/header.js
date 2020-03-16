@@ -3,11 +3,13 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
+
 import { Background, Container } from './layoutComponents';
+import theme from 'styled-theming';
 
 const Header = ({ className }) => {
   const size = useWindowSize().width;
-  const xRatioToUse = settingXRatio();
+  const ratio = settingXRatio();
 
   function settingXRatio() {
     if (size >= 1679) {
@@ -77,11 +79,10 @@ const Header = ({ className }) => {
   }
 
   var theme = {
-    numForPaddingTop: `${xRatioToUse.x * xRatioToUse.numForPaddingTop}px`,
-    numForPaddingBottom: `${xRatioToUse.x * xRatioToUse.numForPaddingBottom}px`,
-    x: `${xRatioToUse.x}px`
+    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
+    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+    x: `${ratio.x}px`
   };
-  console.log(theme.numForPaddingTop);
 
   return (
     <div className={className}>
@@ -104,12 +105,12 @@ const Header = ({ className }) => {
               <StyledEmail to="/">john@inbox.com</StyledEmail>
             </Nav>
             <Img
-              innerTheme={theme}
+              theme={theme}
               src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
             />
 
-            <Grid innerTheme={theme}>
-              <FirstColumn innerTheme={theme}>
+            <Grid theme={theme}>
+              <FirstColumn theme={theme}>
                 <StyledH1Name>Welcome, Alexander! </StyledH1Name>
                 <StyledH1>
                   Please find below the detailed information about your
