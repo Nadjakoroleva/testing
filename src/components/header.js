@@ -223,14 +223,17 @@ const Nav = styled.nav`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 6fr 1fr;
+  grid-template-rows: 6fr 80px;
   padding-bottom: 64px;
   @media (min-width: 414px) {
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 5fr 80px;
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 8fr 1fr;
+  }
+  @media (min-width: 779px) {
+    grid-template-rows: 6fr 1fr;
   }
   @media (min-width: 1024px) {
     grid-template-columns: repeat(9, 1fr);

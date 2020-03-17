@@ -90,6 +90,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  @media (max-width: 370px) {
+    grid-template-rows: 1fr 0fr;
+  }
   @media (min-width: 480px) {
     grid-template-rows: 1fr 1.5fr;
   }
