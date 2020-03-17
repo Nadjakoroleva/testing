@@ -296,6 +296,7 @@ const SecondColumn = styled.div`
 const ThirdColumn = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
+  align-self: end;
   @media (min-width: 1024px) {
     grid-column: 9/10;
     align-self: end;

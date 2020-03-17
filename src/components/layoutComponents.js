@@ -24,6 +24,9 @@ export const Background = styled.div`
       rgba(30, 31, 34, 0.7) 100%
     );
   }
+  @media (min-height: 1px) and (max-height: 680px) {
+    height: 100%;
+  }
   @media (min-width: 768px) {
     background-postion: 100% 100%;
   }
