@@ -81,51 +81,49 @@ const Header = ({ className }) => {
 
   return (
     <div className={className}>
-      <ThemeProvider theme={theme}>
-        <Background>
-          <Container>
-            <div
-              style={{
-                minHeight: '100vh',
-                position: 'relative',
-                zIndex: '3',
-                display: 'grid',
-                gridTemplateRows: '5% 15% 80%'
-              }}
-            >
-              <Nav>
-                <Menu>Menu</Menu>
-                <StyledLink to="/">Introduction</StyledLink>
-                <StyledLink to="/">Opportunities</StyledLink>
-                <StyledLink to="/">Contact us</StyledLink>
-                <StyledEmail to="/">john@inbox.com</StyledEmail>
-              </Nav>
-              <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+      <Background>
+        <Container>
+          <div
+            style={{
+              minHeight: '100vh',
+              position: 'relative',
+              zIndex: '3',
+              display: 'grid',
+              gridTemplateRows: '5% 15% 80%'
+            }}
+          >
+            <Nav>
+              <Menu>Menu</Menu>
+              <StyledLink to="/">Introduction</StyledLink>
+              <StyledLink to="/">Opportunities</StyledLink>
+              <StyledLink to="/">Contact us</StyledLink>
+              <StyledEmail to="/">john@inbox.com</StyledEmail>
+            </Nav>
+            <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
 
-              <Grid>
-                <FirstColumn>
-                  <StyledH1Name>Welcome, Alexander! </StyledH1Name>
-                  <StyledH1>
-                    Please find below the detailed information about your
-                    opportunity with Arrival. Feel free to contact us or
-                    schedule a meeting.
-                  </StyledH1>
-                </FirstColumn>
-                <SecondColumn>
-                  <Name>Mike Ableson</Name>
-                  <Job>Your sales manager</Job>
-                </SecondColumn>
-                <ThirdColumn>
-                  <img
-                    style={{ width: '64px', height: '80px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
-                  />
-                </ThirdColumn>
-              </Grid>
-            </div>
-          </Container>
-        </Background>
-      </ThemeProvider>
+            <Grid>
+              <FirstColumn>
+                <StyledH1Name>Welcome, Alexander! </StyledH1Name>
+                <StyledH1>
+                  Please find below the detailed information about your
+                  opportunity with Arrival. Feel free to contact us or schedule
+                  a meeting.
+                </StyledH1>
+              </FirstColumn>
+              <SecondColumn>
+                <Name>Mike Ableson</Name>
+                <Job>Your sales manager</Job>
+              </SecondColumn>
+              <ThirdColumn>
+                <img
+                  style={{ width: '64px', height: '80px' }}
+                  src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
+                />
+              </ThirdColumn>
+            </Grid>
+          </div>
+        </Container>
+      </Background>
     </div>
   );
 };
