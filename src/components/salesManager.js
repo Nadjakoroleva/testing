@@ -48,9 +48,7 @@ const SalesManager = () => {
           </Text>
           <LinkContainer>
             <StyledLink>tel. 0 324 224 2411</StyledLink>
-            <StyledLink style={{ color: '#23262C', cursor: 'pointer' }}>
-              stanley.baker@example.com
-            </StyledLink>
+            <StyledLink>stanley.baker@example.com</StyledLink>
           </LinkContainer>
         </TextColumn>
         <Img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
@@ -61,15 +59,20 @@ const SalesManager = () => {
 
 const JobTitle = styled.p`
   color: rgba(0, 0, 0, 0.4);
-  padding-top: ${props => props.theme.numForJobTitle};
+  padding-top: 64px;
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
+  @media (min-width: 1024px) {
+    padding-top: 72px;
+  }
+  @media (min-width: 1680px) {
+    padding-top: 64px;
+  }
 `;
 const Text = styled.h4`
   color: #23262c;
-  padding-bottom: ${props => props.theme.numForText};
 `;
 const Grid = styled.div`
   display: grid;
@@ -89,29 +92,37 @@ const Grid = styled.div`
 const TextColumn = styled.div`
   grid-column: 1/5;
   align-self: end;
-  margin-bottom: ${props => props.theme.numForTextColumn};
+  padding-bottom: 32px;
+  @media (min-width: 768px) {
+    padding-bottom: 64px;
+  }
   @media (min-width: 1024px) {
     grid-column: 1/9;
     align-self: end;
+    padding-bottom: 72px;
+  }
+  @media (min-width: 1680px) {
+    padding-bottom: 80px;
   }
 `;
 const Img = styled.img`
   grid-column: 1/3;
   grid-row: 2/3;
+  padding-top: 30px;
   @media (min-width: 768px) {
     grid-column: 6/8;
     max-width: 285px;
     grid-row: 1/3;
+    padding-top: 0;
   }
   @media (min-width: 1024px) {
     grid-column: 10/17;
     max-width: 100%;
   }
 `;
-
-const LinkContainer = styled.span`
-  & a:nth-child(2) {
-    padding-top: ${props => props.theme.numForText};
+const LinkContainer = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
   }
 `;
 const StyledLink = styled.a`
@@ -119,6 +130,8 @@ const StyledLink = styled.a`
   padding-right: 40px;
   cursor: pointer;
   position: relative;
+  display: block;
+  padding-top: 32px;
   &:after {
     position: absolute;
     bottom: -5px;
@@ -133,8 +146,11 @@ const StyledLink = styled.a`
     background-color: #23262c;
     width: 100%;
   }
-  &:first-child {
-    margin-right: 40px;
+  @media (min-width: 1024px) {
+    padding-top: 48px;
+  }
+  @media (min-width: 1680px) {
+    padding-top: 64px;
   }
 `;
 const StyledH1 = styled.h1`

@@ -215,7 +215,13 @@ const Line = styled.div`
 `;
 
 const LineContainer = styled.div`
-  padding-top: ${props => props.theme.numForPadding};
+  padding-top: 64px;
+  @media (min-width: 768px) {
+    padding-top: 48px;
+  }
+  @media (min-width: 1680px) {
+    padding-top: 64px;
+  }
 `;
 
 const ContainerInner = styled.div`
@@ -253,14 +259,15 @@ const Download = styled.a`
 `;
 
 const Paragraph = styled.div`
-  padding-bottom: ${props => props.theme.numForPadding};
   font-weight: 300;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0.02em;
   display: grid;
   grid-template-columns: 1fr;
+  padding-bottom: 64px;
   @media (min-width: 768px) {
+    padding-bottom: 48px;
     grid-template-columns: repeat(9, 1fr);
     & div {
       grid-column: 1/10;
@@ -271,6 +278,9 @@ const Paragraph = styled.div`
     & div {
       grid-column: 1/10;
     }
+  }
+  @media (min-width: 1680px) {
+    padding-bottom: 64px;
   }
 `;
 
