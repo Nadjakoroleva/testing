@@ -260,6 +260,10 @@ const FirstColumn = styled.div`
   @media (min-width: 1366px) {
     grid-column: 1/10;
   }
+  @media (min-width: 1680px) {
+    grid-column: 1/9;
+    padding-right: 45px;
+  }
 `;
 
 const SecondColumn = styled.div`
@@ -295,10 +299,18 @@ const ThirdColumn = styled.div`
 `;
 const StyledH1Name = styled.h3`
   color: var(--grey);
+  @media (min-width: 768px) {
+    font-size: 36px;
+    line-height: 48px;
+  }
 `;
 
 const StyledH1 = styled.h3`
   color: var(--white);
+  @media (min-width: 768px) {
+    font-size: 36px;
+    line-height: 48px;
+  }
 `;
 
 export default StyledHeader;

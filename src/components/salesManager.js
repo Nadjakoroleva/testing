@@ -73,6 +73,14 @@ const JobTitle = styled.p`
 `;
 const Text = styled.h4`
   color: #23262c;
+  @media (min-width: 1024px) {
+    padding-right: 20px;
+  }
+  @media (min-width: 1366px) {
+    font-size: 28px;
+    line-height: 36px;
+    padding-right: 0;
+  }
 `;
 const Grid = styled.div`
   display: grid;
@@ -85,7 +93,7 @@ const Grid = styled.div`
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1366px) {
     grid-template-columns: repeat(16, 1fr);
   }
 `;
@@ -97,12 +105,16 @@ const TextColumn = styled.div`
     padding-bottom: 64px;
   }
   @media (min-width: 1024px) {
-    grid-column: 1/9;
+    grid-column: 1/5;
     align-self: end;
     padding-bottom: 72px;
   }
+  @media (min-width: 1366px) {
+    grid-column: 1/10;
+  }
   @media (min-width: 1680px) {
     padding-bottom: 80px;
+    grid-column: 1/8;
   }
 `;
 const Img = styled.img`
@@ -116,8 +128,15 @@ const Img = styled.img`
     padding-top: 0;
   }
   @media (min-width: 1024px) {
+    grid-column: 5/9;
+    max-width: 100%;
+  }
+  @media (min-width: 1366px) {
     grid-column: 10/17;
     max-width: 100%;
+  }
+  @media (min-width: 1680px) {
+    grid-column: 12/17;
   }
 `;
 const LinkContainer = styled.div`
@@ -156,6 +175,10 @@ const StyledLink = styled.a`
 const StyledH1 = styled.h1`
   padding-bottom: 0;
   color: #23262c;
+  @media (min-width: 768px) {
+    font-size: 44px;
+    line-height: 56px;
+  }
   @media (min-width: 1024px) {
     padding-bottom: 50px;
   }

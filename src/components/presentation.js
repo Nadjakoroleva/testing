@@ -273,10 +273,14 @@ const Paragraph = styled.div`
   grid-template-columns: 1fr;
   padding-bottom: 64px;
   @media (min-width: 768px) {
-    padding-bottom: 48px;
     grid-template-columns: repeat(9, 1fr);
     & div {
       grid-column: 1/10;
+    }
+  }
+  @media (min-width: 1024px) {
+    & div {
+      grid-column: 1/8;
     }
   }
   @media (min-width: 1280px) {
@@ -287,6 +291,9 @@ const Paragraph = styled.div`
   }
   @media (min-width: 1680px) {
     padding-bottom: 64px;
+    & div {
+      grid-column: 1/9;
+    }
   }
 `;
 
