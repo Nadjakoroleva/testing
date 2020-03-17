@@ -50,11 +50,11 @@ const Header = ({ className }) => {
     }
   }
 
-  var theme = {
-    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
-    x: `${ratio.x}px`
-  };
+  // var theme = {
+  //   numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
+  //   numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+  //   x: `${ratio.x}px`
+  // };
 
   function useWindowSize() {
     const isClient = typeof window === 'object';
