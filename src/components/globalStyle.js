@@ -28,11 +28,12 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
+    overflow: hidden;
   }
   main {
     h1,h3,h4,h5,h6 {
     font-family: Arrival;
-    color: white;
+    font-weight: 300;
     }
   }
   a {
@@ -103,6 +104,18 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 44px;
     line-height: 56px;
     letter-spacing: 0.02em;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 36px;
+      line-height: 48px;
+    }
+  }
+  @media (min-width: 1680px) {
+    h1 {
+      font-size: 44px;
+      line-height: 56px;
+    }
   }
   mark {
     background-color: #ff0;
@@ -255,6 +268,12 @@ export const GlobalStyle = createGlobalStyle`
     -ms-font-feature-settings: "kern", "liga", "clig", "calt";
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
     font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
   }
   img {
     max-width: 100%;
@@ -280,8 +299,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: 300;
     text-rendering: optimizeLegibility;
-    font-size: 2.25rem;
-    line-height: 1.1;
   }
   h2 {
     margin-left: 0;
@@ -313,6 +330,12 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 28px;
     line-height: 36px;
     letter-spacing: 0.02em;
+    @media (min-width: 768px) {
+      h3 {
+        font-size: 36px;
+        line-height: 48px;
+      }
+    }
   }
   h4 {
     margin-left: 0;
@@ -327,8 +350,14 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arrival, Helvetica Neue, sans-serif;
     font-weight: light;
     text-rendering: optimizeLegibility;
-    font-size: 1rem;
-    line-height: 1.1;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  @media (min-width: 1680px) {
+    h4 {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
   h5 {
     margin-left: 0;
