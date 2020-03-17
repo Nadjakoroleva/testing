@@ -221,10 +221,10 @@ const Nav = styled.nav`
 `;
 
 const Grid = styled.div`
-  padding-bottom: ${props => props.theme.numForPaddingBottom};
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 6fr 1fr;
+  padding-bottom: 64px;
   @media (min-width: 414px) {
     grid-template-rows: 5fr 1fr;
   }
@@ -235,16 +235,20 @@ const Grid = styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 1fr;
+    padding-bottom: 48px;
   }
   @media (min-width: 1366px) {
     grid-template-columns: repeat(16, 1fr);
+  }
+  @media (min-width: 1680px) {
+    padding-bottom: 64px;
   }
 `;
 
 const FirstColumn = styled.div`
   grid-column: 1/3;
   align-self: end;
-  padding-bottom: ${props => props.theme.x};
+  padding-bottom: 32px;
   @media (min-width: 768px) {
     grid-column: 1/10;
   }

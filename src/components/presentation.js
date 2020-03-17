@@ -28,10 +28,10 @@ if (typeof window !== 'undefined') {
   }
 }
 
-const theme = {
-  numForPadding: `${x * numForPadding}px`,
-  paddingForContainer: `${x * paddingForContainer}px`
-};
+// const theme = {
+//   numForPadding: `${x * numForPadding}px`,
+//   paddingForContainer: `${x * paddingForContainer}px`
+// };
 
 const Presentation = () => {
   // считаем сколько слайдов показывать
@@ -72,12 +72,12 @@ const Presentation = () => {
     return windowSize;
   }
   return (
-    <ComponentContainer theme={theme}>
+    <ComponentContainer>
       <Container>
-        <LineContainer theme={theme}>
+        <LineContainer>
           <Line />
         </LineContainer>
-        <Paragraph theme={theme}>
+        <Paragraph>
           <div>
             <h4>
               <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
@@ -203,7 +203,13 @@ const DisplaySlideForMobile = styled.div`
   }
 `;
 const ComponentContainer = styled.div`
-  padding-bottom: ${props => props.theme.paddingForContainer};
+  padding-bottom: 128px;
+  @media (min-width: 1024px) {
+    padding-bottom: 96px;
+  }
+  @media (min-width: 1680px) {
+    padding-bottom: 128px;
+  }
 `;
 
 const Line = styled.div`
