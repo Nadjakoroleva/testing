@@ -128,6 +128,7 @@ const Img = styled.img`
   grid-column: 1/3;
   grid-row: 2/3;
   padding-top: 30px;
+  align-self: end;
   @media (min-width: 768px) {
     grid-column: 6/8;
     max-width: 285px;

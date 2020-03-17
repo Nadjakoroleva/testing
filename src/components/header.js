@@ -83,15 +83,7 @@ const Header = ({ className }) => {
     <div className={className}>
       <Background>
         <Container>
-          <div
-            style={{
-              minHeight: '100vh',
-              position: 'relative',
-              zIndex: '3',
-              display: 'grid',
-              gridTemplateRows: '5% 15% 80%'
-            }}
-          >
+          <InnerConatiner>
             <Nav>
               <Menu>Menu</Menu>
               <StyledLink to="/">Introduction</StyledLink>
@@ -121,7 +113,7 @@ const Header = ({ className }) => {
                 />
               </ThirdColumn>
             </Grid>
-          </div>
+          </InnerConatiner>
         </Container>
       </Background>
     </div>
@@ -141,12 +133,21 @@ const StyledHeader = styled(Header)`
   background: transparent;
 `;
 
+const InnerConatiner = styled.div`
+  min-height: 100vh;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 5% 15% 80%;
+`;
+
 const Menu = styled.a`
   display: block;
   @media (min-width: 768px) {
     display: none;
   }
 `;
+
 const StyledLink = styled(Link)`
   display: none;
   @media (min-width: 768px) {
@@ -169,6 +170,7 @@ const StyledLink = styled(Link)`
     }
   }
 `;
+
 const Job = styled.div`
   font-weight: 300;
   font-size: 16px;
@@ -176,12 +178,14 @@ const Job = styled.div`
   letter-spacing: 0.02em;
   color: var(--grey);
 `;
+
 const Name = styled.p`
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
 `;
+
 const StyledEmail = styled(Link)`
   margin-left: auto;
   position: relative;
@@ -200,6 +204,7 @@ const StyledEmail = styled(Link)`
     width: 100%;
   }
 `;
+
 const Img = styled.img`
   padding-top: 64px;
   @media (min-width: 768px) {
@@ -209,6 +214,7 @@ const Img = styled.img`
     padding-top: 96px;
   }
 `;
+
 const Nav = styled.nav`
   display: flex;
   padding-top: 16px;
@@ -233,7 +239,7 @@ const Grid = styled.div`
     grid-template-rows: 8fr 1fr;
   }
   @media (min-width: 779px) {
-    grid-template-rows: 6fr 1fr;
+    grid-template-rows: 4fr 1fr;
   }
   @media (min-width: 1024px) {
     grid-template-columns: repeat(9, 1fr);
@@ -286,6 +292,7 @@ const SecondColumn = styled.div`
     padding-right: 0;
   }
 `;
+
 const ThirdColumn = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
@@ -299,6 +306,7 @@ const ThirdColumn = styled.div`
     grid-column: 16/17;
   }
 `;
+
 const StyledH1Name = styled.h3`
   color: var(--grey);
   @media (min-width: 768px) {
