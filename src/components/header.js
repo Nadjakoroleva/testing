@@ -155,7 +155,7 @@ const StyledLink = styled(Link)`
     position: relative;
     &:after {
       position: absolute;
-      bottom: 20px;
+      bottom: 10px;
       left: 0;
       content: '';
       background-color: transparent;
@@ -163,10 +163,10 @@ const StyledLink = styled(Link)`
       height: 1px;
       transition: width 0.3s ease-in-out;
     }
-    // &:hover:after {
-    //   background-color: var(--white);
-    //   width: 100%;
-    // }
+    &:hover:after {
+      background-color: var(--white);
+      width: 100%;
+    }
   }
 `;
 const Job = styled.div`
@@ -187,7 +187,7 @@ const StyledEmail = styled(Link)`
   position: relative;
   &:after {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 0;
     content: '';
     background-color: transparent;
@@ -195,10 +195,10 @@ const StyledEmail = styled(Link)`
     height: 1px;
     transition: width 0.3s ease-in-out;
   }
-  // &:hover:after {
-  //   background-color: var(--white);
-  //   width: 100%;
-  // }
+  &:hover:after {
+    background-color: var(--white);
+    width: 100%;
+  }
 `;
 const Img = styled.img`
   padding-top: 64px;
@@ -261,8 +261,7 @@ const FirstColumn = styled.div`
     grid-column: 1/10;
   }
   @media (min-width: 1680px) {
-    grid-column: 1/9;
-    padding-right: 45px;
+    grid-column: 1/10;
   }
 `;
 
@@ -303,6 +302,10 @@ const StyledH1Name = styled.h3`
     font-size: 36px;
     line-height: 48px;
   }
+  @media (min-width: 1680px) {
+    font-size: 44px;
+    line-height: 56px;
+  }
 `;
 
 const StyledH1 = styled.h3`
@@ -310,6 +313,10 @@ const StyledH1 = styled.h3`
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
+  }
+  @media (min-width: 1680px) {
+    font-size: 44px;
+    line-height: 56px;
   }
 `;
 
