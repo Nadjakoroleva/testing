@@ -70,6 +70,7 @@ const LinksContainer = styled.div`
 
 const Copyright = styled.a`
   text-transform: initial;
+  cursor: initial;
   @media (min-width: 1024px) {
     padding-top: 56px;
   }

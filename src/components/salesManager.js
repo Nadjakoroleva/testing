@@ -47,8 +47,12 @@ const SalesManager = () => {
             move forward with us. Let’s change the future of mobility together!
           </Text>
           <LinkContainer>
-            <StyledLink>tel. 0 324 224 2411</StyledLink>
-            <StyledLink>stanley.baker@example.com</StyledLink>
+            <Wrapper>
+              <StyledLink>tel. 0 324 224 2411</StyledLink>
+            </Wrapper>
+            <Wrapper>
+              <StyledLink>stanley.baker@example.com</StyledLink>
+            </Wrapper>
           </LinkContainer>
         </TextColumn>
         <Img src="https://images.ctfassets.net/r0lccig03c53/5pRwxmEGZuymUc6D5prUnv/c865738f7f52cef73b47d21fd3b12cae/Shade.png" />
@@ -86,6 +90,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  @media (max-width: 370px) {
+    grid-template-rows: 1fr 0fr;
+  }
   @media (min-width: 480px) {
     grid-template-rows: 1fr 1.5fr;
   }
@@ -114,13 +121,14 @@ const TextColumn = styled.div`
   }
   @media (min-width: 1680px) {
     padding-bottom: 80px;
-    grid-column: 1/8;
+    grid-column: 1/9;
   }
 `;
 const Img = styled.img`
   grid-column: 1/3;
   grid-row: 2/3;
   padding-top: 30px;
+  align-self: end;
   @media (min-width: 768px) {
     grid-column: 6/8;
     max-width: 285px;
@@ -146,11 +154,9 @@ const LinkContainer = styled.div`
 `;
 const StyledLink = styled.a`
   color: #23262c;
-  padding-right: 40px;
+  margin-right: 40px;
   cursor: pointer;
   position: relative;
-  display: block;
-  padding-top: 32px;
   &:after {
     position: absolute;
     bottom: -5px;
@@ -165,16 +171,13 @@ const StyledLink = styled.a`
     background-color: #23262c;
     width: 100%;
   }
-  @media (min-width: 1024px) {
-    padding-top: 48px;
-  }
-  @media (min-width: 1680px) {
-    padding-top: 64px;
-  }
+`;
+const Wrapper = styled.div`
+  padding-top: 32px;
 `;
 const StyledH1 = styled.h1`
-  padding-bottom: 0;
   color: #23262c;
+  padding-top: 8px;
   @media (min-width: 768px) {
     font-size: 44px;
     line-height: 56px;

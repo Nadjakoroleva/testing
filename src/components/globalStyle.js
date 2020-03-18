@@ -259,7 +259,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     color: white;
-    background-color: #383838;
+    background-color: #23262C;
     font-family: Arrival;
     font-weight: light;
     word-wrap: break-word;

@@ -83,15 +83,7 @@ const Header = ({ className }) => {
     <div className={className}>
       <Background>
         <Container>
-          <div
-            style={{
-              minHeight: '100vh',
-              position: 'relative',
-              zIndex: '3',
-              display: 'grid',
-              gridTemplateRows: '5% 15% 80%'
-            }}
-          >
+          <InnerConatiner>
             <Nav>
               <Menu>Menu</Menu>
               <StyledLink to="/">Introduction</StyledLink>
@@ -121,7 +113,7 @@ const Header = ({ className }) => {
                 />
               </ThirdColumn>
             </Grid>
-          </div>
+          </InnerConatiner>
         </Container>
       </Background>
     </div>
@@ -141,12 +133,21 @@ const StyledHeader = styled(Header)`
   background: transparent;
 `;
 
+const InnerConatiner = styled.div`
+  min-height: 100vh;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 5% 15% 80%;
+`;
+
 const Menu = styled.a`
   display: block;
   @media (min-width: 768px) {
     display: none;
   }
 `;
+
 const StyledLink = styled(Link)`
   display: none;
   @media (min-width: 768px) {
@@ -155,7 +156,7 @@ const StyledLink = styled(Link)`
     position: relative;
     &:after {
       position: absolute;
-      bottom: 20px;
+      top: 15px;
       left: 0;
       content: '';
       background-color: transparent;
@@ -163,12 +164,13 @@ const StyledLink = styled(Link)`
       height: 1px;
       transition: width 0.3s ease-in-out;
     }
-    // &:hover:after {
-    //   background-color: var(--white);
-    //   width: 100%;
-    // }
+    &:hover:after {
+      background-color: var(--white);
+      width: 100%;
+    }
   }
 `;
+
 const Job = styled.div`
   font-weight: 300;
   font-size: 16px;
@@ -176,18 +178,20 @@ const Job = styled.div`
   letter-spacing: 0.02em;
   color: var(--grey);
 `;
+
 const Name = styled.p`
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
 `;
+
 const StyledEmail = styled(Link)`
   margin-left: auto;
   position: relative;
   &:after {
     position: absolute;
-    bottom: 20px;
+    top: 15px;
     left: 0;
     content: '';
     background-color: transparent;
@@ -195,11 +199,12 @@ const StyledEmail = styled(Link)`
     height: 1px;
     transition: width 0.3s ease-in-out;
   }
-  // &:hover:after {
-  //   background-color: var(--white);
-  //   width: 100%;
-  // }
+  &:hover:after {
+    background-color: var(--white);
+    width: 100%;
+  }
 `;
+
 const Img = styled.img`
   padding-top: 64px;
   @media (min-width: 768px) {
@@ -209,6 +214,7 @@ const Img = styled.img`
     padding-top: 96px;
   }
 `;
+
 const Nav = styled.nav`
   display: flex;
   padding-top: 16px;
@@ -223,14 +229,17 @@ const Nav = styled.nav`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 6fr 1fr;
+  grid-template-rows: 6fr 80px;
   padding-bottom: 64px;
   @media (min-width: 414px) {
-    grid-template-rows: 5fr 1fr;
+    grid-template-rows: 5fr 80px;
   }
   @media (min-width: 768px) {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 8fr 1fr;
+  }
+  @media (min-width: 779px) {
+    grid-template-rows: 4fr 1fr;
   }
   @media (min-width: 1024px) {
     grid-template-columns: repeat(9, 1fr);
@@ -261,8 +270,7 @@ const FirstColumn = styled.div`
     grid-column: 1/10;
   }
   @media (min-width: 1680px) {
-    grid-column: 1/9;
-    padding-right: 45px;
+    grid-column: 1/10;
   }
 `;
 
@@ -284,9 +292,11 @@ const SecondColumn = styled.div`
     padding-right: 0;
   }
 `;
+
 const ThirdColumn = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
+  align-self: end;
   @media (min-width: 1024px) {
     grid-column: 9/10;
     align-self: end;
@@ -297,11 +307,16 @@ const ThirdColumn = styled.div`
     grid-column: 16/17;
   }
 `;
+
 const StyledH1Name = styled.h3`
   color: var(--grey);
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
+  }
+  @media (min-width: 1680px) {
+    font-size: 44px;
+    line-height: 56px;
   }
 `;
 
@@ -310,6 +325,10 @@ const StyledH1 = styled.h3`
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
+  }
+  @media (min-width: 1680px) {
+    font-size: 44px;
+    line-height: 56px;
   }
 `;
 

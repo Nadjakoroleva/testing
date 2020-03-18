@@ -125,7 +125,7 @@ const Presentation = () => {
               </div>
             </ContainerInner>
           </FirstSlide>
-          <div>
+          <Slide>
             <ContainerInner>
               <Text>UPS & Arrival opportunity</Text>
               <div
@@ -153,8 +153,8 @@ const Presentation = () => {
                 </Download>
               </div>
             </ContainerInner>
-          </div>
-          <div>
+          </Slide>
+          <Slide>
             <ContainerInner>
               <Text>UPS & Arrival opportunity</Text>
               <div
@@ -182,7 +182,7 @@ const Presentation = () => {
                 </Download>
               </div>
             </ContainerInner>
-          </div>
+          </Slide>
         </Slider>
       </Display>
     </ComponentContainer>
@@ -238,6 +238,7 @@ const ContainerInner = styled.div`
   padding-bottom: 40px;
   padding-top: 232px;
   cursor: pointer;
+
   @media (min-width: 768px) {
     padding-top: 632px;
   }
@@ -245,8 +246,47 @@ const ContainerInner = styled.div`
 
 const FirstSlide = styled.div`
   padding-left: 24px;
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 31, 34, 0.7) 0%,
+      rgba(30, 31, 34, 0) 43.23%,
+      rgba(30, 31, 34, 0) 72.92%,
+      rgba(30, 31, 34, 0.7) 100%
+    );
+  }
   @media (min-width: 1024px) {
     padding-left: 64px;
+  }
+`;
+
+const Slide = styled.div`
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 31, 34, 0.7) 0%,
+      rgba(30, 31, 34, 0) 43.23%,
+      rgba(30, 31, 34, 0) 72.92%,
+      rgba(30, 31, 34, 0.7) 100%
+    );
   }
 `;
 
@@ -262,6 +302,8 @@ const Download = styled.a`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  z-index: 3;
 `;
 
 const Paragraph = styled.div`
@@ -292,7 +334,7 @@ const Paragraph = styled.div`
   @media (min-width: 1680px) {
     padding-bottom: 64px;
     & div {
-      grid-column: 1/9;
+      grid-column: 1/11;
     }
   }
 `;
@@ -305,6 +347,8 @@ const Text = styled.p`
   color: var(--white);
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 3;
 `;
 
 const Button = styled.button`
@@ -322,6 +366,8 @@ const Button = styled.button`
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  position: relative;
+  z-index: 3;
   &:hover {
     background-color: #cecfd0;
   }
