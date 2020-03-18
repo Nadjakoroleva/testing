@@ -1,3 +1,4 @@
+/* global window */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
@@ -7,81 +8,75 @@ import styled, { ThemeProvider } from 'styled-components';
 import { Background, Container } from './layoutComponents';
 
 const Header = ({ className }) => {
-  // const size = useWindowSize().width;
-  // const ratio = settingXRatio();
-  // console.log(size);
-  // function settingXRatio() {
-  //   if (size >= 1679) {
-  //     return {
-  //       x: 32,
-  //       numForPaddingTop: 3,
-  //       numForPaddingBottom: 2
-  //     };
-  //   } else if (size >= 1365) {
-  //     return {
-  //       x: 24,
-  //       numForPaddingTop: 3,
-  //       numForPaddingBottom: 2
-  //     };
-  //   } else if (size >= 1023) {
-  //     return {
-  //       x: 24,
-  //       numForPaddingTop: 3,
-  //       numForPaddingBottom: 2
-  //     };
-  //   } else if (size >= 767) {
-  //     return {
-  //       x: 32,
-  //       numForPaddingTop: 2,
-  //       numForPaddingBottom: 2
-  //     };
-  //   } else if (size >= 374) {
-  //     return {
-  //       x: 32,
-  //       numForPaddingTop: 3,
-  //       numForPaddingBottom: 2
-  //     };
-  //   } else if (size < 374) {
-  //     return {
-  //       x: 32,
-  //       numForPaddingTop: 3,
-  //       numForPaddingBottom: 2
-  //     };
-  //   }
-  // }
+  const size = useWindowSize().width;
+  const ratio = settingXRatio();
+  console.log(size);
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32,
+        numForPaddingTop: 2,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size < 374) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    }
+  }
 
-  // function useWindowSize() {
-  //   const isClient = typeof window === 'object';
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
 
-  //   function getSize() {
-  //     return {
-  //       width: isClient ? window.innerWidth : undefined
-  //     };
-  //   }
+    function getSize() {
+      return {
+        width: isClient ? window.innerWidth : undefined
+      };
+    }
 
-  //   const [windowSize, setWindowSize] = useState(getSize());
+    const [windowSize, setWindowSize] = useState(getSize());
 
-  //   useEffect(() => {
-  //     function handleResize() {
-  //       setWindowSize(getSize());
-  //     }
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getSize());
+      }
 
-  //     window.addEventListener('resize', handleResize);
-  //     return () => window.removeEventListener('resize', handleResize);
-  //   }, []);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
-  //   return windowSize;
-  // }
-  // var theme = {
-  //   numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-  //   numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
-  //   x: `${ratio.x}px`
-  // };
-
-  const ratio = {
-    x: 32,
-    numForPaddingTop: 3,
-    numForPaddingBottom: 2
+    return windowSize;
+  }
+  var theme = {
+    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
+    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+    x: `${ratio.x}px`
   };
 
   var logoPadding = {
