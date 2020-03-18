@@ -1,48 +1,83 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-var x;
-var numForJobTitle;
-var numForText;
-var numForTextColumn;
-if (typeof window !== 'undefined') {
-  if (window.innerWidth >= 1679) {
-    x = 32;
-    numForJobTitle = 2;
-    numForText = 2;
-    numForTextColumn = 2.5;
-  } else if (window.innerWidth >= 1365) {
-    x = 24;
-    numForJobTitle = 3;
-    numForText = 2;
-    numForTextColumn = 3;
-  } else if (window.innerWidth >= 1023) {
-    x = 24;
-    numForJobTitle = 3;
-    numForText = 2;
-    numForTextColumn = 3;
-  } else if (window.innerWidth >= 374) {
-    x = 32;
-    numForJobTitle = 2;
-    numForText = 1;
-    numForTextColumn = 1;
-  }
-}
-
-const theme = {
-  numForJobTitle: `${x * numForJobTitle}px`,
-  numForText: `${x * numForText}px`,
-  numForTextColumn: `${x * numForTextColumn}px`
-};
-
 const SalesManager = () => {
+  const size = useWindowSize().width;
+  const ratio = settingXRatio();
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32,
+        numForJobTitle: 3,
+        numForPaddingBottom: 3
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24,
+        numForJobTitle: 2,
+        numForPaddingBottom: 3
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24,
+        numForJobTitle: 2,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32,
+        numForJobTitle: 2,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32,
+        numForJobTitle: 2,
+        numForPaddingBottom: 1
+      };
+    } else {
+      return {
+        x: 32,
+        numForJobTitle: 2,
+        numForPaddingBottom: 1
+      };
+    }
+  }
+
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
+
+    function getSize() {
+      return {
+        width: isClient ? size : undefined
+      };
+    }
+
+    const [windowSize, setWindowSize] = useState(getSize());
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getSize());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return windowSize;
+  }
+
+  const paddingForJobTitle = {
+    paddingTop: `${ratio.x * ratio.numForJobTitle}px`
+  };
+
   return (
     <div>
-      <JobTitle theme={theme}>Your sales manager</JobTitle>
+      <JobTitle style={paddingForJobTitle}>Your sales manager</JobTitle>
       <StyledH1>Mike Ableson</StyledH1>
       <Grid>
-        <TextColumn theme={theme}>
-          <Text theme={theme}>
+        <TextColumn>
+          <Text>
             Feel free to contact me whenever you have any questions or ready to
             move forward with us. Let’s change the future of mobility together!
           </Text>
@@ -63,17 +98,10 @@ const SalesManager = () => {
 
 const JobTitle = styled.p`
   color: rgba(0, 0, 0, 0.4);
-  padding-top: 64px;
   font-weight: 300;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
-  @media (min-width: 1024px) {
-    padding-top: 72px;
-  }
-  @media (min-width: 1680px) {
-    padding-top: 64px;
-  }
 `;
 const Text = styled.h4`
   color: #23262c;
