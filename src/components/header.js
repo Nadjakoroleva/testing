@@ -42,7 +42,7 @@ const Header = ({ className }) => {
         numForPaddingTop: 3,
         numForPaddingBottom: 2
       };
-    } else if (size < 374) {
+    } else {
       return {
         x: 32,
         numForPaddingTop: 3,
@@ -73,11 +73,6 @@ const Header = ({ className }) => {
 
     return windowSize;
   }
-  var theme = {
-    numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-    numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
-    x: `${ratio.x}px`
-  };
 
   var logoPadding = {
     paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
