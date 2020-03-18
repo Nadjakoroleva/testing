@@ -10,7 +10,6 @@ import { Background, Container } from './layoutComponents';
 const Header = ({ className }) => {
   const size = useWindowSize().width;
   const ratio = settingXRatio();
-  console.log(size);
   function settingXRatio() {
     if (size >= 1679) {
       return {
@@ -78,7 +77,13 @@ const Header = ({ className }) => {
     paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
   };
 
-  console.log(logoPadding);
+  var gridPadding = {
+    paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
+  };
+
+  var ratioX = {
+    paddingBottom: `${ratio.x}px`
+  };
 
   return (
     <div className={className}>
@@ -97,9 +102,9 @@ const Header = ({ className }) => {
               src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
             />
 
-            <Grid>
-              <FirstColumn>
-                <StyledH1Name>Welcome, Alexander! </StyledH1Name>
+            <Grid style={gridPadding}>
+              <FirstColumn style={ratioX}>
+                <StyledH1Name>Welcome, Alexander!</StyledH1Name>
                 <StyledH1>
                   Please find below the detailed information about your
                   opportunity with Arrival. Feel free to contact us or schedule
@@ -226,7 +231,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 6fr 80px;
-  padding-bottom: 64px;
+
   @media (min-width: 414px) {
     grid-template-rows: 5fr 80px;
   }
@@ -240,27 +245,22 @@ const Grid = styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 1fr;
-    padding-bottom: 48px;
   }
   @media (min-width: 1366px) {
     grid-template-columns: repeat(16, 1fr);
-  }
-  @media (min-width: 1680px) {
-    padding-bottom: 64px;
   }
 `;
 
 const FirstColumn = styled.div`
   grid-column: 1/3;
   align-self: end;
-  padding-bottom: 32px;
+
   @media (min-width: 768px) {
     grid-column: 1/10;
   }
   @media (min-width: 1024px) {
     grid-column: 1/7;
     align-self: end;
-    padding-bottom: 0;
   }
   @media (min-width: 1366px) {
     grid-column: 1/10;
