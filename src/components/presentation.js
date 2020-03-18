@@ -5,34 +5,6 @@ import SlideForMobile from '../components/slideForMob';
 
 import Slider from '../components/slider';
 
-var x;
-var numForPadding;
-var paddingForContainer;
-if (typeof window !== 'undefined') {
-  if (window.innerWidth >= 1679) {
-    x = 32;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 1365) {
-    x = 24;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 1023) {
-    x = 24;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 374) {
-    x = 32;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  }
-}
-
-// const theme = {
-//   numForPadding: `${x * numForPadding}px`,
-//   paddingForContainer: `${x * paddingForContainer}px`
-// };
-
 const Presentation = () => {
   // считаем сколько слайдов показывать
   const size = useWindowSize().width;
@@ -42,6 +14,48 @@ const Presentation = () => {
       return 2.1;
     } else {
       return 1.3;
+    }
+  }
+
+  //считаем коэффициент
+  const ratio = settingXRatio();
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 4
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24,
+        numForPadding: 2,
+        paddingForContainer: 4
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24,
+        numForPadding: 2,
+        paddingForContainer: 4
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 4
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 4
+      };
+    } else {
+      return {
+        x: 32,
+        numForPadding: 3,
+        paddingForContainer: 2
+      };
     }
   }
   function useWindowSize() {
@@ -71,10 +85,19 @@ const Presentation = () => {
 
     return windowSize;
   }
+
+  const paddingTopForContainer = {
+    paddingTop: `${ratio.x * ratio.numForPadding}px`
+  };
+
+  const paddingBottomForContainer = {
+    paddingBottom: `${ratio.x * ratio.paddingForContainer}px`
+  };
+
   return (
-    <ComponentContainer>
+    <ComponentContainer style={paddingBottomForContainer}>
       <Container>
-        <LineContainer>
+        <LineContainer style={paddingTopForContainer}>
           <Line />
         </LineContainer>
         <Paragraph>
@@ -202,15 +225,7 @@ const DisplaySlideForMobile = styled.div`
     display: none;
   }
 `;
-const ComponentContainer = styled.div`
-  padding-bottom: 128px;
-  @media (min-width: 1024px) {
-    padding-bottom: 96px;
-  }
-  @media (min-width: 1680px) {
-    padding-bottom: 128px;
-  }
-`;
+const ComponentContainer = styled.div``;
 
 const Line = styled.div`
   width: 100%;
@@ -220,15 +235,7 @@ const Line = styled.div`
   margin-bottom: 32px;
 `;
 
-const LineContainer = styled.div`
-  padding-top: 64px;
-  @media (min-width: 768px) {
-    padding-top: 48px;
-  }
-  @media (min-width: 1680px) {
-    padding-top: 64px;
-  }
-`;
+const LineContainer = styled.div``;
 
 const ContainerInner = styled.div`
   background-image: url(https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840);

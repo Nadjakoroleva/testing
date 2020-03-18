@@ -73,15 +73,15 @@ const Header = ({ className }) => {
     return windowSize;
   }
 
-  var logoPadding = {
+  const logoPadding = {
     paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
   };
 
-  var gridPadding = {
+  const gridPadding = {
     paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
   };
 
-  var ratioX = {
+  const ratioX = {
     paddingBottom: `${ratio.x}px`
   };
 
