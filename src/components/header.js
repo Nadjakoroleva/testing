@@ -79,7 +79,7 @@ const Header = ({ className }) => {
   // };
 
   var logoPadding = {
-    paddingTop: `24px`
+    paddingTop: `${ratio.x}px`
   };
 
   console.log(logoPadding);
