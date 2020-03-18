@@ -50,12 +50,6 @@ const Header = ({ className }) => {
     }
   }
 
-  // var theme = {
-  //   numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
-  //   numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
-  //   x: `${ratio.x}px`
-  // };
-
   function useWindowSize() {
     const isClient = typeof window === 'object';
 
@@ -78,6 +72,17 @@ const Header = ({ className }) => {
 
     return windowSize;
   }
+  // var theme = {
+  //   numForPaddingTop: `${ratio.x * ratio.numForPaddingTop}px`,
+  //   numForPaddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`,
+  //   x: `${ratio.x}px`
+  // };
+
+  var logoPadding = {
+    paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
+  };
+
+  console.log(logoPadding);
 
   return (
     <div className={className}>
@@ -91,7 +96,10 @@ const Header = ({ className }) => {
               <StyledLink to="/">Contact us</StyledLink>
               <StyledEmail to="/">john@inbox.com</StyledEmail>
             </Nav>
-            <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+            <Img
+              style={logoPadding}
+              src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
+            />
 
             <Grid>
               <FirstColumn>
@@ -205,15 +213,7 @@ const StyledEmail = styled(Link)`
   }
 `;
 
-const Img = styled.img`
-  padding-top: 64px;
-  @media (min-width: 768px) {
-    padding-top: 72px;
-  }
-  @media (min-width: 1680px) {
-    padding-top: 96px;
-  }
-`;
+const Img = styled.img``;
 
 const Nav = styled.nav`
   display: flex;
