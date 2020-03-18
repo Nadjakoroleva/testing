@@ -9,7 +9,7 @@ import { Background, Container } from './layoutComponents';
 const Header = ({ className }) => {
   const size = useWindowSize().width;
   const ratio = settingXRatio();
-
+  console.log(size);
   function settingXRatio() {
     if (size >= 1679) {
       return {
@@ -79,7 +79,7 @@ const Header = ({ className }) => {
   // };
 
   var logoPadding = {
-    paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
+    paddingTop: `24px`
   };
 
   console.log(logoPadding);
