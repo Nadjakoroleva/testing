@@ -83,6 +83,20 @@ const Header = ({ className }) => {
     paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
   };
 
+  // nav
+  const [isShowing, setShowing] = useState(false);
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 32) {
+        setShowing(true);
+      } else {
+        setShowing(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <div className={className}>
       <Background>
@@ -91,17 +105,35 @@ const Header = ({ className }) => {
           bgImage={
             'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg'
           }
-          strength={300}
+          strength={500}
         >
           <Container>
             <InnerConatiner>
-              <Nav>
-                <Menu>Menu</Menu>
-                <StyledLink to="/">Introduction</StyledLink>
-                <StyledLink to="/">Opportunities</StyledLink>
-                <StyledLink to="/">Contact us</StyledLink>
-                <StyledEmail to="/">john@inbox.com</StyledEmail>
-              </Nav>
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: '10',
+                  backgroundColor: 'transparent'
+                }}
+              >
+                <Nav>
+                  <Menu>Menu</Menu>
+                  <StyledLink to="/">Introduction</StyledLink>
+                  <StyledLink to="/">Opportunities</StyledLink>
+                  <StyledLink to="/">Contact us</StyledLink>
+                  <StyledEmail to="/">john@inbox.com</StyledEmail>
+                </Nav>
+              </div>
+              <AnimatedNav style={{ opacity: isShowing ? '1' : '0' }}>
+                <Nav>
+                  <Menu>Menu</Menu>
+                  <StyledLink to="/">Introduction</StyledLink>
+                  <StyledLink to="/">Opportunities</StyledLink>
+                  <StyledLink to="/">Contact us</StyledLink>
+                  <StyledEmail to="/">john@inbox.com</StyledEmail>
+                </Nav>
+              </AnimatedNav>
+
               <Img
                 style={logoPadding}
                 src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
@@ -161,6 +193,32 @@ const Menu = styled.a`
   display: block;
   @media (min-width: 768px) {
     display: none;
+  }
+`;
+
+const AnimatedNav = styled.div`
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: #1e1f22;
+  color: var(--white);
+  top: 0;
+  left: 0;
+  transition: all 0.3ms ease-in;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: 768px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 64px;
+    padding-right: 64px;
   }
 `;
 
