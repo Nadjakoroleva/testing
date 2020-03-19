@@ -204,7 +204,7 @@ const AnimatedNav = styled.div`
   color: var(--white);
   top: 0;
   left: 0;
-  transition: all 0.3ms ease-in;
+  animation: opacity 4s ease-in;
   padding-bottom: 14px;
   padding-left: 20px;
   padding-right: 20px;
@@ -219,6 +219,17 @@ const AnimatedNav = styled.div`
   @media (min-width: 1024px) {
     padding-left: 64px;
     padding-right: 64px;
+  }
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
