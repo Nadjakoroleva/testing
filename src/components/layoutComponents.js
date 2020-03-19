@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
-  margin: 0 auto;
-  background-image: url(https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg);
-  background-size: cover;
-  background-position: 91% 100%;
-  height: 100vh;
-  position: relative;
-  z-index: 1;
   &::after {
     content: '';
     position: absolute;

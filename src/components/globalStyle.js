@@ -36,6 +36,10 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     }
   }
+  .parallax img {
+    object-fit: cover !important;
+    object-position: 90% 10%;
+  }
   a {
     text-decoration: none;
     color: inherit;
