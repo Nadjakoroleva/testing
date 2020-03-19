@@ -104,12 +104,12 @@ const Header = ({ className }) => {
 
             <Grid style={gridPadding}>
               <FirstColumn style={ratioX}>
-                <StyledH1Name>Welcome, Alexander!</StyledH1Name>
-                <StyledH1>
+                <StyledH3Name>Welcome, Alexander!</StyledH3Name>
+                <StyledH3>
                   Please find below the detailed information about your
                   opportunity with Arrival. Feel free to contact us or schedule
                   a meeting.
-                </StyledH1>
+                </StyledH3>
               </FirstColumn>
               <SecondColumn>
                 <Name>Mike Ableson</Name>
@@ -304,7 +304,7 @@ const ThirdColumn = styled.div`
   }
 `;
 
-const StyledH1Name = styled.h3`
+const StyledH3Name = styled.h3`
   color: var(--grey);
   @media (min-width: 768px) {
     font-size: 36px;
@@ -316,7 +316,7 @@ const StyledH1Name = styled.h3`
   }
 `;
 
-const StyledH1 = styled.h3`
+const StyledH3 = styled.h3`
   color: var(--white);
   @media (min-width: 768px) {
     font-size: 36px;

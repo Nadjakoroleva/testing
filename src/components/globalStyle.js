@@ -330,12 +330,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 28px;
     line-height: 36px;
     letter-spacing: 0.02em;
-    @media (min-width: 768px) {
-      h3 {
-        font-size: 36px;
-        line-height: 48px;
-      }
-    }
+    
   }
   h4 {
     margin-left: 0;
