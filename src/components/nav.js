@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+const BURGER_ICON =
+  'https://images.ctfassets.net/r0lccig03c53/RqyEMwZchfUdzG8gNLqvY/9ed4050336c1c4de7b2a8fdac926264c/Menu.svg?h=16';
+
+const LOGO =
+  'https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16';
+
 const StyledEmail = styled(Link)`
   margin-left: auto;
   position: relative;
@@ -52,9 +58,8 @@ const AnimatedNavContainer = styled.div`
 
 const Menu = styled.a`
   display: block;
-  display: flex;
   width: 100%;
-  justify-content: space-between;
+  text-align: right;
   @media (min-width: 1024px) {
     display: none;
   }
@@ -91,6 +96,8 @@ const Img = styled.img`
 
 const Nav = styled.nav`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 52px;
   padding-bottom: 48px;
   font-family: Arrival Mono;
@@ -126,9 +133,15 @@ const Navigation = ({ className }) => {
         }}
       >
         <Nav>
-          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+          <Img src={LOGO} />
 
-          <Menu>Menu</Menu>
+          <Menu>
+            Menu{' '}
+            <img
+              src={BURGER_ICON}
+              style={{ position: 'relative', top: '4px', paddingLeft: '12px' }}
+            />
+          </Menu>
 
           <StyledLink to="/">Introduction</StyledLink>
           <StyledLink to="/">Opportunities</StyledLink>
@@ -138,9 +151,8 @@ const Navigation = ({ className }) => {
       </div>
       <AnimatedNavContainer style={{ opacity: isShowing ? '1' : '0' }}>
         <AnimatedNav>
-          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+          <Img src={LOGO} />
 
-          <Menu>Menu</Menu>
           <StyledLink to="/">Introduction</StyledLink>
           <StyledLink to="/">Opportunities</StyledLink>
           <StyledLink to="/">Contact us</StyledLink>

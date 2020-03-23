@@ -5,9 +5,6 @@ import Slider from '../components/slider';
 
 import { Container } from '../components/layoutComponents';
 
-const ARROW_SVG =
-  'https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8';
-
 const DOWNLOAD_SVG =
   'https://images.ctfassets.net/r0lccig03c53/1hgReEnU8us6XvgxvzPLyV/64d0c95a71bc456b4c1d90c2bf6a8cc2/Arrow_Fw.svg?h=16';
 

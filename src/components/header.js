@@ -41,7 +41,7 @@ const Name = styled.p`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 6fr 80px;
+  grid-template-rows: 6fr 90px;
 
   @media (min-width: 414px) {
     grid-template-rows: 5fr 80px;
