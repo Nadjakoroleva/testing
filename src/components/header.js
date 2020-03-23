@@ -2,184 +2,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
-import { Background, Container } from './layoutComponents';
-import { animated, useSpring } from 'react-spring';
+import styled from 'styled-components';
 import { Parallax } from 'react-parallax';
 
-const Header = ({ className }) => {
-  const size = useWindowSize().width;
-  const ratio = settingXRatio();
+import { Background, Container } from './layoutComponents';
 
-  //ratio
-  function settingXRatio() {
-    if (size >= 1679) {
-      return {
-        x: 32,
-        numForPaddingTop: 3,
-        numForPaddingBottom: 2
-      };
-    } else if (size >= 1365) {
-      return {
-        x: 24,
-        numForPaddingTop: 3,
-        numForPaddingBottom: 2
-      };
-    } else if (size >= 1023) {
-      return {
-        x: 24,
-        numForPaddingTop: 3,
-        numForPaddingBottom: 2
-      };
-    } else if (size >= 767) {
-      return {
-        x: 32,
-        numForPaddingTop: 2,
-        numForPaddingBottom: 2
-      };
-    } else if (size >= 374) {
-      return {
-        x: 32,
-        numForPaddingTop: 3,
-        numForPaddingBottom: 2
-      };
-    } else {
-      return {
-        x: 32,
-        numForPaddingTop: 3,
-        numForPaddingBottom: 2
-      };
-    }
-  }
-
-  function useWindowSize() {
-    const isClient = typeof window === 'object';
-
-    function getSize() {
-      return {
-        width: isClient ? window.innerWidth : undefined
-      };
-    }
-
-    const [windowSize, setWindowSize] = useState(getSize());
-
-    useEffect(() => {
-      function handleResize() {
-        setWindowSize(getSize());
-      }
-
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowSize;
-  }
-
-  const logoPadding = {
-    paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
-  };
-
-  const gridPadding = {
-    paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
-  };
-
-  // nav
-  const [isShowing, setShowing] = useState(false);
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 32) {
-        setShowing(true);
-      } else {
-        setShowing(false);
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  return (
-    <div className={className}>
-      <Background>
-        <Parallax
-          className={'parallax'}
-          bgImage={
-            'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg'
-          }
-          strength={500}
-        >
-          <Container>
-            <InnerConatiner>
-              <div
-                style={{
-                  position: 'relative',
-                  zIndex: '10',
-                  backgroundColor: 'transparent'
-                }}
-              >
-                <Nav>
-                  <Menu>Menu</Menu>
-                  <StyledLink to="/">Introduction</StyledLink>
-                  <StyledLink to="/">Opportunities</StyledLink>
-                  <StyledLink to="/">Contact us</StyledLink>
-                  <StyledEmail to="/">john@inbox.com</StyledEmail>
-                </Nav>
-              </div>
-              <AnimatedNav style={{ opacity: isShowing ? '1' : '0' }}>
-                <Nav>
-                  <Menu>Menu</Menu>
-                  <StyledLink to="/">Introduction</StyledLink>
-                  <StyledLink to="/">Opportunities</StyledLink>
-                  <StyledLink to="/">Contact us</StyledLink>
-                  <StyledEmail to="/">john@inbox.com</StyledEmail>
-                </Nav>
-              </AnimatedNav>
-
-              <Img
-                style={logoPadding}
-                src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
-              />
-
-              <Grid style={gridPadding}>
-                <FirstColumn>
-                  <StyledH3Name>Welcome, Alexander!</StyledH3Name>
-                  <StyledH3>
-                    Please find below the detailed information about your
-                    opportunity with Arrival. Feel free to contact us or
-                    schedule a meeting.
-                  </StyledH3>
-                </FirstColumn>
-                <SecondColumn>
-                  <Name>Mike Ableson</Name>
-                  <Job>Your sales manager</Job>
-                </SecondColumn>
-                <ThirdColumn>
-                  <img
-                    style={{ width: '64px', height: '80px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
-                  />
-                </ThirdColumn>
-              </Grid>
-            </InnerConatiner>
-          </Container>
-        </Parallax>
-      </Background>
-    </div>
-  );
-};
-
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-  siteTitle: ``
-};
-
-const StyledHeader = styled(Header)`
-  color: var(--white);
-  background: transparent;
-  position: relative;
-`;
+const PARALLAX_IMAGE_SRC =
+  'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
 
 const InnerConatiner = styled.div`
   min-height: 100vh;
@@ -200,7 +29,7 @@ const AnimatedNav = styled.div`
   position: fixed;
   z-index: 2;
   width: 100%;
-  background-color: #1e1f22;
+  background-color: var(--lightBlack);
   color: var(--white);
   top: 0;
   left: 0;
@@ -393,16 +222,167 @@ const StyledH3Name = styled.h3`
   }
 `;
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled(StyledH3Name)`
   color: var(--white);
-  @media (min-width: 768px) {
-    font-size: 36px;
-    line-height: 48px;
-  }
-  @media (min-width: 1680px) {
-    font-size: 44px;
-    line-height: 56px;
-  }
 `;
 
-export default StyledHeader;
+const Header = ({ className }) => {
+  const size = useWindowSize().width;
+  const ratio = settingXRatio();
+
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32,
+        numForPaddingTop: 2,
+        numForPaddingBottom: 2
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32,
+        numForPaddingTop: 3,
+        numForPaddingBottom: 2
+      };
+    }
+    return {
+      x: 32,
+      numForPaddingTop: 3,
+      numForPaddingBottom: 2
+    };
+  }
+
+  function useWindowSize() {
+    const isClient = typeof window === 'object';
+
+    function getSize() {
+      return {
+        width: isClient ? window.innerWidth : undefined
+      };
+    }
+
+    const [windowSize, setWindowSize] = useState(getSize());
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize(getSize());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return windowSize;
+  }
+
+  const logoPadding = {
+    paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
+  };
+
+  const gridPadding = {
+    paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
+  };
+
+  const [isShowing, setShowing] = useState(false);
+  useEffect(() => {
+    function handleScroll() {
+      setShowing(window.scrollY > 32);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  return (
+    <div className={className}>
+      <Background>
+        <Parallax
+          className={'parallax'}
+          bgImage={PARALLAX_IMAGE_SRC}
+          strength={500}
+        >
+          <Container>
+            <InnerConatiner>
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: '10',
+                  backgroundColor: 'transparent'
+                }}
+              >
+                <Nav>
+                  <Menu>Menu</Menu>
+                  <StyledLink to="/">Introduction</StyledLink>
+                  <StyledLink to="/">Opportunities</StyledLink>
+                  <StyledLink to="/">Contact us</StyledLink>
+                  <StyledEmail to="/">john@inbox.com</StyledEmail>
+                </Nav>
+              </div>
+              <AnimatedNav style={{ opacity: isShowing ? '1' : '0' }}>
+                <Nav>
+                  <Menu>Menu</Menu>
+                  <StyledLink to="/">Introduction</StyledLink>
+                  <StyledLink to="/">Opportunities</StyledLink>
+                  <StyledLink to="/">Contact us</StyledLink>
+                  <StyledEmail to="/">john@inbox.com</StyledEmail>
+                </Nav>
+              </AnimatedNav>
+
+              <Img
+                style={logoPadding}
+                src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
+              />
+
+              <Grid style={gridPadding}>
+                <FirstColumn>
+                  <StyledH3Name>Welcome, Alexander!</StyledH3Name>
+                  <StyledH3>
+                    Please find below the detailed information about your
+                    opportunity with Arrival. Feel free to contact us or
+                    schedule a meeting.
+                  </StyledH3>
+                </FirstColumn>
+                <SecondColumn>
+                  <Name>Mike Ableson</Name>
+                  <Job>Your sales manager</Job>
+                </SecondColumn>
+                <ThirdColumn>
+                  <img
+                    style={{ width: '64px', height: '80px' }}
+                    src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
+                  />
+                </ThirdColumn>
+              </Grid>
+            </InnerConatiner>
+          </Container>
+        </Parallax>
+      </Background>
+    </div>
+  );
+};
+
+Header.propTypes = {
+  siteTitle: PropTypes.string
+};
+
+Header.defaultProps = {
+  siteTitle: ``
+};
+
+export default Header;

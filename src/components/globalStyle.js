@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     --grey:rgba(255, 255, 255, 0.6);
     --white: #F3F3F3;
     --black: #383838;
+    --lightBlack: #1e1f22;
   }
   * {
     box-sizing: border-box;
