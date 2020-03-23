@@ -18,11 +18,12 @@ const Text = styled.h4`
   line-height: 32px;
   padding-top: 32px;
   @media (min-width: 1024px) {
+    padding-top: 64px;
+  }
+  @media (min-width: 1024px) {
     padding-right: 20px;
   }
   @media (min-width: 1366px) {
-    font-size: 28px;
-    line-height: 36px;
     padding-right: 0;
   }
 `;
@@ -63,7 +64,8 @@ const TextColumn = styled.div`
   }
   @media (min-width: 1680px) {
     padding-bottom: 80px;
-    grid-column: 1/9;
+    grid-column: 1/7;
+    padding-right: 20px;
   }
 `;
 
@@ -73,8 +75,8 @@ const Img = styled.img`
   padding-top: 30px;
   align-self: end;
   @media (min-width: 768px) {
-    grid-column: 6/8;
-    max-width: 285px;
+    grid-column: 5/8;
+    max-width: 345px;
     grid-row: 1/3;
     padding-top: 0;
   }
@@ -83,11 +85,11 @@ const Img = styled.img`
     max-width: 100%;
   }
   @media (min-width: 1366px) {
-    grid-column: 10/17;
-    max-width: 100%;
+    grid-column: 12/17;
+    max-width: 385px;
   }
   @media (min-width: 1680px) {
-    grid-column: 12/17;
+    max-width: 460px;
   }
 `;
 
@@ -120,6 +122,9 @@ const StyledLink = styled.a`
 
 const Wrapper = styled.div`
   padding-top: 32px;
+  @media (min-width: 1024px) {
+    padding-top: 48px;
+  }
 `;
 
 const StyledH1 = styled.h1`
@@ -149,13 +154,13 @@ const SalesManager = () => {
     } else if (size >= 1365) {
       return {
         x: 24,
-        numForJobTitle: 2,
+        numForJobTitle: 3,
         numForPaddingBottom: 3
       };
     } else if (size >= 1023) {
       return {
         x: 24,
-        numForJobTitle: 2,
+        numForJobTitle: 3,
         numForPaddingBottom: 2
       };
     } else if (size >= 767) {
@@ -204,6 +209,7 @@ const SalesManager = () => {
   const paddingForJobTitle = {
     paddingTop: `${ratio.x * ratio.numForJobTitle}px`
   };
+  console.log(ratio.numForJobTitle);
 
   return (
     <div>

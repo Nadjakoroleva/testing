@@ -9,7 +9,7 @@ const ARROW_SVG =
   'https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8';
 
 const DOWNLOAD_SVG =
-  'https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16';
+  'https://images.ctfassets.net/r0lccig03c53/1hgReEnU8us6XvgxvzPLyV/64d0c95a71bc456b4c1d90c2bf6a8cc2/Arrow_Fw.svg?h=16';
 
 const SLIDE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840';
@@ -19,10 +19,13 @@ const ComponentContainer = styled.div``;
 const ContainerInner = styled.div`
   background-image: url(${SLIDE_SRC});
   background-size: cover;
-  padding: 32px;
+  padding: 385px 32px 32px 32px;
   cursor: pointer;
   @media (min-width: 768px) {
-    padding-top: 632px;
+    padding: 590px 64px 64px 64px;
+  }
+  @media (min-width: 1680px) {
+    padding: 670px 64px 64px 64px;
   }
 `;
 
@@ -61,7 +64,7 @@ const Paragraph = styled.div`
   letter-spacing: 0.02em;
   display: grid;
   grid-template-columns: 1fr;
-  padding-bottom: 64px;
+  padding-bottom: 32px;
   @media (min-width: 768px) {
     grid-template-columns: repeat(9, 1fr);
     & div {
@@ -69,6 +72,7 @@ const Paragraph = styled.div`
     }
   }
   @media (min-width: 1024px) {
+    padding-bottom: 48px;
     & div {
       grid-column: 1/8;
     }
@@ -98,63 +102,38 @@ const Text = styled.p`
   z-index: 3;
 `;
 
-const Button = styled.button`
-  font-family: Arrival Mono;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: #23262c;
-  padding: 24px 36px 24px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  background-color: var(--white);
-  transition: background-color 0.3s ease-in-out;
-  position: relative;
-  z-index: 3;
-  &:hover {
-    background-color: #cecfd0;
-  }
-`;
-
 const Download = styled.a`
+  display: flex;
   color: var(--white);
-  padding: 24px 36px 24px 32px;
-  background-color: rgba(255, 255, 255, 0.3);
   font-family: Arrival Mono;
   font-weight: normal;
   font-size: 11px;
   line-height: 16px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   cursor: pointer;
   position: relative;
   z-index: 3;
 `;
 
-const ContainerBtn = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 243px;
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-  }
+const Img = styled.img`
+  padding-left: 12px;
+  position: relative;
+  top: -1px;
 `;
 
 const Presentation = () => {
   const size = useWindowSize().width;
   const slidesToShow = showSlides();
   function showSlides() {
-    if (size > 1024) {
-      return 2.1;
+    if (size > 1365) {
+      return 2.2;
+    }
+    if (size > 1023) {
+      return 1.5;
+    }
+    if (size > 767) {
+      return 1.3;
     }
     return 1.07;
   }
@@ -176,7 +155,7 @@ const Presentation = () => {
     } else if (size >= 1023) {
       return {
         x: 24,
-        numForPadding: 2,
+        numForPadding: 3,
         paddingForContainer: 3
       };
     } else if (size >= 767) {
@@ -254,52 +233,25 @@ const Presentation = () => {
         <FirstSlide>
           <ContainerInner>
             <Text>UPS & Arrival opportunity</Text>
-            <ContainerBtn>
-              <Download>
-                Download <img src={DOWNLOAD_SVG}></img>
-              </Download>
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src={ARROW_SVG}
-                ></img>
-              </Button>
-            </ContainerBtn>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
           </ContainerInner>
         </FirstSlide>
         <Slide>
           <ContainerInner>
             <Text>UPS & Arrival opportunity</Text>
-            <ContainerBtn>
-              <Download>
-                Download <img src={DOWNLOAD_SVG}></img>
-              </Download>
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src={ARROW_SVG}
-                ></img>
-              </Button>
-            </ContainerBtn>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
           </ContainerInner>
         </Slide>
         <Slide>
           <ContainerInner>
             <Text>UPS & Arrival opportunity</Text>
-            <ContainerBtn>
-              <Download>
-                Download <img src={DOWNLOAD_SVG}></img>
-              </Download>
-              <Button>
-                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
-                <img
-                  style={{ position: 'relative', top: '-1px' }}
-                  src={ARROW_SVG}
-                ></img>
-              </Button>
-            </ContainerBtn>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
           </ContainerInner>
         </Slide>
       </Slider>

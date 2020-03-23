@@ -12,6 +12,9 @@ import { Background, Container } from './layoutComponents';
 const PARALLAX_IMAGE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
 
+const PHOTO_SRC =
+  'https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png';
+
 const InnerConatiner = styled.div`
   min-height: 100vh;
   position: relative;
@@ -94,7 +97,7 @@ const SecondColumn = styled.div`
   }
   @media (min-width: 1366px) {
     grid-column: 14/16;
-    padding-right: 0;
+    padding-right: 15px;
   }
 `;
 
@@ -227,7 +230,7 @@ const Header = ({ className }) => {
                 <ThirdColumn>
                   <img
                     style={{ width: '64px', height: '80px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png"
+                    src={PHOTO_SRC}
                   />
                 </ThirdColumn>
               </Grid>

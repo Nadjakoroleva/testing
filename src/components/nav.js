@@ -62,7 +62,7 @@ const Menu = styled.a`
 
 const StyledLink = styled(Link)`
   display: none;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: block;
     margin-right: 25px;
     position: relative;
@@ -83,7 +83,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Img = styled.img``;
+const Img = styled.img`
+  @media (min-width: 1024px) {
+    padding-right: 60px;
+  }
+`;
 
 const Nav = styled.nav`
   display: flex;
@@ -122,10 +126,9 @@ const Navigation = ({ className }) => {
         }}
       >
         <Nav>
-          <Menu>
-            <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
-            Menu
-          </Menu>
+          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+
+          <Menu>Menu</Menu>
 
           <StyledLink to="/">Introduction</StyledLink>
           <StyledLink to="/">Opportunities</StyledLink>
@@ -135,10 +138,9 @@ const Navigation = ({ className }) => {
       </div>
       <AnimatedNavContainer style={{ opacity: isShowing ? '1' : '0' }}>
         <AnimatedNav>
-          <Menu>
-            <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
-            Menu
-          </Menu>
+          <Img src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16" />
+
+          <Menu>Menu</Menu>
           <StyledLink to="/">Introduction</StyledLink>
           <StyledLink to="/">Opportunities</StyledLink>
           <StyledLink to="/">Contact us</StyledLink>
