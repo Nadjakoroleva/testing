@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Parallax } from 'react-parallax';
 
+import Navigation from './nav';
+
 import { Background, Container } from './layoutComponents';
 
 const PARALLAX_IMAGE_SRC =
@@ -15,74 +17,7 @@ const InnerConatiner = styled.div`
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-rows: 5% 15% 80%;
-`;
-
-const Menu = styled.a`
-  display: block;
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const AnimatedNav = styled.div`
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  background-color: var(--lightBlack);
-  color: var(--white);
-  top: 0;
-  left: 0;
-  animation: opacity 4s ease-in;
-  padding-bottom: 14px;
-  padding-left: 20px;
-  padding-right: 20px;
-  @media (min-width: 768px) {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  @media (min-width: 1024px) {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-  @media (min-width: 1024px) {
-    padding-left: 64px;
-    padding-right: 64px;
-  }
-  @keyframes opacity {
-    0% {
-      opacity: 0;
-    }
-    30% {
-      opacity: 0.4;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`;
-
-const StyledLink = styled(Link)`
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-    margin-right: 25px;
-    position: relative;
-    &:after {
-      position: absolute;
-      top: 15px;
-      left: 0;
-      content: '';
-      background-color: transparent;
-      width: 1px;
-      height: 1px;
-      transition: width 0.3s ease-in-out;
-    }
-    &:hover:after {
-      background-color: var(--white);
-      width: 100%;
-    }
-  }
+  grid-template-rows: 35 65%;
 `;
 
 const Job = styled.div`
@@ -98,38 +33,6 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
-`;
-
-const StyledEmail = styled(Link)`
-  margin-left: auto;
-  position: relative;
-  &:after {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    content: '';
-    background-color: transparent;
-    width: 1px;
-    height: 1px;
-    transition: width 0.3s ease-in-out;
-  }
-  &:hover:after {
-    background-color: var(--white);
-    width: 100%;
-  }
-`;
-
-const Img = styled.img``;
-
-const Nav = styled.nav`
-  display: flex;
-  padding-top: 16px;
-  font-family: Arrival Mono;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
 `;
 
 const Grid = styled.div`
@@ -292,23 +195,10 @@ const Header = ({ className }) => {
     return windowSize;
   }
 
-  const logoPadding = {
-    paddingTop: `${ratio.x * ratio.numForPaddingTop}px`
-  };
-
   const gridPadding = {
     paddingBottom: `${ratio.x * ratio.numForPaddingBottom}px`
   };
 
-  const [isShowing, setShowing] = useState(false);
-  useEffect(() => {
-    function handleScroll() {
-      setShowing(window.scrollY > 32);
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   return (
     <div className={className}>
       <Background>
@@ -319,35 +209,7 @@ const Header = ({ className }) => {
         >
           <Container>
             <InnerConatiner>
-              <div
-                style={{
-                  position: 'relative',
-                  zIndex: '10',
-                  backgroundColor: 'transparent'
-                }}
-              >
-                <Nav>
-                  <Menu>Menu</Menu>
-                  <StyledLink to="/">Introduction</StyledLink>
-                  <StyledLink to="/">Opportunities</StyledLink>
-                  <StyledLink to="/">Contact us</StyledLink>
-                  <StyledEmail to="/">john@inbox.com</StyledEmail>
-                </Nav>
-              </div>
-              <AnimatedNav style={{ opacity: isShowing ? '1' : '0' }}>
-                <Nav>
-                  <Menu>Menu</Menu>
-                  <StyledLink to="/">Introduction</StyledLink>
-                  <StyledLink to="/">Opportunities</StyledLink>
-                  <StyledLink to="/">Contact us</StyledLink>
-                  <StyledEmail to="/">john@inbox.com</StyledEmail>
-                </Nav>
-              </AnimatedNav>
-
-              <Img
-                style={logoPadding}
-                src="https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16"
-              />
+              <Navigation />
 
               <Grid style={gridPadding}>
                 <FirstColumn>

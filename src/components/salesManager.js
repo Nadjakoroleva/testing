@@ -13,7 +13,10 @@ const JobTitle = styled.p`
 `;
 
 const Text = styled.h4`
-  color: #23262c;
+  color: var(--lightBlack);
+  font-size: 20px;
+  line-height: 32px;
+  padding-top: 32px;
   @media (min-width: 1024px) {
     padding-right: 20px;
   }
@@ -27,7 +30,7 @@ const Text = styled.h4`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   @media (max-width: 370px) {
     grid-template-rows: 1fr 0fr;
   }
@@ -46,7 +49,7 @@ const Grid = styled.div`
 const TextColumn = styled.div`
   grid-column: 1/5;
   align-self: end;
-  padding-bottom: 32px;
+  padding-bottom: 30px;
   @media (min-width: 768px) {
     padding-bottom: 64px;
   }
@@ -121,7 +124,9 @@ const Wrapper = styled.div`
 
 const StyledH1 = styled.h1`
   color: #23262c;
-  padding-top: 8px;
+  padding-top: 5px;
+  font-size: 36px;
+  line-height: 48px;
   @media (min-width: 768px) {
     font-size: 44px;
     line-height: 56px;

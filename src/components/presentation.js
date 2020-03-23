@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import SlideForMobile from '../components/slideForMob';
 import Slider from '../components/slider';
 
 import { Container } from '../components/layoutComponents';
@@ -15,68 +14,15 @@ const DOWNLOAD_SVG =
 const SLIDE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840';
 
-const Display = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-  }
-`;
-
-const DisplaySlideForMobile = styled.div`
-  display: block;
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
 const ComponentContainer = styled.div``;
-
-const Line = styled.div`
-  width: 100%;
-  background-color: var(--grey);
-  height: 1px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-`;
-
-const LineContainer = styled.div``;
 
 const ContainerInner = styled.div`
   background-image: url(${SLIDE_SRC});
   background-size: cover;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-top: 232px;
+  padding: 32px;
   cursor: pointer;
-
   @media (min-width: 768px) {
     padding-top: 632px;
-  }
-`;
-
-const FirstSlide = styled.div`
-  padding-left: 24px;
-  position: relative;
-  z-index: 1;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 31, 34, 0.7) 0%,
-      rgba(30, 31, 34, 0) 43.23%,
-      rgba(30, 31, 34, 0) 72.92%,
-      rgba(30, 31, 34, 0.7) 100%
-    );
-  }
-  @media (min-width: 1024px) {
-    padding-left: 64px;
   }
 `;
 
@@ -101,20 +47,11 @@ const Slide = styled.div`
   }
 `;
 
-const Download = styled.a`
-  color: var(--white);
-  font-family: Arrival Mono;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
+const FirstSlide = styled(Slide)`
+  padding-left: 24px;
+  @media (min-width: 1024px) {
+    padding-left: 64px;
+  }
 `;
 
 const Paragraph = styled.div`
@@ -157,7 +94,6 @@ const Text = styled.p`
   letter-spacing: 0.02em;
   color: var(--white);
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   position: relative;
   z-index: 3;
 `;
@@ -171,16 +107,45 @@ const Button = styled.button`
   text-transform: uppercase;
   color: #23262c;
   padding: 24px 36px 24px 32px;
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  background-color: var(--white);
   transition: background-color 0.3s ease-in-out;
   position: relative;
   z-index: 3;
   &:hover {
     background-color: #cecfd0;
+  }
+`;
+
+const Download = styled.a`
+  color: var(--white);
+  padding: 24px 36px 24px 32px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: Arrival Mono;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+`;
+
+const ContainerBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 243px;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
   }
 `;
 
@@ -190,9 +155,8 @@ const Presentation = () => {
   function showSlides() {
     if (size > 1024) {
       return 2.1;
-    } else {
-      return 1.3;
     }
+    return 1.07;
   }
 
   const ratio = settingXRatio();
@@ -201,31 +165,31 @@ const Presentation = () => {
       return {
         x: 32,
         numForPadding: 2,
-        paddingForContainer: 4
+        paddingForContainer: 3
       };
     } else if (size >= 1365) {
       return {
         x: 24,
         numForPadding: 2,
-        paddingForContainer: 4
+        paddingForContainer: 3
       };
     } else if (size >= 1023) {
       return {
         x: 24,
         numForPadding: 2,
-        paddingForContainer: 4
+        paddingForContainer: 3
       };
     } else if (size >= 767) {
       return {
         x: 32,
         numForPadding: 2,
-        paddingForContainer: 4
+        paddingForContainer: 2
       };
     } else if (size >= 374) {
       return {
         x: 32,
         numForPadding: 2,
-        paddingForContainer: 4
+        paddingForContainer: 2
       };
     }
     return {
@@ -273,10 +237,7 @@ const Presentation = () => {
   return (
     <ComponentContainer style={paddingBottomForContainer}>
       <Container>
-        <LineContainer style={paddingTopForContainer}>
-          <Line />
-        </LineContainer>
-        <Paragraph>
+        <Paragraph style={paddingTopForContainer}>
           <div>
             <h4>
               <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
@@ -287,94 +248,61 @@ const Presentation = () => {
             </h4>
           </div>
         </Paragraph>
-        <DisplaySlideForMobile>
-          <SlideForMobile />
-          <SlideForMobile />
-        </DisplaySlideForMobile>
       </Container>
 
-      <Display>
-        <Slider slidesToShow={slidesToShow}>
-          <FirstSlide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src={ARROW_SVG}
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img style={{ paddingLeft: '17px' }} src={DOWNLOAD_SVG}></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </FirstSlide>
-          <Slide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src={ARROW_SVG}
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img style={{ paddingLeft: '17px' }} src={DOWNLOAD_SVG}></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </Slide>
-          <Slide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src={ARROW_SVG}
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img style={{ paddingLeft: '17px' }} src={DOWNLOAD_SVG}></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </Slide>
-        </Slider>
-      </Display>
+      <Slider slidesToShow={slidesToShow}>
+        <FirstSlide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <ContainerBtn>
+              <Download>
+                Download <img src={DOWNLOAD_SVG}></img>
+              </Download>
+              <Button>
+                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
+                <img
+                  style={{ position: 'relative', top: '-1px' }}
+                  src={ARROW_SVG}
+                ></img>
+              </Button>
+            </ContainerBtn>
+          </ContainerInner>
+        </FirstSlide>
+        <Slide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <ContainerBtn>
+              <Download>
+                Download <img src={DOWNLOAD_SVG}></img>
+              </Download>
+              <Button>
+                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
+                <img
+                  style={{ position: 'relative', top: '-1px' }}
+                  src={ARROW_SVG}
+                ></img>
+              </Button>
+            </ContainerBtn>
+          </ContainerInner>
+        </Slide>
+        <Slide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <ContainerBtn>
+              <Download>
+                Download <img src={DOWNLOAD_SVG}></img>
+              </Download>
+              <Button>
+                <span style={{ paddingRight: '30px' }}>View presentation</span>{' '}
+                <img
+                  style={{ position: 'relative', top: '-1px' }}
+                  src={ARROW_SVG}
+                ></img>
+              </Button>
+            </ContainerBtn>
+          </ContainerInner>
+        </Slide>
+      </Slider>
     </ComponentContainer>
   );
 };
