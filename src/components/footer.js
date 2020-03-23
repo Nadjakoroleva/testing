@@ -1,27 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from './layoutComponents';
 
-const Footer = ({ className }) => (
-  <footer className={className}>
-    <Container>
-      <Grid>
-        <LinksContainer>
-          <Link href="">Privacy policy</Link>
-          <Link href="">info@ARRIVAL.COM</Link>
-          <Display>
-            <Link>/</Link>
-          </Display>
-          <Link href="">Twitter</Link>
-          <Link href="">Facebook</Link>
-          <Link href="">Linkedin</Link>
-          <Link href="">Instagram</Link>
-        </LinksContainer>
-        <Copyright>©2020 Arrival Ltd. All rights reserved.</Copyright>
-      </Grid>
-    </Container>
-  </footer>
-);
+import { Container } from './layoutComponents';
 
 const Grid = styled.div`
   padding-top: 28px;
@@ -112,8 +92,26 @@ const Link = styled.a`
     padding-top: 0;
   }
 `;
-const StyledFooter = styled(Footer)`
-  background-color: #0f1011;
-`;
 
-export default StyledFooter;
+const Footer = ({ className }) => (
+  <footer className={className}>
+    <Container>
+      <Grid>
+        <LinksContainer>
+          <Link href="">Privacy policy</Link>
+          <Link href="">info@ARRIVAL.COM</Link>
+          <Display>
+            <Link>/</Link>
+          </Display>
+          <Link href="">Twitter</Link>
+          <Link href="">Facebook</Link>
+          <Link href="">Linkedin</Link>
+          <Link href="">Instagram</Link>
+        </LinksContainer>
+        <Copyright>©2020 Arrival Ltd. All rights reserved.</Copyright>
+      </Grid>
+    </Container>
+  </footer>
+);
+
+export default Footer;

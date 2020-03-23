@@ -1,48 +1,178 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Container } from '../components/layoutComponents';
-import SlideForMobile from '../components/slideForMob';
 
 import Slider from '../components/slider';
 
-var x;
-var numForPadding;
-var paddingForContainer;
-if (typeof window !== 'undefined') {
-  if (window.innerWidth >= 1679) {
-    x = 32;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 1365) {
-    x = 24;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 1023) {
-    x = 24;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  } else if (window.innerWidth >= 374) {
-    x = 32;
-    numForPadding = 2;
-    paddingForContainer = 4;
-  }
-}
+import { Container } from '../components/layoutComponents';
 
-// const theme = {
-//   numForPadding: `${x * numForPadding}px`,
-//   paddingForContainer: `${x * paddingForContainer}px`
-// };
+const DOWNLOAD_SVG =
+  'https://images.ctfassets.net/r0lccig03c53/1hgReEnU8us6XvgxvzPLyV/64d0c95a71bc456b4c1d90c2bf6a8cc2/Arrow_Fw.svg?h=16';
+
+const SLIDE_SRC =
+  'https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840';
+
+const ComponentContainer = styled.div``;
+
+const ContainerInner = styled.div`
+  background-image: url(${SLIDE_SRC});
+  background-size: cover;
+  padding: 385px 32px 32px 32px;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    padding: 590px 64px 64px 64px;
+  }
+  @media (min-width: 1680px) {
+    padding: 670px 64px 64px 64px;
+  }
+`;
+
+const Slide = styled.div`
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 31, 34, 0.7) 0%,
+      rgba(30, 31, 34, 0) 43.23%,
+      rgba(30, 31, 34, 0) 72.92%,
+      rgba(30, 31, 34, 0.7) 100%
+    );
+  }
+`;
+
+const FirstSlide = styled(Slide)`
+  padding-left: 24px;
+  @media (min-width: 1024px) {
+    padding-left: 64px;
+  }
+`;
+
+const Paragraph = styled.div`
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-bottom: 32px;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(9, 1fr);
+    & div {
+      grid-column: 1/10;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-bottom: 48px;
+    & div {
+      grid-column: 1/8;
+    }
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(16, 1fr);
+    & div {
+      grid-column: 1/10;
+    }
+  }
+  @media (min-width: 1680px) {
+    padding-bottom: 64px;
+    & div {
+      grid-column: 1/11;
+    }
+  }
+`;
+
+const Text = styled.p`
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  padding-bottom: 32px;
+  position: relative;
+  z-index: 3;
+`;
+
+const Download = styled.a`
+  display: flex;
+  color: var(--white);
+  font-family: Arrival Mono;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+`;
+
+const Img = styled.img`
+  padding-left: 12px;
+  position: relative;
+  top: -1px;
+`;
 
 const Presentation = () => {
-  // считаем сколько слайдов показывать
   const size = useWindowSize().width;
   const slidesToShow = showSlides();
   function showSlides() {
-    if (size > 1024) {
-      return 2.1;
-    } else {
+    if (size > 1365) {
+      return 2.2;
+    }
+    if (size > 1023) {
+      return 1.5;
+    }
+    if (size > 767) {
       return 1.3;
     }
+    return 1.07;
+  }
+
+  const ratio = settingXRatio();
+  function settingXRatio() {
+    if (size >= 1679) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 3
+      };
+    } else if (size >= 1365) {
+      return {
+        x: 24,
+        numForPadding: 2,
+        paddingForContainer: 3
+      };
+    } else if (size >= 1023) {
+      return {
+        x: 24,
+        numForPadding: 3,
+        paddingForContainer: 3
+      };
+    } else if (size >= 767) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 2
+      };
+    } else if (size >= 374) {
+      return {
+        x: 32,
+        numForPadding: 2,
+        paddingForContainer: 2
+      };
+    }
+    return {
+      x: 32,
+      numForPadding: 3,
+      paddingForContainer: 2
+    };
   }
   function useWindowSize() {
     const isClient = typeof window === 'object';
@@ -71,13 +201,19 @@ const Presentation = () => {
 
     return windowSize;
   }
+
+  const paddingTopForContainer = {
+    paddingTop: `${ratio.x * ratio.numForPadding}px`
+  };
+
+  const paddingBottomForContainer = {
+    paddingBottom: `${ratio.x * ratio.paddingForContainer}px`
+  };
+
   return (
-    <ComponentContainer>
+    <ComponentContainer style={paddingBottomForContainer}>
       <Container>
-        <LineContainer>
-          <Line />
-        </LineContainer>
-        <Paragraph>
+        <Paragraph style={paddingTopForContainer}>
           <div>
             <h4>
               <span style={{ color: 'var(--grey)' }}>Presentations.</span>{' '}
@@ -88,289 +224,36 @@ const Presentation = () => {
             </h4>
           </div>
         </Paragraph>
-        <DisplaySlideForMobile>
-          <SlideForMobile />
-          <SlideForMobile />
-        </DisplaySlideForMobile>
       </Container>
 
-      <Display>
-        <Slider slidesToShow={slidesToShow}>
-          <FirstSlide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img
-                    style={{ paddingLeft: '17px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                  ></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </FirstSlide>
-          <Slide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img
-                    style={{ paddingLeft: '17px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                  ></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </Slide>
-          <Slide>
-            <ContainerInner>
-              <Text>UPS & Arrival opportunity</Text>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Button>
-                  <span style={{ paddingRight: '30px' }}>
-                    View presentation
-                  </span>{' '}
-                  <img
-                    style={{ position: 'relative', top: '-1px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/5yGknuw2gHOUSNjUe3u5sJ/0c85b029b3691a2734b709cab01b33f1/Polygon_1__Stroke_.svg?h=8"
-                  ></img>
-                </Button>
-                <Download>
-                  Download{' '}
-                  <img
-                    style={{ paddingLeft: '17px' }}
-                    src="https://images.ctfassets.net/r0lccig03c53/60KNcoS4SGIf3YVYitICin/027e75fb1f071c02576c813a00a88b6f/Download__Alt_.svg?h=16"
-                  ></img>
-                </Download>
-              </div>
-            </ContainerInner>
-          </Slide>
-        </Slider>
-      </Display>
+      <Slider slidesToShow={slidesToShow}>
+        <FirstSlide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
+          </ContainerInner>
+        </FirstSlide>
+        <Slide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
+          </ContainerInner>
+        </Slide>
+        <Slide>
+          <ContainerInner>
+            <Text>UPS & Arrival opportunity</Text>
+            <Download>
+              View presentation <Img src={DOWNLOAD_SVG} />
+            </Download>
+          </ContainerInner>
+        </Slide>
+      </Slider>
     </ComponentContainer>
   );
 };
-
-const Display = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-  }
-`;
-
-const DisplaySlideForMobile = styled.div`
-  display: block;
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-const ComponentContainer = styled.div`
-  padding-bottom: 128px;
-  @media (min-width: 1024px) {
-    padding-bottom: 96px;
-  }
-  @media (min-width: 1680px) {
-    padding-bottom: 128px;
-  }
-`;
-
-const Line = styled.div`
-  width: 100%;
-  background-color: var(--grey);
-  height: 1px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-`;
-
-const LineContainer = styled.div`
-  padding-top: 64px;
-  @media (min-width: 768px) {
-    padding-top: 48px;
-  }
-  @media (min-width: 1680px) {
-    padding-top: 64px;
-  }
-`;
-
-const ContainerInner = styled.div`
-  background-image: url(https://images.ctfassets.net/r0lccig03c53/UorbsmhA9QBUbabgwGaxM/a140c144d6fa147eb7e6aa4b5f103579/image_116.jpg?h=840);
-  background-size: cover;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-top: 232px;
-  cursor: pointer;
-
-  @media (min-width: 768px) {
-    padding-top: 632px;
-  }
-`;
-
-const FirstSlide = styled.div`
-  padding-left: 24px;
-  position: relative;
-  z-index: 1;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 31, 34, 0.7) 0%,
-      rgba(30, 31, 34, 0) 43.23%,
-      rgba(30, 31, 34, 0) 72.92%,
-      rgba(30, 31, 34, 0.7) 100%
-    );
-  }
-  @media (min-width: 1024px) {
-    padding-left: 64px;
-  }
-`;
-
-const Slide = styled.div`
-  position: relative;
-  z-index: 1;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      rgba(30, 31, 34, 0.7) 0%,
-      rgba(30, 31, 34, 0) 43.23%,
-      rgba(30, 31, 34, 0) 72.92%,
-      rgba(30, 31, 34, 0.7) 100%
-    );
-  }
-`;
-
-const Download = styled.a`
-  color: var(--white);
-  font-family: Arrival Mono;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-`;
-
-const Paragraph = styled.div`
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 0.02em;
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-bottom: 64px;
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(9, 1fr);
-    & div {
-      grid-column: 1/10;
-    }
-  }
-  @media (min-width: 1024px) {
-    & div {
-      grid-column: 1/8;
-    }
-  }
-  @media (min-width: 1280px) {
-    grid-template-columns: repeat(16, 1fr);
-    & div {
-      grid-column: 1/10;
-    }
-  }
-  @media (min-width: 1680px) {
-    padding-bottom: 64px;
-    & div {
-      grid-column: 1/11;
-    }
-  }
-`;
-
-const Text = styled.p`
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 32px;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  position: relative;
-  z-index: 3;
-`;
-
-const Button = styled.button`
-  font-family: Arrival Mono;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: #23262c;
-  padding: 24px 36px 24px 32px;
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  position: relative;
-  z-index: 3;
-  &:hover {
-    background-color: #cecfd0;
-  }
-`;
 
 export default Presentation;

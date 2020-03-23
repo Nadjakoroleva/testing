@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     --grey:rgba(255, 255, 255, 0.6);
     --white: #F3F3F3;
     --black: #383838;
+    --lightBlack: #1e1f22;
   }
   * {
     box-sizing: border-box;
@@ -35,6 +36,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arrival;
     font-weight: 300;
     }
+  }
+  .parallax img {
+    object-fit: cover !important;
+    object-position: 90% 10%;
   }
   a {
     text-decoration: none;
@@ -330,12 +335,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 28px;
     line-height: 36px;
     letter-spacing: 0.02em;
-    @media (min-width: 768px) {
-      h3 {
-        font-size: 36px;
-        line-height: 48px;
-      }
-    }
+    
   }
   h4 {
     margin-left: 0;
