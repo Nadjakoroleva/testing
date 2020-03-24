@@ -96,9 +96,7 @@ const StyledLink = styled(Link)`
 
 const Img = styled.img`
   transform-origin: center center;
-  & img {
-    height: 20px;
-  }
+  height: 20px;
   @media (min-width: 1024px) {
     margin-right: 60px;
   }
