@@ -12,6 +12,9 @@ import { Background, Container } from './layoutComponents';
 const PARALLAX_IMAGE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
 
+const PARALLAX_IMAGE_MOB =
+  'https://images.ctfassets.net/r0lccig03c53/hPdj6BWGzolQcXv0pSYVq/98525821d91288a6996cf2bdc60bc192/imageForMobile.jpg';
+
 const PHOTO_SRC =
   'https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png';
 
@@ -200,7 +203,7 @@ const Header = ({ className }) => {
       <Background>
         <Parallax
           className={'parallax'}
-          bgImage={PARALLAX_IMAGE_SRC}
+          bgImage={size > 768 ? PARALLAX_IMAGE_SRC : PARALLAX_IMAGE_MOB}
           strength={300}
         >
           <Container>
