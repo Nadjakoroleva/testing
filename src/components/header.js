@@ -199,7 +199,7 @@ const Header = ({ className }) => {
   };
 
   return (
-    <div className={className}>
+    <div>
       <Background>
         <Parallax
           className={'parallax'}

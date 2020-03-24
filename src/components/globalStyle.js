@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   .parallax img {
     object-fit: cover !important;
-    object-position: 90% 100%;
+    object-position: 100% 100%;
   }
   a {
     text-decoration: none;
