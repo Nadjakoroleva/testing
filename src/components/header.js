@@ -203,7 +203,7 @@ const Header = ({ className }) => {
       <Background>
         <Parallax
           className={'parallax'}
-          bgImage={size > 768 ? PARALLAX_IMAGE_SRC : PARALLAX_IMAGE_MOB}
+          bgImage={size > 768 ? PARALLAX_IMAGE_SRC : PARALLAX_IMAGE_SRC}
           strength={300}
         >
           <Container>

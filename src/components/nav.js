@@ -11,7 +11,7 @@ const LOGO =
   'https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16';
 
 const ASTERIX =
-  'https://images.ctfassets.net/r0lccig03c53/2OSxVKQISjKTie8AKOCzPN/a948f1de125c3cc835ed2886836321e7/asterix.svg?h=33';
+  'https://images.ctfassets.net/r0lccig03c53/2OSxVKQISjKTie8AKOCzPN/a948f1de125c3cc835ed2886836321e7/asterix.svg?h=20';
 
 const StyledEmail = styled(Link)`
   margin-left: auto;
@@ -96,6 +96,9 @@ const StyledLink = styled(Link)`
 
 const Img = styled.img`
   transform-origin: center center;
+  & img {
+    height: 20px;
+  }
   @media (min-width: 1024px) {
     margin-right: 60px;
   }
@@ -117,7 +120,7 @@ const Nav = styled.nav`
 
 const AnimatedNav = styled(Nav)`
   padding-top: 16px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 `;
 
 const Navigation = ({ animation }) => {
