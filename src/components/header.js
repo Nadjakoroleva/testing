@@ -29,6 +29,10 @@ const Job = styled.div`
   line-height: 28px;
   letter-spacing: 0.02em;
   color: var(--grey);
+  padding-left: 32px;
+  @media (min-width: 1024px) {
+    padding-right: 32px;
+  }
 `;
 
 const Name = styled.p`
@@ -36,6 +40,10 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
+  padding-left: 32px;
+  @media (min-width: 1024px) {
+    padding-right: 32px;
+  }
 `;
 
 const Grid = styled.div`
@@ -83,36 +91,25 @@ const FirstColumn = styled.div`
 `;
 
 const SecondColumn = styled.div`
-  grid-column: 2/3;
+  grid-column: 1/3;
   text-align: left;
   align-self: end;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-end;
   @media (min-width: 768px) {
-    grid-column: 2/5;
+    grid-column: 1/5;
   }
   @media (min-width: 1024px) {
-    grid-column: 7/9;
+    flex-direction: row;
+    grid-column: 7/10;
     align-self: end;
     justify-self: end;
     text-align: right;
   }
   @media (min-width: 1366px) {
-    grid-column: 14/16;
-    padding-right: 15px;
-  }
-`;
-
-const ThirdColumn = styled.div`
-  grid-column: 1/2;
-  grid-row: 2/3;
-  align-self: end;
-  @media (min-width: 1024px) {
-    grid-column: 9/10;
-    align-self: end;
-    justify-self: end;
-    grid-row: 1;
-  }
-  @media (min-width: 1366px) {
-    grid-column: 16/17;
+    grid-column: 13/17;
   }
 `;
 
@@ -121,10 +118,6 @@ const StyledH3Name = styled.h3`
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
-  }
-  @media (min-width: 1680px) {
-    font-size: 44px;
-    line-height: 56px;
   }
 `;
 
@@ -208,7 +201,7 @@ const Header = ({ className }) => {
         <Parallax
           className={'parallax'}
           bgImage={PARALLAX_IMAGE_SRC}
-          strength={500}
+          strength={300}
         >
           <Container>
             <InnerConatiner>
@@ -224,15 +217,15 @@ const Header = ({ className }) => {
                   </StyledH3>
                 </FirstColumn>
                 <SecondColumn>
-                  <Name>Mike Ableson</Name>
-                  <Job>Your sales manager</Job>
-                </SecondColumn>
-                <ThirdColumn>
+                  <div>
+                    <Name>Mike Ableson</Name>
+                    <Job>Your sales manager</Job>
+                  </div>
                   <img
                     style={{ width: '64px', height: '80px' }}
                     src={PHOTO_SRC}
                   />
-                </ThirdColumn>
+                </SecondColumn>
               </Grid>
             </InnerConatiner>
           </Container>

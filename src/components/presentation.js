@@ -28,7 +28,26 @@ const ContainerInner = styled.div`
 
 const Slide = styled.div`
   position: relative;
+  cursor: pointer;
   z-index: 1;
+
+  &:hover::before {
+    opacity: 0.3;
+    visibility: visible;
+  }
+  &::before {
+    transition: opacity 0.3s ease-in;
+    content: '';
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: black;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -48,9 +67,9 @@ const Slide = styled.div`
 `;
 
 const FirstSlide = styled(Slide)`
-  padding-left: 24px;
+  margin-left: 24px;
   @media (min-width: 1024px) {
-    padding-left: 64px;
+    margin-left: 64px;
   }
 `;
 
@@ -97,6 +116,10 @@ const Text = styled.p`
   padding-bottom: 32px;
   position: relative;
   z-index: 3;
+  @media (min-width: 1024px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
 `;
 
 const Download = styled.a`
