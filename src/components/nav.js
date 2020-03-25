@@ -156,7 +156,7 @@ const Navigation = ({ animation }) => {
         }}
       >
         <Nav className={isShowing ? 'dissapearingNav' : 'opacity'}>
-          <Img src={LOGO} />
+          <Img style={{ height: '16px' }} src={LOGO} />
           <Menu>
             Menu{' '}
             <img
