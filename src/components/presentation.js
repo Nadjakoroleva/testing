@@ -237,21 +237,28 @@ const Presentation = () => {
   // анимация по скроллу
 
   const [scrollY, setScrollY] = useState(0);
-  const element = React.useRef();
+  const element = document.getElementById('element');
 
-  // const top = element.current.getBoundingClientRect().top;
-  console.log(element);
-
+  // получаем текущую позицию скролла
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  console.log(scrollY);
+  useEffect(() => {
+    const handleResizeForTopPosition = () => {
+      console.log(element.offsetTop);
+    };
+
+    window.addEventListener('resize', handleResizeForTopPosition);
+    return () =>
+      window.removeEventListener('resize', handleResizeForTopPosition);
+  }, []);
 
   return (
-    <ComponentContainer ref={element} style={paddingBottomForContainer}>
+    <ComponentContainer id={'element'} style={paddingBottomForContainer}>
       <Container>
         <Paragraph style={paddingTopForContainer}>
           <div>

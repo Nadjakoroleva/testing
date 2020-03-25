@@ -209,7 +209,6 @@ const SalesManager = () => {
   const paddingForJobTitle = {
     paddingTop: `${ratio.x * ratio.numForJobTitle}px`
   };
-  console.log(ratio.numForJobTitle);
 
   return (
     <div>
