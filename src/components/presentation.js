@@ -236,26 +236,27 @@ const Presentation = () => {
 
   // анимация по скроллу
 
-  const [scrollY, setScrollY] = useState(0);
-  const element = document.getElementById('element');
+  // const [scrollY, setScrollY] = useState(0);
+  // const element = document.getElementById('element');
 
-  // получаем текущую позицию скролла
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+  // // получаем текущую позицию скролла
+  // useEffect(() => {
+  //   const handleScroll = () => setScrollY(window.scrollY);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
-  useEffect(() => {
-    const handleResizeForTopPosition = () => {
-      console.log(element.offsetTop);
-    };
+  // useEffect(() => {
+  //   console.log(element.offsetTop);
+  //   const handleResizeForTopPosition = () => {
+  //     console.log(element.offsetTop);
+  //   };
 
-    window.addEventListener('resize', handleResizeForTopPosition);
-    return () =>
-      window.removeEventListener('resize', handleResizeForTopPosition);
-  }, []);
+  //   window.addEventListener('resize', handleResizeForTopPosition);
+  //   return () =>
+  //     window.removeEventListener('resize', handleResizeForTopPosition);
+  // }, []);
 
   return (
     <ComponentContainer id={'element'} style={paddingBottomForContainer}>
