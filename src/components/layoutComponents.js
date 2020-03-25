@@ -11,7 +11,7 @@ export const opacity = keyframes`
 
 export const Background = styled.div`
   animation-name: ${opacity};
-  animation-duration: 1s;
+  animation-duration: 3s;
   animation-timing-function: ease-in-out;
   &::after {
     content: '';
