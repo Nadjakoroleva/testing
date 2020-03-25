@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
 import styles from './styles.css';
@@ -12,6 +12,15 @@ const LOGO =
 
 const ASTERIX =
   'https://images.ctfassets.net/r0lccig03c53/2OSxVKQISjKTie8AKOCzPN/a948f1de125c3cc835ed2886836321e7/asterix.svg?h=20';
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const StyledEmail = styled(Link)`
   margin-left: auto;
@@ -38,7 +47,7 @@ const StyledEmail = styled(Link)`
 
 const AnimatedNavContainer = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 20;
   width: 100%;
   background-color: var(--lightBlack);
   color: var(--white);
@@ -95,6 +104,9 @@ const StyledLink = styled(Link)`
 `;
 
 const Img = styled.img`
+  animation-name: ${opacity};
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   transform-origin: center center;
   height: 20px;
   @media (min-width: 1024px) {
@@ -103,6 +115,9 @@ const Img = styled.img`
 `;
 
 const Nav = styled.nav`
+  animation-name: ${opacity};
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,7 +155,7 @@ const Navigation = ({ animation }) => {
           backgroundColor: 'transparent'
         }}
       >
-        <Nav className={isShowing ? 'dissapearingNav' : 'animatedNav'}>
+        <Nav className={isShowing ? 'dissapearingNav' : 'opacity'}>
           <Img src={LOGO} />
           <Menu>
             Menu{' '}
@@ -157,7 +172,7 @@ const Navigation = ({ animation }) => {
         </Nav>
       </div>
       <AnimatedNavContainer
-        className={isShowing ? 'animatedNav' : 'dissapearingNav'}
+        className={isShowing ? 'opacity' : 'dissapearingNav'}
       >
         <AnimatedNav>
           <Img className={isShowing ? 'rotation' : ''} src={ASTERIX} />

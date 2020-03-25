@@ -2,10 +2,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
 
 import Navigation from './nav';
+
+import styles from './styles.css';
 
 import { Background, Container } from './layoutComponents';
 
@@ -17,6 +19,15 @@ const PARALLAX_IMAGE_MOB =
 
 const PHOTO_SRC =
   'https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png';
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const InnerConatiner = styled.div`
   min-height: 100vh;
@@ -74,6 +85,9 @@ const Grid = styled.div`
 `;
 
 const FirstColumn = styled.div`
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
   grid-column: 1/3;
   align-self: end;
   padding-bottom: 24px;
@@ -94,6 +108,9 @@ const FirstColumn = styled.div`
 `;
 
 const SecondColumn = styled.div`
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
   grid-column: 1/3;
   text-align: left;
   align-self: end;
@@ -118,6 +135,7 @@ const SecondColumn = styled.div`
 
 const StyledH3Name = styled.h3`
   color: var(--grey);
+
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
@@ -126,6 +144,12 @@ const StyledH3Name = styled.h3`
 
 const StyledH3 = styled(StyledH3Name)`
   color: var(--white);
+`;
+
+const Img = styled.img`
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
 `;
 
 const Header = ({ className }) => {
@@ -224,7 +248,7 @@ const Header = ({ className }) => {
                     <Name>Mike Ableson</Name>
                     <Job>Your sales manager</Job>
                   </div>
-                  <img
+                  <Img
                     style={{ width: '64px', height: '80px' }}
                     src={PHOTO_SRC}
                   />

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* global window */
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import Slider from '../components/slider';
@@ -233,8 +234,24 @@ const Presentation = () => {
     paddingBottom: `${ratio.x * ratio.paddingForContainer}px`
   };
 
+  // анимация по скроллу
+
+  const [scrollY, setScrollY] = useState(0);
+  const element = React.useRef();
+
+  // const top = element.current.getBoundingClientRect().top;
+  console.log(element);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  console.log(scrollY);
+
   return (
-    <ComponentContainer style={paddingBottomForContainer}>
+    <ComponentContainer ref={element} style={paddingBottomForContainer}>
       <Container>
         <Paragraph style={paddingTopForContainer}>
           <div>
