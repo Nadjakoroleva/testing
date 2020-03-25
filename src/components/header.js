@@ -12,7 +12,7 @@ import styles from './styles.css';
 import { Background, Container } from './layoutComponents';
 
 const PARALLAX_IMAGE_SRC =
-  'https://images.ctfassets.net/r0lccig03c53/6BlIMSD9TglRaXLitEnXJL/cc10593e02c6b9df9253cd053a012816/1920_2x_img.jpg';
+  'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
 
 const PARALLAX_IMAGE_MOB =
   'https://images.ctfassets.net/r0lccig03c53/hPdj6BWGzolQcXv0pSYVq/98525821d91288a6996cf2bdc60bc192/imageForMobile.jpg';
