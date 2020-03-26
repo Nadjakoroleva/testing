@@ -9,7 +9,7 @@ import Navigation from './nav';
 
 import styles from './styles.css';
 
-import { Background, Container } from './layoutComponents';
+import { BackgroundGradient, Container } from './layoutComponents';
 
 const PARALLAX_IMAGE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
@@ -161,37 +161,49 @@ const Header = ({ className }) => {
       return {
         x: 32,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/6r4zpRt81dVwxIxiwCQdIJ/985057e96b55e2112ccaf1c120da43dd/1920_2x_img.jpg'
       };
     } else if (size >= 1365) {
       return {
         x: 24,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/1iLR5hFLMKwDt0kGmbYhPB/3d9b9af6388e9971f059b04dbd7e6199/img1_1365_2x.jpg'
       };
     } else if (size >= 1023) {
       return {
         x: 24,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/61UyMJZfXJ9vp3YqqS7vkb/df78c67c40efab4e6d9cbdbe66b45ef0/img1_1024_2x.jpg'
       };
     } else if (size >= 767) {
       return {
         x: 32,
         numForPaddingTop: 2,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/3Kor3mO7nzn8f2m24zCpae/f8daceac53c57ee9219a3361137a712b/768.jpg'
       };
     } else if (size >= 374) {
       return {
         x: 32,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/4AUWUWFdU7h1Cp3jpl68gb/7e46b2165b86baafa36f1c6b669c6951/375.jpg'
       };
     }
     return {
       x: 32,
       numForPaddingTop: 3,
-      numForPaddingBottom: 2
+      numForPaddingBottom: 2,
+      imageSrc:
+        'https://images.ctfassets.net/r0lccig03c53/4AUWUWFdU7h1Cp3jpl68gb/7e46b2165b86baafa36f1c6b669c6951/375.jpg'
     };
   }
 
@@ -224,10 +236,11 @@ const Header = ({ className }) => {
 
   return (
     <div>
-      <Background>
+      <BackgroundGradient>
         <Parallax
           className={'parallax'}
-          bgImage={PARALLAX_IMAGE_SRC}
+          bgImage={ratio.imageSrc}
+          bgImageAlt="Main Image"
           strength={300}
         >
           <Container>
@@ -257,7 +270,7 @@ const Header = ({ className }) => {
             </InnerConatiner>
           </Container>
         </Parallax>
-      </Background>
+      </BackgroundGradient>
     </div>
   );
 };

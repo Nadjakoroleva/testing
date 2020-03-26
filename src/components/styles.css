@@ -37,7 +37,7 @@
 }
 
 .rotation {
-  animation: rotation 0.3s linear;
+  animation: rotation 3s linear;
   transform-origin: center center;
 }
 

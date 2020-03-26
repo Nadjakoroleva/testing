@@ -9,7 +9,7 @@ export const opacity = keyframes`
   }
 `;
 
-export const Background = styled.div`
+export const BackgroundGradient = styled.div`
   animation-name: ${opacity};
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
