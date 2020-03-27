@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
+
+import styles from './styles.css';
 
 const BURGER_ICON =
   'https://images.ctfassets.net/r0lccig03c53/RqyEMwZchfUdzG8gNLqvY/9ed4050336c1c4de7b2a8fdac926264c/Menu.svg?h=16';
 
 const LOGO =
   'https://images.ctfassets.net/r0lccig03c53/5QxGYnxwbe43emnf6OyYGW/f56327faa7ad7659d74bea5e6c7d71b8/Logo.svg?h=16';
+
+const ASTERIX =
+  'https://images.ctfassets.net/r0lccig03c53/2OSxVKQISjKTie8AKOCzPN/a948f1de125c3cc835ed2886836321e7/asterix.svg?h=20';
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const StyledEmail = styled(Link)`
   margin-left: auto;
@@ -33,7 +47,7 @@ const StyledEmail = styled(Link)`
 
 const AnimatedNavContainer = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 20;
   width: 100%;
   background-color: var(--lightBlack);
   color: var(--white);
@@ -42,6 +56,7 @@ const AnimatedNavContainer = styled.div`
   padding-bottom: 14px;
   padding-left: 20px;
   padding-right: 20px;
+  opacity: 0;
   @media (min-width: 768px) {
     padding-left: 24px;
     padding-right: 24px;
@@ -89,12 +104,20 @@ const StyledLink = styled(Link)`
 `;
 
 const Img = styled.img`
+  animation-name: ${opacity};
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  transform-origin: center center;
+  height: 20px;
   @media (min-width: 1024px) {
-    padding-right: 60px;
+    margin-right: 60px;
   }
 `;
 
 const Nav = styled.nav`
+  animation-name: ${opacity};
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,10 +133,10 @@ const Nav = styled.nav`
 
 const AnimatedNav = styled(Nav)`
   padding-top: 16px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 `;
 
-const Navigation = ({ className }) => {
+const Navigation = ({ animation }) => {
   const [isShowing, setShowing] = useState(false);
   useEffect(() => {
     function handleScroll() {
@@ -132,9 +155,8 @@ const Navigation = ({ className }) => {
           backgroundColor: 'transparent'
         }}
       >
-        <Nav>
-          <Img src={LOGO} />
-
+        <Nav className={isShowing ? 'dissapearingNav' : 'opacity'}>
+          <Img style={{ height: '16px' }} src={LOGO} />
           <Menu>
             Menu{' '}
             <img
@@ -149,13 +171,22 @@ const Navigation = ({ className }) => {
           <StyledEmail to="/">john@inbox.com</StyledEmail>
         </Nav>
       </div>
-      <AnimatedNavContainer style={{ opacity: isShowing ? '1' : '0' }}>
+      <AnimatedNavContainer
+        className={isShowing ? 'opacity' : 'dissapearingNav'}
+      >
         <AnimatedNav>
-          <Img src={LOGO} />
+          <Img className={isShowing ? 'rotation' : ''} src={ASTERIX} />
 
-          <StyledLink to="/">Introduction</StyledLink>
-          <StyledLink to="/">Opportunities</StyledLink>
-          <StyledLink to="/">Contact us</StyledLink>
+          <StyledLink className={isShowing ? 'transformX' : ''} to="/">
+            Introduction
+          </StyledLink>
+          <StyledLink className={isShowing ? 'transformX' : ''} to="/">
+            Opportunities
+          </StyledLink>
+          <StyledLink className={isShowing ? 'transformX' : ''} to="/">
+            Contact us
+          </StyledLink>
+
           <StyledEmail to="/">john@inbox.com</StyledEmail>
         </AnimatedNav>
       </AnimatedNavContainer>

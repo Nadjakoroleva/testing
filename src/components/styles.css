@@ -1,0 +1,46 @@
+
+@keyframes rotation {
+  0%   {transform: rotate(0deg);}
+  50% {transform: rotate(20deg);}
+  100% {transform: rotate(48deg);}
+}
+
+@keyframes dissapear {
+  0%   {opacity: 1;}
+  25%  {opacity: 0.8;}
+  50%  {opacity: 0.6;}
+  75%  {opacity: 0.3;}
+  100% {opacity: 0;}
+}
+
+@keyframes opacity {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.3;}
+  50%  {opacity: 0.6;}
+  75%  {opacity: 0.8;}
+  100% {opacity: 1;}
+}
+
+@keyframes transform {
+  0%   {transform: translateX(-100px);} 
+  100%   {transform: translateX(0);}
+}
+
+.opacity {
+  opacity: 1 !important;
+  animation: opacity 0.3s linear;
+}
+
+.dissapearingNav {
+  opacity: 0 !important;
+  animation: dissapear 0.3s linear;
+}
+
+.rotation {
+  animation: rotation 3s linear;
+  transform-origin: center center;
+}
+
+.transformX {
+  animation: transform 0.3s linear;
+}

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* global window */
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import Slider from '../components/slider';
@@ -28,7 +29,26 @@ const ContainerInner = styled.div`
 
 const Slide = styled.div`
   position: relative;
+  cursor: pointer;
   z-index: 1;
+
+  &:hover::before {
+    opacity: 0.3;
+    visibility: visible;
+  }
+  &::before {
+    transition: opacity 0.3s ease-in;
+    content: '';
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: black;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -48,9 +68,9 @@ const Slide = styled.div`
 `;
 
 const FirstSlide = styled(Slide)`
-  padding-left: 24px;
+  margin-left: 24px;
   @media (min-width: 1024px) {
-    padding-left: 64px;
+    margin-left: 64px;
   }
 `;
 
@@ -97,6 +117,10 @@ const Text = styled.p`
   padding-bottom: 32px;
   position: relative;
   z-index: 3;
+  @media (min-width: 1024px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
 `;
 
 const Download = styled.a`
@@ -210,8 +234,32 @@ const Presentation = () => {
     paddingBottom: `${ratio.x * ratio.paddingForContainer}px`
   };
 
+  // анимация по скроллу
+
+  // const [scrollY, setScrollY] = useState(0);
+  // const element = document.getElementById('element');
+
+  // // получаем текущую позицию скролла
+  // useEffect(() => {
+  //   const handleScroll = () => setScrollY(window.scrollY);
+
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(element.offsetTop);
+  //   const handleResizeForTopPosition = () => {
+  //     console.log(element.offsetTop);
+  //   };
+
+  //   window.addEventListener('resize', handleResizeForTopPosition);
+  //   return () =>
+  //     window.removeEventListener('resize', handleResizeForTopPosition);
+  // }, []);
+
   return (
-    <ComponentContainer style={paddingBottomForContainer}>
+    <ComponentContainer id={'element'} style={paddingBottomForContainer}>
       <Container>
         <Paragraph style={paddingTopForContainer}>
           <div>

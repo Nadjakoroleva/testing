@@ -1,6 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-export const Background = styled.div`
+export const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+export const BackgroundGradient = styled.div`
+  animation-name: ${opacity};
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   &::after {
     content: '';
     position: absolute;

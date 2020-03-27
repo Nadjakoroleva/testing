@@ -2,18 +2,32 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Parallax } from 'react-parallax';
 
 import Navigation from './nav';
 
-import { Background, Container } from './layoutComponents';
+import styles from './styles.css';
+
+import { BackgroundGradient, Container } from './layoutComponents';
 
 const PARALLAX_IMAGE_SRC =
   'https://images.ctfassets.net/r0lccig03c53/2mfUI7BGFGn3PUoAOf5lWG/0e127789350e719f4ebb97230b0bcd4f/image.jpg';
 
+const PARALLAX_IMAGE_MOB =
+  'https://images.ctfassets.net/r0lccig03c53/hPdj6BWGzolQcXv0pSYVq/98525821d91288a6996cf2bdc60bc192/imageForMobile.jpg';
+
 const PHOTO_SRC =
   'https://images.ctfassets.net/r0lccig03c53/5Isa1MTZDgUD8oV9rEftwV/69acfb3462b2b119ff5d0d0c5eab5ac6/team.png';
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const InnerConatiner = styled.div`
   min-height: 100vh;
@@ -29,6 +43,10 @@ const Job = styled.div`
   line-height: 28px;
   letter-spacing: 0.02em;
   color: var(--grey);
+  padding-left: 32px;
+  @media (min-width: 1024px) {
+    padding-right: 32px;
+  }
 `;
 
 const Name = styled.p`
@@ -36,6 +54,10 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.02em;
+  padding-left: 32px;
+  @media (min-width: 1024px) {
+    padding-right: 32px;
+  }
 `;
 
 const Grid = styled.div`
@@ -63,6 +85,9 @@ const Grid = styled.div`
 `;
 
 const FirstColumn = styled.div`
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
   grid-column: 1/3;
   align-self: end;
   padding-bottom: 24px;
@@ -83,53 +108,48 @@ const FirstColumn = styled.div`
 `;
 
 const SecondColumn = styled.div`
-  grid-column: 2/3;
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  grid-column: 1/3;
   text-align: left;
   align-self: end;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-end;
   @media (min-width: 768px) {
-    grid-column: 2/5;
+    grid-column: 1/5;
   }
   @media (min-width: 1024px) {
-    grid-column: 7/9;
+    flex-direction: row;
+    grid-column: 7/10;
     align-self: end;
     justify-self: end;
     text-align: right;
   }
   @media (min-width: 1366px) {
-    grid-column: 14/16;
-    padding-right: 15px;
-  }
-`;
-
-const ThirdColumn = styled.div`
-  grid-column: 1/2;
-  grid-row: 2/3;
-  align-self: end;
-  @media (min-width: 1024px) {
-    grid-column: 9/10;
-    align-self: end;
-    justify-self: end;
-    grid-row: 1;
-  }
-  @media (min-width: 1366px) {
-    grid-column: 16/17;
+    grid-column: 13/17;
   }
 `;
 
 const StyledH3Name = styled.h3`
   color: var(--grey);
+
   @media (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
-  }
-  @media (min-width: 1680px) {
-    font-size: 44px;
-    line-height: 56px;
   }
 `;
 
 const StyledH3 = styled(StyledH3Name)`
   color: var(--white);
+`;
+
+const Img = styled.img`
+  animation-name: ${opacity};
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
 `;
 
 const Header = ({ className }) => {
@@ -141,37 +161,49 @@ const Header = ({ className }) => {
       return {
         x: 32,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/6r4zpRt81dVwxIxiwCQdIJ/985057e96b55e2112ccaf1c120da43dd/1920_2x_img.jpg'
       };
     } else if (size >= 1365) {
       return {
         x: 24,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/1iLR5hFLMKwDt0kGmbYhPB/3d9b9af6388e9971f059b04dbd7e6199/img1_1365_2x.jpg'
       };
     } else if (size >= 1023) {
       return {
         x: 24,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/61UyMJZfXJ9vp3YqqS7vkb/df78c67c40efab4e6d9cbdbe66b45ef0/img1_1024_2x.jpg'
       };
     } else if (size >= 767) {
       return {
         x: 32,
         numForPaddingTop: 2,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/3Kor3mO7nzn8f2m24zCpae/f8daceac53c57ee9219a3361137a712b/768.jpg'
       };
     } else if (size >= 374) {
       return {
         x: 32,
         numForPaddingTop: 3,
-        numForPaddingBottom: 2
+        numForPaddingBottom: 2,
+        imageSrc:
+          'https://images.ctfassets.net/r0lccig03c53/4AUWUWFdU7h1Cp3jpl68gb/7e46b2165b86baafa36f1c6b669c6951/375.jpg'
       };
     }
     return {
       x: 32,
       numForPaddingTop: 3,
-      numForPaddingBottom: 2
+      numForPaddingBottom: 2,
+      imageSrc:
+        'https://images.ctfassets.net/r0lccig03c53/4AUWUWFdU7h1Cp3jpl68gb/7e46b2165b86baafa36f1c6b669c6951/375.jpg'
     };
   }
 
@@ -203,12 +235,13 @@ const Header = ({ className }) => {
   };
 
   return (
-    <div className={className}>
-      <Background>
+    <div>
+      <BackgroundGradient>
         <Parallax
           className={'parallax'}
-          bgImage={PARALLAX_IMAGE_SRC}
-          strength={500}
+          bgImage={ratio.imageSrc}
+          bgImageAlt="Main Image"
+          strength={300}
         >
           <Container>
             <InnerConatiner>
@@ -224,20 +257,20 @@ const Header = ({ className }) => {
                   </StyledH3>
                 </FirstColumn>
                 <SecondColumn>
-                  <Name>Mike Ableson</Name>
-                  <Job>Your sales manager</Job>
-                </SecondColumn>
-                <ThirdColumn>
-                  <img
+                  <div>
+                    <Name>Mike Ableson</Name>
+                    <Job>Your sales manager</Job>
+                  </div>
+                  <Img
                     style={{ width: '64px', height: '80px' }}
                     src={PHOTO_SRC}
                   />
-                </ThirdColumn>
+                </SecondColumn>
               </Grid>
             </InnerConatiner>
           </Container>
         </Parallax>
-      </Background>
+      </BackgroundGradient>
     </div>
   );
 };
